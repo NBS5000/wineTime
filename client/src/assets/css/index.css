@@ -13,5 +13,15 @@
   width: 100%;
   left: 0;
   top: 0;
-  background-color: red;
+}
+
+.log{
+  height: 50px;
+  width: 100px;
+  background-color: green;
+}
+
+#myVideo{
+width: 100%;
+height: 100%;
 }

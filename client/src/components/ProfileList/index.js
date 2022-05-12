@@ -6,7 +6,9 @@ const ProfileList = ({ profiles, title }) => {
 
   return (
     <div>
-      <p  id="routeHome">Test</p>
+        <div id="bg">
+        </div>
+      <p  id="routeHome"></p>
     </div>
   );
 };
