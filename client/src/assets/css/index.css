@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+#routeHome{
+  /* background-color: yellow; */
+}
+.dance{
+  font-family: 'Dancing Script',Arial, Helvetica, sans-serif;
+}
+#bg{
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: red;
+}

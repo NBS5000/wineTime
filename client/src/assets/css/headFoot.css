@@ -1,0 +1,23 @@
+
+
+
+#title{
+    color: maroon;
+    font-size: 400%;
+    margin-left: 50px;
+    margin-top: 20px;
+    position: absolute;
+}
+.log{
+    height: 50px;
+    width: 100px;
+}
+.up{
+    margin-top: 20px;
+    margin-right: 10px;
+    float: right;
+}
+.logSign{
+    margin-right: 10px;
+    height: 30px;
+}
