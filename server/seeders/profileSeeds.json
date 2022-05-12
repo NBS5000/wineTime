@@ -1,78 +1,42 @@
 [
   {
-    "name": "Brian Kernighan",
-    "email": "bkernighan@techfriends.dev",
-    "password": "password01",
-    "skills": ["AWK", "AMPL", "Unix"]
+    "username": "BobaBaby",
+    "email": "5_lines@script.com",
+    "password": "password"
   },
   {
-    "name": "Max Kanat-Alexander",
-    "email": "mkanatalexander@techfriends.dev",
-    "password": "password02",
-    "skills": ["Java", "Perl", "Apache", "Python"]
+    "username": "darkLord",
+    "email": "presence@felt.com",
+    "password": "password"
   },
   {
-    "name": "Amiko",
-    "email": "amiko@techfriends.dev",
-    "password": "password03",
-    "skills": ["NodeJS", "MySQL", "MongoDB", "React", "CSS-in-JS"]
+    "username": "chosen1",
+    "email": "chlorian@highest.jedi",
+    "password": "password"
   },
   {
-    "name": "Kent Beck",
-    "email": "kbeck@techfriends.dev",
-    "password": "password04",
-    "skills": [
-      "Test-Driven Development",
-      "Extreme Programming",
-      "Software Design Patterns",
-      "JUnit"
-    ]
+    "username": "obi1",
+    "email": "hello.there@ben.com",
+    "password": "password"
   },
   {
-    "name": "Edward V. Berard",
-    "email": "evberard@techfriends.dev",
-    "password": "password05",
-    "skills": ["Object-Oriented Design"]
+    "username": "palp66",
+    "email": "fullyOperational@sith.com",
+    "password": "password"
   },
   {
-    "name": "Alan Kay",
-    "email": "akay@techfriends.dev",
-    "password": "password06",
-    "skills": [
-      "Graphical User Interface (GUI) Design",
-      "Jazz Guitar",
-      "Education"
-    ]
+    "username": "snips",
+    "email": "iAm@noJedi.com",
+    "password": "password06"
   },
   {
-    "name": "C.A.R. Hoare",
-    "email": "choare@techfriends.dev",
-    "password": "password07",
-    "skills": ["Algorithms", "Quicksort", "Hoare Logic"]
+    "username": "theDooks",
+    "email": "count@onMe.com",
+    "password": "password07"
   },
   {
-    "name": "David Thomas",
-    "email": "dthomas@techfriends.dev",
-    "password": "password08",
-    "skills": ["Author", "Code Kata", "Ruby", "Pragmatic Programming"]
-  },
-  {
-    "name": "Donald Knuth",
-    "email": "dknuth@techfriends.dev",
-    "password": "password09",
-    "skills": ["TeX Computer Typesetting", "Algorithms", "Author"]
-  },
-  {
-    "name": "Lernantino",
-    "email": "lernantino@techfriends.dev",
-    "password": "password10",
-    "skills": [
-      "JavaScript",
-      "CSS",
-      "HTML",
-      "Design Systems",
-      "Typescript",
-      "PWAs"
-    ]
+    "username": "yoda-I-am",
+    "email": "com@green.little",
+    "password": "password"
   }
 ]
