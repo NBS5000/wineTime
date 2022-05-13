@@ -23,10 +23,10 @@ const Header = () => {
             {Auth.loggedIn() ? (
               <>
               <div className="up">
-                <Link className="btn btn-lg btn-primary m-2" to="/me">
+                <Link className="" to="/me">
                   View My Profile
                 </Link>
-                <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                <button className="" onClick={logout}>
                 <img src="../../assets/images/logout.png" alt="logout image" classnName="log" />
                 </button>
                 </div>

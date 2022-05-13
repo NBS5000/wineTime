@@ -21,6 +21,10 @@
     margin-right: 10px;
     height: 30px;
 }
+header{
+    z-index: 20;
+    height: 100px;
+}
 footer{
     bottom: 0;
     position: fixed;

@@ -4,6 +4,7 @@ import './assets/css/reset.css';
 import './assets/css/index.css';
 import './assets/css/bg.css';
 import './assets/css/headFoot.css';
+import './assets/css/grapeInfo.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

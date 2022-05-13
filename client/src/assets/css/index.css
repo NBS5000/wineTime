@@ -6,6 +6,15 @@ body{
   margin: 0;
 }
 
+#mainContent{
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
 #routeHome{
   /* background-color: yellow; */
 }
