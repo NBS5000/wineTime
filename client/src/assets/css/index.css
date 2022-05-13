@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 
+body{
+  margin: 0;
+}
+
 #routeHome{
   /* background-color: yellow; */
 }
