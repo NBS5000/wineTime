@@ -10,7 +10,8 @@ const Header = () => {
   };
   return (
     <div>
-      <div id="bg"></div>
+
+
       <header>
 
             <h1 className="dance" id="title">

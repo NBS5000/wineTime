@@ -4,9 +4,11 @@ const bg = () => {
 
     return (
         <div id="bg">
-            <video autoplay muted loop id="myVideo.mp4">
-                <source src="..\..\..\assets\video\winePour.mp4" type="video/mp4" />
-            </video>
+            <div id="bgOverlay"></div>
+                <video autoPlay muted loop id="bgVideo">
+                    <source src="../../assets/video/winePourSlow.mp4" type="video/mp4" />
+                </video>
+
         </div>
     );
 };
