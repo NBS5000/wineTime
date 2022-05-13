@@ -7,13 +7,15 @@ const grapeSchema = new Schema({
         unique: true,
         trim: true,
     },
-    type: {
-        type: String,
-        required: true,
-    },
     color: {
         type: String,
         required: true,
+    },
+    description: {
+        type: String,
+    },
+    imageLink: {
+        type: String,
     },
 });
 

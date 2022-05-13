@@ -1,125 +1,408 @@
 [
   {
-    "username": "BobaBaby",
-    "email": "5_lines@script.com",
-    "password": "password"
+    "grapename": "Assyrtiko",
+    "color": "White"
   },
   {
-    "username": "BobaBaby",
-    "email": "5_lines@script.com",
-    "password": "password"
+    "grapename": "Pinot Blanc",
+    "color": "White",
+    "description": "The traditional home of Pinot Blanc is the northeast of France, in the Alsace wine growing region. In addition, Pinot Blanc is grown in France’s famed Burgundy wine region. Outside of France, Pinot Blanc is also popular in the Baden and Palatinate wine regions of Germany (where it is known as Weissburgunder), in Austria (where it is known as Klevner), and in Spain and Italy (where it is known as Pinot Bianco).",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084731000000-5c8b66a37723c.jpg"
+  },
+  {
+    "grapename": "Cortese",
+    "color": "White"
+  },
+  {
+    "grapename": "Roussanne",
+    "color": "White",
+    "description": "Roussanne is a white wine grape found primarily in the Rhône Valley wine region of France. There, it is often blended with Marsanne in order to create a highly aromatic white wine. The name “Roussanne” is derived from the French word roux, which means russet in English. This refers to the colour of the golden, reddish-brown berries when Roussanne ripens. Roussanne wines are known for their flowery, herbal tea aromas.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084911000000-5c8b670736d28.jpg"
+  },
+  {
+    "grapename": "Moschofilero",
+    "color": "White"
+  },
+  {
+    "grapename": "Muscat",
+    "color": "White",
+    "description": "Muscat ranks among the oldest domesticated grape varieties, with its history stretching all the way back thousands of years to the ancient Egyptians and Persians. There are actually 200 different types of Muscat grapes, but only four primary types typically used to make wines: Muscat Blanc à Petits Grains, Muscat of Alexandria, Muscat of Hamburg and Muscat Ottonel. As young wines, they tend to have aromas of citrus, rose and peach.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084756000000-5c8b66bcd9584.jpg"
+  },
+  {
+    "grapename": "Muscadet",
+    "color": "White"
+  },
+  {
+    "grapename": "Viognier",
+    "color": "White",
+    "description": "Viognier is a white grape variety that is most commonly grown in France, California and Australia. The traditional home of Viognier is the Rhone wine region of France. Over the past two decades, however, California’s Central Coast has emerged as an important new producer of Viognier wines. White wines made from the Viognier grape tend to be full-bodied, with a lush, soft character.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084353000000-5c8b65c9af0a3.jpg"
+  },
+  {
+    "grapename": "Verdicchio",
+    "color": "White",
+    "description": "Verdicchio is a white grape variety that is primarily found within the Marche region of central Italy. The name Verdicchio is derived from “verde,” the word for green. This is a reference to the slightly green-yellow hue of classic Verdicchio wines. Verdicchio wines are characterized by their lack of colour, high acidity and citrus (including lemon) note. Some Verdicchio wines also have distinctive almond notes.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019085328000000-5c8b680877194.jpg"
+  },
+  {
+    "grapename": "Greco",
+    "color": "White"
+  },
+  {
+    "grapename": "Marsanne",
+    "color": "White",
+    "description": "Marsanne is a white grape variety most commonly found in the northern Rhône wine region. In addition, this grape variety can be found within France within the Savoy and Languedoc wine regions. Marsanne is the principal grape used in the distinctive wines of the Hermitage, Crozes-Hermitage, and Saint-Joseph AOCs.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019085413000000-5c8b68354539e.jpg"
+  },
+  {
+    "grapename": "Garganega",
+    "color": "White"
+  },
+  {
+    "grapename": "Chardonnay",
+    "color": "White",
+    "description": "Chardonnay is one of the world’s most popular white grape varieties, and wines made with Chardonnay can be found on just about any wine list in the world. The legendary Burgundy wine region of France is traditionally acknowledged as the home of Chardonnay, although Chardonnay wines from California and Australia are also popular. Californian winemakers began experimenting with a Chardonnay to rival those from Burgundy in the 1960s, and by the mid-1970s had created wines that were the equal of any from Burgundy.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084008000000-5c8b64e8100b6.jpg"
+  },
+  {
+    "grapename": "Gruner Veltliner",
+    "color": "White",
+    "description": "Gruner Veltliner is a white grape variety that is generally considered to be the national grape of Austria. In fact, Gruner Veltliner now accounts for one-third of all vineyards in Austria, with most of them clustered in the northeast of the country. The best Gruner Veltliner wines come from three Austrian wine regions – Wachau, Kremstal, and Kamptal – that are located along the steeply sloped terraces of the Danube River.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084504000000-5c8b6610c01df.jpg"
+  },
+  {
+    "grapename": "White Rioja",
+    "color": "White"
+  },
+  {
+    "grapename": "Frascati",
+    "color": "White"
+  },
+  {
+    "grapename": "Gavi",
+    "color": "White"
+  },
+  {
+    "grapename": "L'acadie Blanc",
+    "color": "White"
+  },
+  {
+    "grapename": "Trebbiano",
+    "color": "White"
+  },
+  {
+    "grapename": "Sauvignon Blanc",
+    "color": "White",
+    "description": "Sauvignon Blanc is a white grape variety best known for its crisp, dry and refreshing white wines. The traditional home of Sauvignon is in France, especially within the wine-growing regions of Bordeaux and the Loire Valley. Sauvignon Blanc is very expressive of the local terroir, and can range in flavour from grassy to sweet, and in aroma from floral to fruity, depending on whether the grape is being grown in a cooler or more tropical climate.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084036000000-5c8b650422bd3.jpg"
+  },
+  {
+    "grapename": "Catarratto",
+    "color": "White"
+  },
+  {
+    "grapename": "Albarino",
+    "color": "White",
+    "description": "Albarino (also known as “Alvarinho”) is a white grape variety that is primarily found along the North Atlantic coastline of Spain and Portugal. Spain’s Galicia region is the traditional home of Albarino, especially the Rias Baixas DO, where it accounts for nearly 90% of all grapes grown. Across the border in Portugal, the Vinho Verde wine region is the home of Albarino grape production.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019085439000000-5c8b684f4dce8.jpg"
+  },
+  {
+    "grapename": "Arneis",
+    "color": "White"
+  },
+  {
+    "grapename": "Verdejo",
+    "color": "White"
+  },
+  {
+    "grapename": "Vermentino",
+    "color": "White"
+  },
+  {
+    "grapename": "Soave",
+    "color": "White"
+  },
+  {
+    "grapename": "Airen",
+    "color": "White",
+    "description": "Airen is a white grape variety that is traditionally found only in its native Spain. Currently, Airen accounts for 30% of all grapes grown in Spain. This grape is typically found in the hot, dry growing conditions of central Spain, especially wine regions such as La Mancha and Valdepeñas. In terms of planted surface alone, Airén is now No. 3 in the entire world (trailing only Cabernet Sauvignon and Merlot).",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084823000000-5c8b66d724abd.jpg"
+  },
+  {
+    "grapename": "Pinot Grigio",
+    "color": "White"
+  },
+  {
+    "grapename": "Pinot Gris",
+    "color": "White",
+    "description": "Pinot Gris (also popularly known as “Pinot Grigio”) is a white grape variety that is part of the Pinot family that includes Pinot Blanc and Pinot Noir. The berry skins of Pinot Gris tend to be rose-coloured, and the resulting wines are often deep golden yellow in appearance. There are two main types of Pinot Gris wines. Within France (and especially Alsace), the wines are spicy and full-bodied. Within Italy, however, the Pinot Grigio wines are lighter-bodied and more acidic.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084154000000-5c8b6552d99c6.jpg"
+  },
+  {
+    "grapename": "Riesling",
+    "color": "White",
+    "description": "In terms of wine production, Riesling ranks among the top three white grape varieties worldwide (along with Chardonnay and Sauvignon Blanc). The traditional home of Riesling is the Rhine region of Germany, especially the wine-growing sub-regions of Mosel and Rheingau. Riesling wines are noteworthy for being highly aromatic and high in acidity, usually with floral or tropical fruit notes. Unlike other grape varieties, Riesling is almost never blended with other grapes.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084113000000-5c8b6529af788.jpg"
+  },
+  {
+    "grapename": "Torrontes",
+    "color": "White",
+    "description": "Torrontes is a white grape variety that is grown almost exclusively in Argentina, where it is used to create fresh, aromatic wines with moderate to high acidity and a very smooth texture. Aromas from the best Torrontes wines include peach and apricot. In terms of drinkability, Torrontes wines are most similar to those made from Muscat grapes.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084546000000-5c8b663a3ace8.jpg"
+  },
+  {
+    "grapename": "Muller Thurgau",
+    "color": "White",
+    "description": "Muller-Thurgau is a white grape variety that traces its origins back to 1882 when a Swiss-born professor crossed Riesling with Silvaner in Germany’s Rheingau region. Muller-Thurgau is a classic example of the “new breed” of grape that has emerged since the end of the 19th century. Within Germany, Muller-Thurgau is now the second-most planted grape, trailing only Riesling.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084630000000-5c8b66661f406.jpg"
+  },
+  {
+    "grapename": "Silvaner",
+    "color": "White",
+    "description": "Silvaner is a white grape variety that is primarily grown in western Germany and the French wine region of Alsace. It became extremely popular in the decades after the end of World War II as one of the grapes used to make the German wine Liebfraumilch. However, after a peak of popularity in the late 1960s and early 1970s, Liebfraumilch fell out of favour, and so did Silvaner. Silvaner remains the third-most popular white grape variety grown in Germany, trailing only Riesling and Müller-Thurgau.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084702000000-5c8b668679e36.jpg"
+  },
+  {
+    "grapename": "Grechetto",
+    "color": "White"
+  },
+  {
+    "grapename": "Gewurztraminer",
+    "color": "White",
+    "description": "Gewurztraminer is a white, aromatic grape variety that is named for a German-speaking province of Italy. However, the traditional home of Gewurztraminer is Alsace, the French wine region located along the German border. In addition to Alsace, Gewurztraminer can be found across Europe in Germany, Austria, Italy and Eastern Europe. Gewurztraminer wines are known for having aromas of lychee, roses, passion fruit and flowers.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084322000000-5c8b65aa516e1.jpg"
+  },
+  {
+    "grapename": "Chenin Blanc",
+    "color": "White",
+    "description": "Chenin Blanc is a white grape variety most closely associated with the Loire Valley of France. In the 21st century, however, South Africa has surpassed the Loire Valley as the world’s top producer of Chenin Blanc wines. Within France’s Loire Valley, the best examples of Chenin Blanc come from Anjou, where it produces dry white wines with notes of apple and quince, and Vouvray, where it produces off-dry white wines with floral notes and honey-like flavours.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084429000000-5c8b65ed7b59e.jpg"
+  },
+  {
+    "grapename": "White Bordeaux",
+    "color": "White"
+  },
+  {
+    "grapename": "Semillon",
+    "color": "White",
+    "description": "Semillon is a golden-skinned grape that is used to make both dry and sweet white wines. The most famous Sémillon wine producers, such as Château d’Yquem, are based in France’s legendary Bordeaux wine region, where they make Sauternes sweet wines as well as dry white blends known as Bordeaux Blanc. In addition to Bordeaux in France, Sémillon can be found in Australia, New Zealand, Chile, South Africa, and Argentina.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084233000000-5c8b6579c1b4e.jpg"
+  },
+  {
+    "grapename": "Sauternes",
+    "color": "White"
+  },
+  {
+    "grapename": "Sylvaner",
+    "color": "White"
+  },
+  {
+    "grapename": "Lillet Blanc",
+    "color": "White"
+  },
+  {
+    "grapename": "Petite Sirah",
+    "color": "Red",
+    "description": "Petite Sirah (also known as “Durif”) is a red grape variety that originated in France during the 1880s as a genetic crossing between Syrah and Peloursin Noir. The “petite” in the name refers to the relatively small size of the berries and not the vine. Compared to Syrah, Petite Sirah wines have a darker purple colour, as well as a rounder and fuller taste.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Petite-Sirah-Grape.jpg"
+  },
+  {
+    "grapename": "Zweigelt",
+    "color": "Red"
+  },
+  {
+    "grapename": "Cinsault",
+    "color": "Red",
+    "description": "Cinsault is a dark-skinned grape variety that is traditionally used as part of red wine blends rather than as a single varietal wine. Cinsault is a key component of the Southern Rhône Blend that includes Grenache, Syrah and Mourvèdre. The traditional home for Cinsault is the southern France wine region of Languedoc-Roussillon, but the grape is perhaps most famous as being one of the parents of South Africa’s famed Pinotage grape.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Cinsault-Grape.jpg"
+  },
+  {
+    "grapename": "Mourvedre",
+    "color": "Red",
+    "description": "Mourvèdre (also known as Mataro and Monastrell) is a red grape variety most commonly found in France’s Rhône and Provence regions, as well as Spain’s Valencia and Jumilla regions. Outside of Europe, Mourvèdre can be found in California, Washington State, South Africa and Australia (especially New South Wales and South Australia).",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Mourvedre-Grape.jpg"
+  },
+  {
+    "grapename": "Baco Noir",
+    "color": "Red"
+  },
+  {
+    "grapename": "Bonarda",
+    "color": "Red"
+  },
+  {
+    "grapename": "Cabernet Franc",
+    "color": "Red"
+  },
+  {
+    "grapename": "Bairrada",
+    "color": "Red"
+  },
+  {
+    "grapename": "Barbera",
+    "color": "Red",
+    "description": "Barbera is one of the most popular Italian red grape varieties, ranking right behind Sangiovese and Montepulciano. The traditional home of Barbera is northwestern Italy, especially the wine region of Piedmont. Perhaps the most famous example of a Barbera wine is Barbera d’Asti in Piedmont. Barbera can produce some long-ageing, robust wines with intense fruit and complexity. When young, Barbera wines often have flavours of red cherries and berries. As they age, the flavour shifts to black cherries and blackberries.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Barbera-Grape.jpg"
+  },
+  {
+    "grapename": "Primitivo",
+    "color": "Red"
+  },
+  {
+    "grapename": "Pinot Noir",
+    "color": "Red",
+    "description": "Pinot Noir is part of the Pinot grape family that includes Pinot Gris, Pinot Blanc and Pinot Meunier. This grape variety is most closely associated with France’s Burgundy wine region. Due to differences in terroir, Pinot Noir wines created in two different villages in Burgundy may differ widely, adding to the complexity of the wine. Pinot Noir’s popularity has led to it being embraced by winemakers in northern Italy, Germany, Chile, South Africa, Australia, New Zealand, California (especially Sonoma) and Oregon (especially the Willamette Valley).",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Pinot-Noir-grape.jpg"
+  },
+  {
+    "grapename": "Nebbiolo",
+    "color": "Red",
+    "description": "Nebbiolo is a red grape variety that is a speciality of the Piedmont wine region of northwest Italy. The most famous Nebbiolo wines are Barolo and Barbaresco. When young, Nebbiolo wines are light-coloured and highly tannic. However, as they age, they acquire more complex and appealing aromas, such as those of violets, wild herbs, cherries, berries, and tobacco.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Nebbiolo-Grape.jpg"
+  },
+  {
+    "grapename": "Dolcetto",
+    "color": "Red"
+  },
+  {
+    "grapename": "Tannat",
+    "color": "Red"
+  },
+  {
+    "grapename": "Negroamaro",
+    "color": "Red"
+  },
+  {
+    "grapename": "Malbec",
+    "color": "Red",
+    "description": "Malbec is generally considered to be the national grape variety of Argentina. The Malbec wines of Argentina tend to be softer and less tannic than those found in the southwest of France, where Malbec originated. Within Argentina, the primary wine growing regions for Malbec include Mendoza, La Rioja, San Juan and Catamarca. Based on the success of Malbec within Argentina, Chilean winemakers in the Central Valley are also working on creating high-quality Malbec wines.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Malbec-Grape.jpg"
+  },
+  {
+    "grapename": "Corvina",
+    "color": "Red"
+  },
+  {
+    "grapename": "Grenache",
+    "color": "Red",
+    "description": "Grenache (known as “Garnacha” in Spain) is one of the most popular red grape varieties in the world. The best Grenache wines can be found in France (especially the Rhône Valley) and Spain (especially Rioja and Aragon). Grenache grapes are used to produce wines that are berry-flavoured, spicy in subtle ways, and soft to drink. They also tend to have a relatively high alcohol content.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Grenache-Grape.jpg"
+  },
+  {
+    "grapename": "Zinfandel",
+    "color": "Red"
+  },
+  {
+    "grapename": "Sangiovese",
+    "color": "Red",
+    "description": "Sangiovese is the most popular red grape variety in Italy. It can be found everywhere in central Italy, but the acclaimed home of Sangiovese is Tuscany, where it has been used to create blends like Chianti and Vino Nobile di Montepulciano, as well as the famed “Super Tuscans.” Sangiovese, while capable of ageing well, is best enjoyed as a young wine, when it has fresh, fruit-forward flavours. If aged in oak barrels, it can acquire a more complex, oaky character. While Sangiovese is not as aromatic as other red grape varietals like Pinot Noir and Syrah, it typically will produce a very rich flavour profile that includes cherries and strawberries.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Sangiovese-Grape.jpg"
+  },
+  {
+    "grapename": "Montepulciano",
+    "color": "Red",
+    "description": "Montepulciano is a red grape variety found primarily in central and southern Italy, especially in the provinces of Abruzzo, Marche, Molise, Umbria, Puglia, and Latium. The Montepulciano grape is not found in northern Italy due to the fact that it is relatively late ripening and would not thrive in a colder climate. Montepulciano differs from the Tuscan wine Vino Nobile di Montepulciano, which is made from Sangiovese, and not Montepulciano.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Montepulciano-Grape.jpg"
+  },
+  {
+    "grapename": "Carignan",
+    "color": "Red"
+  },
+  {
+    "grapename": "Petit Verdot",
+    "color": "Red",
+    "description": "Petit Verdot is a red grape variety primarily used by French winemakers to give added structure to the classic Bordeaux blends. As a blending grape, Petit Verdot is simply unsurpassed. It can impart colour, tannins, and flavour to red blends. This has made it popular with the most famous winemakers in the world, including those from the Médoc area of Bordeaux.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Petit-Verdot-Grape.jpg"
+  },
+  {
+    "grapename": "Carmenere",
+    "color": "Red",
+    "description": "Carménère is a red grape variety that was originally planted in France’s legendary Bordeaux wine region. Carménère is one of Bordeaux’s six original grape varieties, together with Cabernet Sauvignon, Cabernet Franc, Merlot, Malbec and Petit Verdot. However, Carménère is rarely found in France today; instead, Chile has emerged as the leading nation for the production of Carménère wines, with Central Valley winemakers at the forefront of making high-quality wines.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Carmenere-Grape.jpg"
+  },
+  {
+    "grapename": "Cesanese",
+    "color": "Red"
+  },
+  {
+    "grapename": "Cabernet Sauvignon",
+    "color": "Red",
+    "description": "Cabernet Sauvignon is one of the most popular and famous red wine grape varieties in the world. While the historic home of Cabernet Sauvignon is the Bordeaux wine region of France, winemakers in California’s Napa Valley and Australia’s Coonawarra wine region are also making world-class Cabernet Sauvignon wines, some of which rival those made in Bordeaux. Cabernet Sauvignon wines are typically deep red in colour with moderate acidity. They often have notes of blackcurrant and spices and have moderate to good tannin structure.",
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019072621000000-5c8b539da115a.png"
+  },
+  {
+    "grapename": "Blaufrankisch ",
+    "color": "Red",
+    "description": "Blaufrankisch is a dark-skinned grape variety used by winemakers in Central and Eastern Europe. In Austria, Blaufrankisch is the second-most-popular red grape variety, trailing only Zweigelt. It can also be found in Hungary, Croatia, Romania and Slovenia. Among wine enthusiasts, Blaufrankisch is sometimes referred to as “the Pinot Noir of the East.”",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Blaufrankisch-Grape.jpg"
+  },
+  {
+    "grapename": "Aglianico",
+    "color": "Red"
+  },
+  {
+    "grapename": "Touriga Nacional",
+    "color": "Red",
+    "description": "Touriga Nacional is a red grape variety that is found almost exclusively in Portugal and is used to make some of that nation’s best red wines. The Touriga Nacional grape, in many ways, can be compared to France’s Cabernet Sauvignon grape. Both yield dark, intense fruit flavours, have medium to high tannins, and have great ageing potential.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Touriga-Nacional-Grape.jpg"
+  },
+  {
+    "grapename": "Tempranillo",
+    "color": "Red",
+    "description": "Tempranillo often referred to as “Spain’s noble grape,” is primarily grown on the Iberian Peninsula, especially within the Ribera del Duero and Rioja wine regions. The Tempranillo grape produces full-bodied, ruby red wines that can take on some very distinctive aromas and flavours, including plum, berries, tobacco and vanilla. When aged in oak barrels, these flavours become even more intense.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Tempranillo-Grape.jpg"
+  },
+  {
+    "grapename": "Shiraz",
+    "color": "Red",
+    "description": "Syrah (also known as “Shiraz”) is most closely associated with the Rhone Valley in southeastern France, but it is truly an international grape variety. In the New World, Syrah has become very popular in Chile, South Africa, New Zealand, Australia, California and Washington State. In France, the grape variety is known as Syrah; however, in New World wine markets such as Australia, it is usually known as Shiraz.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Syrah-Grape.jpg"
+  },
+  {
+    "grapename": "Mourvedre",
+    "color": "Red"
+  },
+  {
+    "grapename": "Merlot",
+    "color": "Red",
+    "description": "The popularity of the Merlot red grape variety trails only that of Cabernet Sauvignon and Pinot Noir. Bordeaux, in the southwest of France, is the home of the best Merlot wines in the world. Within Bordeaux, the wine regions of Saint-Emilion and Pomerol particularly stand out. Outside of France, other places to find examples of high-quality Merlot wines include Italy, Chile (especially the Colchagua Valley), California and Washington State.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Merlot-Grape.jpg"
+  },
+  {
+    "grapename": "Nero d'Avola",
+    "color": "Red",
+    "description": "Nero d’Avola is the most popular red grape variety in Sicily. In Italian, the name of the grape means “the black of Avola,” which is a reference to the dark skin of the grapes. In some parts of Italy, this grape is also known as Calabrese. Nero d’Avola thrives best in a hot, dry climate. As a result, the grape is found in very warm Mediterranean climates, such as Malta and Turkey.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Nero-d-Avola-Grape.jpg"
+  },
+  {
+    "grapename": "Gamay",
+    "color": "Red",
+    "description": "Gamay is best known for the light, fruit-driven red wines of Beaujolais. Within this French wine region, Gamay is used to make both the light Beaujolais Nouveau wines that appear every November, as well as the more complex Cru Beaujolais wines. In other French wine regions, such as the Loire Valley, Gamay is primarily used as a blending partner with Pinot Noir or Cabernet Franc.",
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Gamay-Grape.jpg"
+  },
+  {
+    "grapename": "Dornfelder",
+    "color": "Red"
+  },
+  {
+    "grapename": "Pinotage",
+    "color": "Red"
+  },
+  {
+    "grapename": "Agiorgitiko",
+    "color": "Red"
+  },
+  {
+    "grapename": "Pedro Ximenez",
+    "color": "Red"
+  },
+  {
+    "grapename": "Lambrusco",
+    "color": "Red"
+  },
+  {
+    "grapename": "Madeira",
+    "color": "Red"
   }
 ]
-
-
-
-wine
- - white_wine
-   - dry_white_wine
-     - assyrtiko
-     - pinot_blanc
-     - cortese
-     - roussanne
-     - moschofilero
-     - muscadet
-     - viognier
-     - verdicchio
-     - greco
-     - marsanne
-     - white_burgundy
-     - chardonnay
-     - gruener_veltliner
-     - white_rioja
-     - frascati
-     - gavi
-     - l_acadie_blanc
-     - trebbiano
-     - sauvignon_blanc
-     - catarratto
-     - albarino
-     - arneis
-     - verdejo
-     - vermentino
-     - soave
-     - pinot_grigio
-     - dry_riesling
-     - torrontes
-   - mueller_thurgau
-   - grechetto
-   - gewurztraminer
-   - chenin_blanc
-   - white_bordeaux
-   - semillon
-   - riesling
-   - sauternes
-   - sylvaner
-   - lillet_blanc
- - red_wine
-   - dry_red_wine
-     - petite_sirah
-     - zweigelt
-     - baco_noir
-     - bonarda
-     - cabernet_franc
-     - bairrada
-     - barbera_wine
-     - primitivo
-     - pinot_noir
-     - nebbiolo
-     - dolcetto
-     - tannat
-     - negroamaro
-     - red_burgundy
-     - corvina
-     - rioja
-     - cotes_du_rhone
-     - grenache
-     - malbec
-     - zinfandel
-     - sangiovese
-     - carignan
-     - carmenere
-     - cesanese
-     - cabernet_sauvignon
-     - aglianico
-     - tempranillo
-     - shiraz
-     - mourvedre
-     - merlot
-     - nero_d_avola
-   - bordeaux
-   - marsala
-   - port
-   - gamay
-   - dornfelder
-   - concord_wine
-   - sparkling_red_wine
-   - pinotage
-   - agiorgitiko
- - dessert_wine
-   - pedro_ximenez
-   - moscato
-   - late_harvest
-   - ice_wine
-   - white_port
-   - lambrusco_dolce
-   - madeira
-   - banyuls
-   - vin_santo
-   - port
- - rose_wine
-   - sparkling_rose
- - sparkling_wine
-   - cava
-   - cremant
-   - champagne
-   - prosecco
-   - spumante
-   - sparkling_rose
- - sherry
-   - cream_sherry
-   - dry_sherry
- - vermouth
-   - dry_vermouth
- - fruit_wine
- - mead
