@@ -1,16 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import * as data from '../../utils/grapeList.json';
+import { useQuery } from '@apollo/client';
 import { QUERY_GRAPE } from '../../utils/queries';
-const GrapeInfo = (data) => {
+
+const GrapeInfo = () => {
+  const [grape, setGrape] = useState('');
+
+  // const [addGrape, { error }] = useQuery(QUERY_GRAPE);
+
+  const { pickGrape } = grape.readQuery({
+    query: QUERY_GRAPE,
+
+  });
 
 
+  console.log(pickGrape)
+
+    // const [getGrapeDescAll, { error }] = useQuery(QUERY_GRAPE, {
+    //   update(cache, { data: [ getGrapeDescAll ] }) {
+    //     try {
+    //       cache.readQuery({
+    //         query: QUERY_GRAPE,
+    //       });
+    //       console.log("test2")
+    //     } catch (e) {
+    //       console.log("test3")
+    //       console.error(e);
+    //     }
+    //   },
+    // });
   
-  const grapes  = data;
   // Get a random item given an array
-  const getRand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  
+  // try{
+  //   cache.readQuery({ 
+  //     query: QUERY_GRAPE
+  //   })
+  // }catch{
 
-  let picked = grapes[getRand(grapes)];
-  console.log(picked);
+  // }
+
+  // const getRand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  // let picked = getGrapeDescAll[getRand(getGrapeDescAll)];
+  // console.log(getRand(picked));
 
 
 

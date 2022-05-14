@@ -18,7 +18,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    getGrapeDesc: async () => {
+    getGrapeDescAll: async () => {
       return Grape.find({description: {$ne : null}})
     }
   },
