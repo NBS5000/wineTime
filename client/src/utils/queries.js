@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 export const QUERY_GRAPE = gql`
   query getGrapeDescAll {
     grape {
+      _id
       grapename
       color
       description

@@ -18,8 +18,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    //get all grapes where description is not null
     getGrapeDescAll: async () => {
-      return Grape.find({description: {$ne : null}})
+      return Grape.find({description: {$ne : null}});
     }
   },
 
