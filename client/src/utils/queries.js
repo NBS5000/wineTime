@@ -1,11 +1,27 @@
 import { gql } from '@apollo/client';
 
+export const QUERY_GRAPE = gql`
+  query getGrapeDesc {
+    grape {
+      grapename
+      color
+      description
+      imageLink
+    }
+  }
+`;
+
+
+
+
+
 export const QUERY_PROFILES = gql`
-  query allProfiles {
-    profiles {
-      _id
-      name
-      skills
+  query grapeDesc {
+    grape {
+      grapename
+      color
+      description
+      imageLink
     }
   }
 `;
@@ -29,3 +45,4 @@ export const QUERY_ME = gql`
     }
   }
 `;
+

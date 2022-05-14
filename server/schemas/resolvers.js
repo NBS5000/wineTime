@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile } = require('../models');
+const { Profile, Grape } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -18,6 +18,9 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    getGrapeDesc: async () => {
+      return Grape.find({description: {$ne : null}})
+    }
   },
 
   Mutation: {
