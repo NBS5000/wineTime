@@ -11,7 +11,6 @@ const Header = () => {
   return (
     <div>
 
-
       <header>
 
             <h1 className="dance" id="title">
