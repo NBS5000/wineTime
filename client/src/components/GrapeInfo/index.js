@@ -10,7 +10,6 @@ const GrapeInfo = () => {
 
   const grapeList = data?.getGrapeDescAll || ["X"];
 
-
   console.log(grapeList);
 
 
