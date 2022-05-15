@@ -15,9 +15,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^7.0.0"
   },
   "dependencies": {
-    "apollo-boost": "^0.4.9"
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.7.0"
   }
 }

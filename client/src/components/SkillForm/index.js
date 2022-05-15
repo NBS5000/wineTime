@@ -1,12 +1,12 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 
 // import { ADD_SKILL } from '../../utils/mutations';
 
 // import Auth from '../../utils/auth';
 
-// const SkillForm = ({ profileId }) => {
+const SkillForm = ({ profileId }) => {
 //   const [skill, setSkill] = useState('');
 
 //   const [addSkill, { error }] = useMutation(ADD_SKILL);
@@ -62,6 +62,6 @@
 //       )}
 //     </div>
 //   );
-// };
+};
 
-// export default SkillForm;
+export default SkillForm;

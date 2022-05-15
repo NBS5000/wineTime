@@ -21,6 +21,9 @@ body{
 .dance{
   font-family: 'Dancing Script',Arial, Helvetica, sans-serif;
 }
+.rubik{
+  font-family: 'Rubik',Arial, Helvetica, sans-serif;
+}
 #bg{
   height: 100%;
   width: 100%;
