@@ -1,5 +1,7 @@
 .searchField{
-    height: 40px;
+    height: 45px;
+    width: 300px;
+    display: block;
     resize: none;
     text-align: left;
     align-content: space-around;
@@ -17,16 +19,18 @@
     position: fixed;
     z-index: 5000;
     display: block;
-    float: left;
     margin-left: 10px;
     color: maroon;
     font-size: 70%;
     margin-top: -60px;
 }
 .searchField:placeholder-shown + .searchLabel{
+    /* margin: 0 auto; */
+
     margin-top: -50px;
     font-size: 100%;
     color: dimgrey;
+    /* right: 0; */
 }
 
 .searchField:focus{
@@ -40,4 +44,10 @@
     color: maroon;
     font-size: 70%;
     margin-top: -60px;
+}
+
+
+
+#searchWine{
+    /* width:30%; */
 }

@@ -15,7 +15,6 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Bg from './components/Bg';
-import GrapeInfo from './components/GrapeInfo';
 import SearchWine from './components/SearchWine';
 
 const httpLink = createHttpLink({
@@ -73,9 +72,6 @@ function App() {
               </div>
 
               <SearchWine />
-
-              <GrapeInfo />
-
 
             </div>
 

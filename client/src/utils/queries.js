@@ -12,6 +12,15 @@ export const QUERY_GRAPE = gql`
   }
 `;
 
+export const QUERY_QUOTE = gql`
+  query getQuote {
+    quote {
+      _id
+      link
+      text
+    }
+  }
+`;
 
 
 export const QUERY_PROFILES = gql`

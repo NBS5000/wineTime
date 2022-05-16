@@ -43,3 +43,14 @@
     margin: 0 auto;
     padding: 15px;
 }
+#quoteOfDay{
+    width: 100%;
+}
+#qt_Img{
+    width: 300px;
+    height: 300px;
+    border-radius: var(--searchBorderRad);
+    margin: 0 auto;
+    margin-top: 50px;
+    display: block;
+}

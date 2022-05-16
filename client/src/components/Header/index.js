@@ -12,7 +12,9 @@ const Header = () => {
     <div>
       <header>
             <h1 className="dance" id="title">
-              WineTime
+
+            <Link to="/home" id="wtLink">WineTime.</Link>
+
             </h1>
             {Auth.loggedIn() ? (
               <>

@@ -1,15 +1,16 @@
 import React from 'react';
 
+import GrapeInfo from '../components/GrapeInfo';
+import QuoteInfo from '../components/Quote';
+
 const Home = () => {
 
   return (
-    <main>
-      <div className="">
-        <div className="">
-          
-        </div>
-      </div>
-    </main>
+    <div>
+        <GrapeInfo />
+
+        <QuoteInfo />
+    </div>
   );
 };
 
