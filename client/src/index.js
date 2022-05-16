@@ -8,7 +8,6 @@ import './assets/css/bg.css';
 import './assets/css/headFoot.css';
 import './assets/css/grapeInfo.css';
 
-import './assets/js/search.js';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
