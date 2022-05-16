@@ -20,7 +20,7 @@ const Header = () => {
                   <Link className="logSign" id="profile" to="/me">
                     <img src="../../assets/images/profile.png" alt="profile" className="log" />
                   </Link>
-                  <button className="" onClick={logout}>
+                  <button onClick={logout} id="btn_logout">
                     <img src="../../assets/images/logout.png" alt="logout" className="log" />
                   </button>
                 </div>

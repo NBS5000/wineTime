@@ -24,6 +24,9 @@ body{
 .rubik{
   font-family: 'Rubik',Arial, Helvetica, sans-serif;
 }
+.marker{
+  font-family: 'Permanent Marker',Arial, Helvetica, sans-serif;
+}
 #bg{
   height: 100%;
   width: 100%;
@@ -34,7 +37,6 @@ body{
 .log{
   height: 50px;
   width: 100px;
-  background-color: green;
 }
 
 #myVideo {

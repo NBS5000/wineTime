@@ -8,7 +8,7 @@
     border-radius: var(--searchBorderRad);
     border: solid 1px darkgray;
     border-style: none none solid none;
-    
+    margin-bottom: 20px;
     background-color: rgba(0,0,0,0.1);
 }
 
@@ -21,10 +21,10 @@
     margin-left: 10px;
     color: maroon;
     font-size: 70%;
-    margin-top: -40px;
+    margin-top: -60px;
 }
 .searchField:placeholder-shown + .searchLabel{
-    margin-top: -30px;
+    margin-top: -50px;
     font-size: 100%;
     color: dimgrey;
 }
@@ -39,5 +39,5 @@
 .searchField:focus + .searchLabel, .searchField:not(:empty) + .searchLabel{
     color: maroon;
     font-size: 70%;
-    margin-top: -40px;
+    margin-top: -60px;
 }

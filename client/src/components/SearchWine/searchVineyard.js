@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
+import VineyardList from './';
 
 
 const SearchVineyard = (props) => {
-    
+    // debugger
     const [value, setValue] = useState(props.name);
-
+    let liList;
     const list = (val) => {
         const input = String(val);
         const len = String(input).length
         if(len > 2){
             const requestUrl = 'https://app.gustos.life/en/api/v1';
-            
             const url = requestUrl + "/vineyard/list?name=" + input;
             fetch(url)
             .then(function (response) {
@@ -18,21 +18,21 @@ const SearchVineyard = (props) => {
             })
             .then(function (data) {
                 if(data.length > 0){
-                    let i = 0;
-                    while(i < len) {
-
-                        <li></li>
-
-                        i = i++;
-                    }
+                    console.log(data)
+                    return (
+                        <VineyardList
+                            vineyards={data}
+                        />
+                    )
                 }
-                console.log(data);
-                
-            })
+                console.log(data)
+            });
+            console.log(val)
         }
     }
 
-    list(value)
+
+list(value)
     return (
         <div id="searchWine">
             <textarea 
@@ -43,11 +43,11 @@ const SearchVineyard = (props) => {
             <label htmlFor="winerySearch" className="searchLabel">Winery</label>
             <div id="wineryOptions">
                 <ul id="wineryList">
-
+                    {liList}
                 </ul>
             </div>
         </div> 
-    );
-}
-    
+    )
+};
+
 export default SearchVineyard;
