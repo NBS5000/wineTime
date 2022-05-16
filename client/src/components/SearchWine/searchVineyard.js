@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
-import VineyardList from './';
+import React, {useState, useEffect} from 'react';
+import VineyardList from './vineyardList';
 
 
 const SearchVineyard = (props) => {
     // debugger
     const [value, setValue] = useState(props.name);
-    let liList;
+    const [vineyards, setVineyards] = useState();
+
     const list = (val) => {
         const input = String(val);
         const len = String(input).length
@@ -19,11 +20,7 @@ const SearchVineyard = (props) => {
             .then(function (data) {
                 if(data.length > 0){
                     console.log(data)
-                    return (
-                        <VineyardList
-                            vineyards={data}
-                        />
-                    )
+                    setVineyards(data)
                 }
                 console.log(data)
             });
@@ -31,8 +28,8 @@ const SearchVineyard = (props) => {
         }
     }
 
-
-list(value)
+    // list(value)
+    useEffect(() => {list(value); console.log(value)},[value])
     return (
         <div id="searchWine">
             <textarea 
@@ -43,9 +40,12 @@ list(value)
             <label htmlFor="winerySearch" className="searchLabel">Winery</label>
             <div id="wineryOptions">
                 <ul id="wineryList">
-                    {liList}
+                    <VineyardList
+                        vineyards={vineyards}
+                    />
                 </ul>
             </div>
+
         </div> 
     )
 };

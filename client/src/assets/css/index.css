@@ -6,13 +6,16 @@ body{
   margin: 0;
 }
 
-#mainContent{
+#mainContent, #funContent{
   width: 60%;
   height: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   position: relative;
+}
+#homeContent{
+
 }
 
 #routeHome{

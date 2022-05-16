@@ -15,7 +15,7 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Bg from './components/Bg';
-import SearchWine from './components/SearchWine';
+import Fun from './components/Fun';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -71,11 +71,11 @@ function App() {
                 </Routes>
               </div>
 
-              <SearchWine />
+              <Fun />
 
             </div>
 
-
+            
 
 
             <Footer />

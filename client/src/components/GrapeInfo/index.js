@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect}from 'react';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_GRAPE } from '../../utils/queries';
@@ -15,7 +15,7 @@ const GrapeInfo = () => {
   // let picked = getGrapeDescAll[getRand(getGrapeDescAll)];
   // console.log(getRand(picked));
 
-
+  useEffect(() => {console.log(data)},[data])
 
   return (
     <div id="grapeInfo">

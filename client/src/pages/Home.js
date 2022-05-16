@@ -1,15 +1,14 @@
 import React from 'react';
 
-import GrapeInfo from '../components/GrapeInfo';
-import QuoteInfo from '../components/Quote';
+import SearchWine from '../components/SearchWine';
 
 const Home = () => {
 
   return (
-    <div>
-        <GrapeInfo />
-
-        <QuoteInfo />
+    <div id="homeContent">
+      <div>
+        <SearchWine />
+      </div>
     </div>
   );
 };
