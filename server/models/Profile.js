@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const profileSchema = new Schema({
-  username: {
+  name: {
     type: String,
     required: true,
     unique: true,
@@ -20,7 +20,7 @@ const profileSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 4,
   }
 });
 

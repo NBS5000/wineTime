@@ -14,15 +14,12 @@ export const QUERY_GRAPE = gql`
 
 
 
-
-
 export const QUERY_PROFILES = gql`
-  query grapeDesc {
-    grape {
-      grapename
-      color
-      description
-      imageLink
+  query allProfiles {
+    profiles {
+      _id
+      name
+      skills
     }
   }
 `;

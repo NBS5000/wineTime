@@ -3,9 +3,10 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type Profile {
     _id: ID
-    username: String
+    name: String
     email: String
     password: String
+    skills: [String]!
   }
 
   type Grape {
@@ -16,6 +17,7 @@ const typeDefs = gql`
     imageLink: String
   }
 
+
   type Auth {
     token: ID!
     profile: Profile
@@ -24,9 +26,9 @@ const typeDefs = gql`
   type Query {
     profiles: [Profile]!
     profile(profileId: ID!): Profile
-    getGrapeDescAll: [Grape]
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: Profile
+    getGrapeDescAll: Grape
   }
 
   type Mutation {
@@ -37,9 +39,6 @@ const typeDefs = gql`
     removeProfile: Profile
     removeSkill(skill: String!): Profile
   }
-
-
-
-  `;
+`;
 
 module.exports = typeDefs;

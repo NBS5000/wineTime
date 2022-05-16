@@ -1,41 +1,41 @@
 [
   {
-    "username": "BobaBaby",
+    "name": "BobaBaby",
     "email": "5_lines@script.com",
     "password": "password"
   },
   {
-    "username": "darkLord",
+    "name": "darkLord",
     "email": "presence@felt.com",
     "password": "password"
   },
   {
-    "username": "chosen1",
+    "name": "chosen1",
     "email": "chlorian@highest.jedi",
     "password": "password"
   },
   {
-    "username": "obi1",
+    "name": "obi1",
     "email": "hello.there@ben.com",
     "password": "password"
   },
   {
-    "username": "palp66",
+    "name": "palp66",
     "email": "fullyOperational@sith.com",
     "password": "password"
   },
   {
-    "username": "snips",
+    "name": "snips",
     "email": "iAm@noJedi.com",
-    "password": "password06"
+    "password": "password"
   },
   {
-    "username": "theDooks",
+    "name": "theDooks",
     "email": "count@onMe.com",
-    "password": "password07"
+    "password": "password"
   },
   {
-    "username": "yoda-I-am",
+    "name": "yoda-I-am",
     "email": "com@green.little",
     "password": "password"
   }

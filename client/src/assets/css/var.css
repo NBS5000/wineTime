@@ -8,5 +8,7 @@
     --tx_shadow: 1px 1px 3px dimgray;
     --headerHeight: 100px;
     --fontColor: rgb(20, 20, 20);
-    /*--blueBgAlpha: rgba(1, 176, 240, 0.49);*/ /* #01b0f07d */
+
+    --sectionFade: rgba(255, 255, 255, 0.8);
+    --searchBorderRad: 10px;
 }
