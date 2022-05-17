@@ -21,6 +21,10 @@ const profileSchema = new Schema({
     type: String,
     required: true,
     minlength: 4,
+  },
+  collection: {
+    type: Schema.Types.ObjectId,
+    ref: "Collection"
   }
 });
 

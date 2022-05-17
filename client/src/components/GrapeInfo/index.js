@@ -27,7 +27,7 @@ const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeig
       text: thisGrape.description,
       img: thisGrape.imageLink
     })
-  },[])
+  },[data])
   console.log(thisGrape);
   return (
     <div id="grapeInfo">
