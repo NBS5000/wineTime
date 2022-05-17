@@ -24,7 +24,7 @@ const Profile = () => {
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
     console.log('profile 29')
-    return <Navigate to="/me" />;
+    return <Navigate to="/profile" />;
   }
 
   if (loading) {
@@ -47,9 +47,11 @@ const Profile = () => {
 
       
       <div id="profileOptions">
-          <div className="homeOptions">
-          <Link to="/MyWines"><img src="../../assets/images/rack.png" alt="Rack of wine" id="profileRack"/>My Wines</Link>
-          </div>
+          <Link to="/MyWines" className="profileLinks">
+              <div className="homeOptions">
+                  <img src="../../assets/images/rack.png" alt="Rack of wine" id="profileRack"/>My Wines
+              </div>
+          </Link>
           <div className="homeOptions">
               <img src="../../assets/images/bottle.png" alt="Bottle of wine" id="profileBottle"/>Add Wine
           </div>

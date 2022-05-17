@@ -19,6 +19,16 @@ const Login = (props) => {
     });
   };
 
+  function proceed(){
+    setTimeout((1600));
+    const nextURL = '/profile';
+    const nextTitle = 'WineTime';
+    const nextState = { additionalInformation: 'Updated the URL with JS' };
+    window.history.pushState(nextState, nextTitle, nextURL);
+    
+   
+  }
+
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -44,11 +54,13 @@ const Login = (props) => {
     <div id="logInBody"> 
       
             {data ? (
+
+              // proceed()
               <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-                 {/* history.push('/me') */}
+                  Success! You may now head{' '}
+                  <Link to="/">back to the homepage.</Link>
               </p>
+
             ) : (
               <form onSubmit={handleFormSubmit} id="logForm">
                 <input

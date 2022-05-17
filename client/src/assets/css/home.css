@@ -9,14 +9,16 @@
     display: flex;
     justify-content: space-between;
 }
-
+.profileLinks{
+    color: white;
+    text-decoration: none;
+}
 
 .homeOptions{
     background-color: maroon;
     color: white;
     height: 50px;
     width: 200px;
-    margin: 20px;
     border-radius: var(--searchBorderRad);
     padding: 17px;
     text-align: center;
