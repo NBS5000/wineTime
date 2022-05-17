@@ -77,7 +77,6 @@ body{
   border: solid 1px darkgray;
   border-style: none none solid none;
   margin-bottom: 20px;
-  /* background-color: rgba(0,0,0,0.1); */
   background-color: white;
   color: maroon;
 }

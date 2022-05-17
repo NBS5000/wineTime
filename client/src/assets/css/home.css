@@ -1,0 +1,34 @@
+#profile{
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+}
+
+#profileOptions{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.homeOptions{
+    background-color: maroon;
+    color: white;
+    height: 50px;
+    width: 200px;
+    margin: 20px;
+    border-radius: var(--searchBorderRad);
+    padding: 17px;
+    text-align: center;
+    align-content: center;
+}
+#profileRack, #profileBottle, #profileScrew{
+    height:50px;
+    width: 50px;
+    position: fixed;
+    margin-left: -50px;
+    margin-top: -17px;
+}
+#profileRack{
+    margin-top: -20px;
+}

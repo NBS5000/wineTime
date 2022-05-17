@@ -1,10 +1,7 @@
 import React from 'react';
 
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-import SkillsList from '../components/SkillsList';
-import SkillForm from '../components/SkillForm';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
@@ -26,6 +23,7 @@ const Profile = () => {
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
+    console.log('profile 29')
     return <Navigate to="/me" />;
   }
 
@@ -36,28 +34,28 @@ const Profile = () => {
   if (!profile?.name) {
     return (
       <h4>
-        You need to be logged in to see your profile page. Use the navigation
-        links above to sign up or log in!
+        Please log in first.
       </h4>
     );
   }
 
   return (
-    <div>
-      <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} friends have endorsed these
-        skills...
-      </h2>
+    <div id="profile">
 
-      {profile.skills?.length > 0 && (
-        <SkillsList
-          skills={profile.skills}
-          isLoggedInUser={!profileId && true}
-        />
-      )}
 
-      <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <SkillForm profileId={profile._id} />
+
+
+      
+      <div id="profileOptions">
+          <div className="homeOptions">
+          <Link to="/MyWines"><img src="../../assets/images/rack.png" alt="Rack of wine" id="profileRack"/>My Wines</Link>
+          </div>
+          <div className="homeOptions">
+              <img src="../../assets/images/bottle.png" alt="Bottle of wine" id="profileBottle"/>Add Wine
+          </div>
+          <div className="homeOptions">
+              <img src="../../assets/images/corkscrew.png" alt="Corkscrew" id="profileScrew"/>Statistics
+          </div>
       </div>
     </div>
   );

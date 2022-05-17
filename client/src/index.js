@@ -7,6 +7,7 @@ import './assets/css/index.css';
 import './assets/css/bg.css';
 import './assets/css/headFoot.css';
 import './assets/css/grapeInfo.css';
+import './assets/css/home.css';
 
 
 import App from './App';

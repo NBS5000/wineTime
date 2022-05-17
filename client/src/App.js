@@ -36,6 +36,9 @@ const client = new ApolloClient({
 });
 
 function App() {
+
+
+
   return (
     <div id="app">
     <Bg />

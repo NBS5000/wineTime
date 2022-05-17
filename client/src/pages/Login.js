@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
@@ -47,6 +47,7 @@ const Login = (props) => {
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
+                 {/* history.push('/me') */}
               </p>
             ) : (
               <form onSubmit={handleFormSubmit} id="logForm">
