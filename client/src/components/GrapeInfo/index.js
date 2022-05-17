@@ -18,8 +18,9 @@ const GrapeInfo = () => {
   }
   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-console.log(vw+"\n"+vh)
+// console.log(vw+"\n"+vh)
   const thisGrape = getRand(grapeList);
+  console.log(thisGrape);
   useEffect(() => {
     setGrape({
       name: thisGrape.grapename,
