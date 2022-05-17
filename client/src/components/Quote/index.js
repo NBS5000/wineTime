@@ -17,13 +17,13 @@ const QuoteInfo = () => {
   }
 
   const thisQuote = getRand(quoteList);
-  console.log(quoteList);
+  console.log(thisQuote);
   useEffect(() => {
     setQuote({
       img: thisQuote.link,
       text: thisQuote.text
     })
-  },[])
+  },[data])
 
 console.log(thisQuote);
   return (

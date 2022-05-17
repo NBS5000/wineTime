@@ -12,6 +12,7 @@ const GrapeInfo = () => {
   const { loading, data } = useQuery(QUERY_GRAPE);
   const grapeList = data?.getGrapeDescAll || ["X"];
 
+  
   function getRand (arr){
     return arr[Math.floor(Math.random() * arr.length)];
   }
@@ -19,7 +20,6 @@ const GrapeInfo = () => {
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 console.log(vw+"\n"+vh)
   const thisGrape = getRand(grapeList);
-
   useEffect(() => {
     setGrape({
       name: thisGrape.grapename,

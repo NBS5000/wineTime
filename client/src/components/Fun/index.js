@@ -10,6 +10,7 @@ const Fun = () => {
         <div id="funContent">
             <GrapeInfo />
 
+
             <QuoteInfo />
         </div>
     );
