@@ -6,4 +6,4 @@ const Style = require('./Style');
 const Wine = require('./Wine');
 const Quote = require('./Quote');
 
-module.exports = { Profile, Grape, Quote, Collection, Blend, Style, Wine };
+module.exports = { Profile, Quote, Grape, Wine, Collection, Blend, Style };
