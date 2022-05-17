@@ -41,49 +41,63 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
+      <div id="signUpBody">
+
             {data ? (
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit} id="signForm">
                 <input
-                  className="form-input"
-                  placeholder="Your username"
+                  id="signUpName"
+                  placeholder=" "
+                  className="searchField"
                   name="name"
                   type="text"
                   value={formState.name}
                   onChange={handleChange}
-                />
+                />                
+                <label 
+                  htmlFor="signUpName" 
+                  className="searchLabel">Username</label>
                 <input
-                  className="form-input"
-                  placeholder="Your email"
+                  id="signUpEmail"
+                  placeholder=" "
+                  className="searchField"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
+                <label 
+                  htmlFor="signUpEmail" 
+                  className="searchLabel">Email</label>
                 <input
-                  className="form-input"
-                  placeholder="******"
+                  id="signUpPassword"
+                  placeholder=" "
+                  className="searchField"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
+                <label 
+                  htmlFor="signUpPassword" 
+                  className="searchLabel">Password</label>
+
+                <div id="signBtnGroup">
+                  <button
+                    className="logBtn"
+                    style={{ cursor: 'pointer' }}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+
+                  <Link to="/" className="logBtn canxBtn">Cancel</Link>
+                </div>
               </form>
             )}
 
@@ -93,9 +107,6 @@ const Signup = () => {
               </div>
             )}
           </div>
-        </div>
-      </div>
-    </main>
   );
 };
 

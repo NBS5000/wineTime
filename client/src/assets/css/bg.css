@@ -1,6 +1,6 @@
 #bgVideo, #bgOverlay, #bgTile{
     height: 100vh;
-    width: 100vw;
+    /* width: 100vw; */
     left: 0;
     top: 0;
     position: fixed;
@@ -21,3 +21,14 @@
     background-repeat: repeat;
     z-index: -110;
 }
+
+/* :root{
+    --vw: calc(100vw || 0, window.innerWidth || 0);
+
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+}
+
+@media screen and (max-width:1060px) and (min-width:900px) {
+    
+} */

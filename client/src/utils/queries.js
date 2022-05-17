@@ -14,7 +14,7 @@ export const QUERY_GRAPE = gql`
 
 export const QUERY_QUOTE = gql`
   query getQuote {
-    quote {
+    getQuote {
       _id
       link
       text

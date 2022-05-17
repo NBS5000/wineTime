@@ -1,36 +1,40 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_QUOTE } from '../../utils/queries';
 
 const QuoteInfo = () => {
+  const [quote, setQuote] = useState({ 
+    img: '', 
+    text: ''
+  });
+
   const { loading, data } = useQuery(QUERY_QUOTE);
   const quoteList = data?.getQuote || ["X"];
 
+  function getRand (arr){
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  const thisQuote = getRand(quoteList);
   console.log(quoteList);
+  useEffect(() => {
+    setQuote({
+      img: thisQuote.link,
+      text: thisQuote.text
+    })
+  },[])
 
-
-
-  // const getRand = (arr) => arr[Math.floor(Math.random() * arr.length)];
-  // let picked = getGrapeDescAll[getRand(getGrapeDescAll)];
-  // console.log(getRand(picked));
-
-
-
+console.log(thisQuote);
   return (
     <div id="quoteOfDay">
       {loading ? (
           <div>Loading...</div>
       ) : (
-
-            <img id="qt_Img" 
-            src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F24%2F2020%2F09%2F23%2FBurgundy-National-Wine-Day-Social-Media-Graphic-24.jpg"
-            alt="I drink and I know things. -Tyrion Lannister"/>
+            <img id="qt_Img" src={quote.img} alt={quote.text}/>
         )}
     </div>
-    
   );
-  
 };
 
 export default QuoteInfo;

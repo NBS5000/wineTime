@@ -11,7 +11,9 @@
     border: solid 1px darkgray;
     border-style: none none solid none;
     margin-bottom: 20px;
-    background-color: rgba(0,0,0,0.1);
+    /* background-color: rgba(0,0,0,0.1); */
+    background-color:white;
+  /* background-color: rgba(255, 255, 255, 0.5); */
 }
 
 .searchField + .searchLabel{
@@ -25,12 +27,9 @@
     margin-top: -60px;
 }
 .searchField:placeholder-shown + .searchLabel{
-    /* margin: 0 auto; */
-
     margin-top: -50px;
     font-size: 100%;
     color: dimgrey;
-    /* right: 0; */
 }
 
 .searchField:focus{
@@ -46,8 +45,3 @@
     margin-top: -60px;
 }
 
-
-
-#searchWine{
-    /* width:30%; */
-}

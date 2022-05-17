@@ -41,53 +41,63 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
+    <div id="logInBody"> 
+      
             {data ? (
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit} id="logForm">
                 <input
-                  className="form-input"
-                  placeholder="Your email"
+                  className="searchField"
+                  placeholder=" "
+                  id="loginEmail"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
+                <label 
+                  htmlFor="loginEmail" 
+                  className="searchLabel">Email</label>
                 <input
-                  className="form-input"
-                  placeholder="******"
+                  className="searchField"
+                  placeholder=" "
+                  id="loginPassword"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
+                <label 
+                  htmlFor="loginPassword" 
+                  className="searchLabel">Password</label>
+
+                <div id="logBtnGroup">
+                  <button
+                    className="logBtn"
+                    style={{ cursor: 'pointer' }}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                  
+                  <Link to="/" className="logBtn canxBtn">Cancel</Link>
+                </div>
+
+
               </form>
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="">
                 {error.message}
               </div>
             )}
-          </div>
-        </div>
-      </div>
-    </main>
+      
+    </div>
   );
 };
 

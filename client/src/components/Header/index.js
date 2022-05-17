@@ -2,6 +2,12 @@ import React/*, {useState}*/ from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from '../../pages/Home';
+import Profile from '../../pages/Profile';
+import Signup from '../../pages/Signup';
+import Login from '../../pages/Login';
 
 const Header = () => {
   const logout = (event) => {
@@ -11,35 +17,57 @@ const Header = () => {
   return (
     <div>
       <header>
-            <h1 className="dance" id="title">
-
-            <Link to="/home" id="wtLink">WineTime.</Link>
-
-            </h1>
-            {Auth.loggedIn() ? (
-              <>
-                <div className="up">
-                  <Link className="logSign" id="profile" to="/me">
-                    <img src="../../assets/images/profile.png" alt="profile" className="log" />
-                  </Link>
-                  <button onClick={logout} id="btn_logout">
-                    <img src="../../assets/images/logout.png" alt="logout" className="log" />
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="up">
-                  <Link to="/login" id="login" className="logSign">
-                    <img src="../../assets/images/login.png" alt="login" className="log" />
-                  </Link>
-                  <Link  to="/signup" id="signup" className="logSign">
-                    <img src="../../assets/images/signup.png" alt="signup" className="log" />
-                  </Link>
-                </div>
-              </>
-            )}
+        <h1 className="dance" id="title">
+          <Link to="/home" id="wtLink">WineTime</Link>
+        </h1>
+        {Auth.loggedIn() ? (
+          <>
+            <div className="up">
+              <Link className="logSign" id="profile" to="/me">
+                <img src="../../assets/images/profile.png" alt="profile" className="log" />
+              </Link>
+              <button onClick={logout} id="btn_logout">
+                <img src="../../assets/images/logout.png" alt="logout" className="log" />
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="up">
+              <Link to="/login" id="login" className="logSign">
+                <img src="../../assets/images/login.png" alt="login" className="log" />
+              </Link>
+              <Link  to="/signup" id="signup" className="logSign">
+                <img src="../../assets/images/signup.png" alt="signup" className="log" />
+              </Link>
+            </div>
+          </>
+        )}
       </header>
+      <div id="logContainer">
+        <Routes>
+          <Route 
+            path="/" 
+            element={<Home />}
+          />
+          <Route 
+            path="/login" 
+            element={<Login />}
+          />
+          <Route 
+            path="/signup" 
+            element={<Signup />}
+          />
+          <Route 
+            path="/me" 
+            element={<Profile />}
+          />
+          <Route 
+            path="/profiles/:profileId"
+            element={<Profile />}
+          />
+        </Routes>
+      </div>
     </div>
   );
 };
