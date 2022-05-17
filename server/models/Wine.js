@@ -14,7 +14,7 @@ const wineSchema = new Schema({
         required: true,
     },
     consumed: {
-        type: boolean,
+        type: Boolean,
         required: false
     },
     comments: {
