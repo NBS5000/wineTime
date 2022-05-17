@@ -27,7 +27,7 @@ const GrapeInfo = () => {
       text: thisGrape.description,
       img: thisGrape.imageLink
     })
-  },[])
+  },[data])
   return (
     <div id="grapeInfo">
       {loading ? (
