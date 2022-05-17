@@ -23,7 +23,7 @@ const QuoteInfo = () => {
       img: thisQuote.link,
       text: thisQuote.text
     })
-  },[data])
+  },[])
 
 console.log(thisQuote);
   return (

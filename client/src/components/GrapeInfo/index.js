@@ -16,19 +16,18 @@ const GrapeInfo = () => {
   function getRand (arr){
     return arr[Math.floor(Math.random() * arr.length)];
   }
-  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+//   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+// const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 // console.log(vw+"\n"+vh)
   const thisGrape = getRand(grapeList);
-  console.log(thisGrape);
+  // console.log(thisGrape);
   useEffect(() => {
     setGrape({
       name: thisGrape.grapename,
       text: thisGrape.description,
       img: thisGrape.imageLink
     })
-  },[data])
-  console.log(thisGrape);
+  },[])
   return (
     <div id="grapeInfo">
       {loading ? (
