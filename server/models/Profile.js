@@ -22,10 +22,12 @@ const profileSchema = new Schema({
     required: true,
     minlength: 4,
   },
-  collection: {
-    type: Schema.Types.ObjectId,
-    ref: "Collection"
-  }
+  collection: [
+        {
+        type: Schema.Types.ObjectId,
+        ref: "Collection"
+      }
+    ]
 });
 
 // set up pre-save middleware to create password
