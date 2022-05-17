@@ -12,7 +12,7 @@ const GrapeInfo = () => {
   const { loading, data } = useQuery(QUERY_GRAPE);
   const grapeList = data?.getGrapeDescAll || ["X"];
 
-  
+
   function getRand (arr){
     return arr[Math.floor(Math.random() * arr.length)];
   }
@@ -26,7 +26,7 @@ console.log(vw+"\n"+vh)
       text: thisGrape.description,
       img: thisGrape.imageLink
     })
-  },[])
+  },[data])
   console.log(thisGrape);
   return (
     <div id="grapeInfo">
