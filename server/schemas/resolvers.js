@@ -24,7 +24,6 @@ const resolvers = {
       return Grape.find({description: {$ne : null}});
     },
 
-
     //get all grapes where description is not null
     getQuote: async () => {
       return Quote.find();

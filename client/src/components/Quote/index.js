@@ -10,28 +10,35 @@ const QuoteInfo = () => {
   });
 
   const { loading, data } = useQuery(QUERY_QUOTE);
-  const quoteList = data?.getQuote || ["X"];
+
 
   function getRand (arr){
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  const thisQuote = getRand(quoteList);
-  console.log(thisQuote);
+
+
   useEffect(() => {
+    if (!data)
+    return
+
+    const quoteList = data?.getQuote || ["X"];
+    const thisQuote = getRand(quoteList);
     setQuote({
       img: thisQuote.link,
       text: thisQuote.text
     })
   },[data])
 
-console.log(thisQuote);
+// console.log(thisQuote);
   return (
     <div id="quoteOfDay">
       {loading ? (
           <div>Loading...</div>
       ) : (
+        quote && 
             <img id="qt_Img" src={quote.img} alt={quote.text}/>
+        
         )}
     </div>
   );

@@ -10,7 +10,7 @@ const GrapeInfo = () => {
     img: ''
   });
   const { loading, data } = useQuery(QUERY_GRAPE);
-  const grapeList = data?.getGrapeDescAll || ["X"];
+
 
 
   function getRand (arr){
@@ -19,9 +19,14 @@ const GrapeInfo = () => {
 //   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 // console.log(vw+"\n"+vh)
-  const thisGrape = getRand(grapeList);
-  // console.log(thisGrape);
+
+
   useEffect(() => {
+    if (!data)
+    return
+    console.log(data)
+    const grapeList = data?.getGrapeDescAll || ["X"];
+    const thisGrape = getRand(grapeList);
     setGrape({
       name: thisGrape.grapename,
       text: thisGrape.description,
@@ -33,6 +38,7 @@ const GrapeInfo = () => {
       {loading ? (
           <div>Loading...</div>
       ) : (
+        grape &&
           <div id="grapeOfDay">
             <img id="god_Img" src={grape.img} alt={grape.name}/>
             <div id="god_Details">
