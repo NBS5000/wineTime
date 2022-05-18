@@ -14,6 +14,10 @@
     background-color:white;
 }
 
+#searchInputArea{
+    margin: 0 auto;
+}
+
 .searchField + .searchLabel{
     transition-duration: 0.4s;
     position: fixed;
@@ -42,4 +46,3 @@
     font-size: 70%;
     margin-top: -60px;
 }
-

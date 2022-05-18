@@ -3,7 +3,10 @@
     margin-top: 50px;
     display: block;
     width: fit-content;
-
+    padding: 0 auto;
+}
+#searchWineBody{
+    text-align: center;
 }
 #profile{
     width: 60%;
@@ -14,4 +17,14 @@
 #wineryList, #grapeSearch{
     display: block;
     width: 100%;
+    margin: 0 auto;
 }
+
+
+#searchInputArea{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    position: relative;
+    height: fit-content;
+}   
