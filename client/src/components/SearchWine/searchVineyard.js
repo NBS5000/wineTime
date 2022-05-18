@@ -2,7 +2,6 @@ import React, {useState, useEffect, useRef} from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLGRAPES } from '../../utils/queries';
 
-
 let chosenGrapes, trig;
 const SearchVineyard = (props) => {
 
@@ -111,7 +110,7 @@ const SearchVineyard = (props) => {
                 
                 <textarea 
                     type="text" className="searchField"  id="grapeSearchShow" 
-                    placeholder=" " name="textarea" disabled={true} ><div dangerouslySetInnerHTML={{ __html: chkbxGrape }}></div></textarea>
+                    placeholder=" " name="textarea" disabled={true} value={chkbxGrape}><div></div></textarea>
 
                 <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
             </div>

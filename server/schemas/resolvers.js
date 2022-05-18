@@ -30,7 +30,7 @@ const resolvers = {
     },
 
     getGrapeAll: async () => {
-      return Grape.find();
+      return Grape.find().sort({grapename:1});
     }
   },
 
