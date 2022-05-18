@@ -12,6 +12,15 @@ export const QUERY_GRAPE = gql`
   }
 `;
 
+export const QUERY_ALLGRAPES = gql`
+  query getGrapeAll {
+    getGrapeAll {
+      _id
+      grapename
+    }
+  }
+  `;
+
 export const QUERY_QUOTE = gql`
   query getQuote {
     getQuote {

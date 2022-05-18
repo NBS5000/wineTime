@@ -1,50 +1,86 @@
 import React, {useState, useEffect} from 'react';
-import VineyardList from './vineyardList';
-
+import { useQuery } from '@apollo/client';
+import { QUERY_ALLGRAPES } from '../../utils/queries';
 
 const SearchVineyard = (props) => {
-    // debugger
+
+
+
+
+
     const [value, setValue] = useState(props.name);
-    const [vineyards, setVineyards] = useState();
-
-    const list = (val) => {
-        const input = String(val);
-        const len = String(input).length
-        if(len > 2){
-            const requestUrl = 'https://app.gustos.life/en/api/v1';
-            const url = requestUrl + "/vineyard/list?name=" + input;
-            fetch(url)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                if(data.length > 0){
-                    console.log(data)
-                    setVineyards(data)
-                }
-                console.log(data)
-            });
-            console.log(val)
+    // const [vineyards, setVineyards] = useState({ 
+    //     name: '', 
+    //     id: ''
+    // });
+    const [grapeList, setGrapeList] = useState([
+        { 
+            name: '',
+            _id: ''
         }
-    }
+    ]);
 
-    // list(value)
-    useEffect(() => {list(value); console.log(value)},[value])
+    const { loading, data } = useQuery(QUERY_ALLGRAPES);
+
+
+    useEffect(() => {
+
+        const resList = data?.getGrapeAll || ["X"];
+        console.log(resList)
+        if (!resList)
+        return
+        console.log(resList)
+        setGrapeList([...resList])
+    },[data])
+
+    console.log(grapeList)
+
+    
     return (
         <div id="searchWine">
             <textarea 
                 type="text" className="searchField"  id="winerySearch" 
                 placeholder=" " name="textarea" 
-                value={value}  onChange={(event) => {setValue(event.target.value);}} ></textarea>
+                value={value}/*  onChange={(event) => {setValue(event.target.value);}} */></textarea>
 
             <label htmlFor="winerySearch" className="searchLabel">Winery</label>
-            <div id="wineryOptions">
-                <ul id="wineryList">
-                    <VineyardList
-                        vineyards={vineyards}
-                    />
-                </ul>
-            </div>
+
+            <textarea 
+                type="text" className="searchField"  id="bottleSearch" 
+                placeholder=" " name="textarea" 
+                value={value}  /*onChange={(event) => {setValue(event.target.value);}}*/ ></textarea>
+
+            <label htmlFor="bottleSearch" className="searchLabel">Wine Name</label>
+
+            <textarea 
+                type="text" className="searchField"  id="vintageSearch" 
+                placeholder=" " name="textarea" 
+                value={value}  /*onChange={(event) => {setValue(event.target.value);}}*/ ></textarea>
+
+            <label htmlFor="vintageSearch" className="searchLabel">Vintage</label>
+
+
+            
+            <select  
+                id="grapeSearch"
+                className="searchField" 
+                placeholder=" ">
+                    <option> </option>
+                {grapeList &&
+                    grapeList.map((option) => (
+                    <option key={option._id} >{option.grapename}
+                    
+
+                    
+                    
+                    
+                    </option>
+                ))}
+            </select>
+            <label htmlFor="grapeSearch" className="searchLabel">Select Grape</label>
+
+
+
 
         </div> 
     )

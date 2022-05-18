@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -74,7 +74,7 @@ const Profile = () => {
         </div>
 
 
-        <SearchVineyard />
+        <SearchWine />
     </div>
   );
 };

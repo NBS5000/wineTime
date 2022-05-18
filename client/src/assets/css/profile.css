@@ -1,4 +1,17 @@
 #searchWine{
+    margin: 0 auto;
     margin-top: 50px;
     display: block;
+    width: fit-content;
+
+}
+#profile{
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#wineryList, #grapeSearch{
+    display: block;
+    width: 100%;
 }
