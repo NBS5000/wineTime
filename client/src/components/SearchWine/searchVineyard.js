@@ -2,13 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLGRAPES } from '../../utils/queries';
 
+
+let chosenGrapes;
 const SearchVineyard = (props) => {
 
     const [chkbxGrape, setChkbxGrape] = useState([
-        {
-            id: '',
-            name: ''
-        }
+        // {
+        //     id: '',
+        //     name: ''
+        // }
     ]);
 
 
@@ -30,30 +32,50 @@ const SearchVineyard = (props) => {
     useEffect(() => {
 
         const resList = data?.getGrapeAll || ["X"];
-        // console.log(resList)
+
         if (!resList)
         return
         
         setGrapeList([...resList])
     },[data])
 
-    // console.log(grapeList)
-    let oldArr;
+    // let chosenGrapes;
+    useEffect(() => {
+        console.log("test")
+        chosenGrapes = 
+        <span>
+        {/* { chkbxGrape &&
+            chkbxGrape.map((chkbx) => (
+                <span key={chkbx.id}>{chkbx.name}</span>
+        ))} */}
+    </span>
+
+    },[chkbxGrape])
+
+
+    
     async function chk(event){
+        let oldArr, newArr;
         oldArr = chkbxGrape;
+        console.log(chkbxGrape);
         
-        const val = {id:event.target.getAttribute("id"), name:event.target.getAttribute("value")};
+        const val = [{id:event.target.getAttribute("id"), name:event.target.getAttribute("value")}];
 
         if(event.target.checked===true){
-            oldArr.push(val);
+            oldArr.push(...val);
+            setChkbxGrape(oldArr);
 
         }else{
-            oldArr = oldArr.filter((grp) =>  { 
-                return grp.id !== val.id;
+
+
+            newArr = oldArr.filter(await function (grp) { 
+                return grp.id !== val.id && grp.id;
             })
+            // console.log(newArr);
+            setChkbxGrape(...newArr);
         }
-        console.log(oldArr)
-        setChkbxGrape(oldArr);
+
+        console.log(chkbxGrape);
     }
 
 
@@ -85,14 +107,8 @@ const SearchVineyard = (props) => {
                 <textarea 
                     type="text" className="searchField"  id="grapeSearchShow" 
                     placeholder=" " name="textarea" disabled={true} value="">
-                        <ul>
-                            { chkbxGrape &&
-                                chkbxGrape.map((chkbx) => (
-                                    <li key={chkbx.id}>{chkbx.name}</li>
-                                ))
-                            }
-                        </ul>
 
+                        {chosenGrapes}
                     </textarea>
 
                 <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
