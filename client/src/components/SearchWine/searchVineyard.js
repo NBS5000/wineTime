@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLGRAPES } from '../../utils/queries';
 
 
-let chosenGrapes;
+let chosenGrapes, trig;
 const SearchVineyard = (props) => {
 
     const [chkbxGrape, setChkbxGrape] = useState([
-        // {
-        //     id: '',
-        //     name: ''
-        // }
+        {
+            id: '',
+            name: ''
+        }
     ]);
 
 
@@ -39,43 +39,48 @@ const SearchVineyard = (props) => {
         setGrapeList([...resList])
     },[data])
 
-    // let chosenGrapes;
-    useEffect(() => {
-        console.log("test")
-        chosenGrapes = 
-        <span>
-        {/* { chkbxGrape &&
-            chkbxGrape.map((chkbx) => (
-                <span key={chkbx.id}>{chkbx.name}</span>
-        ))} */}
-    </span>
-
+    let chosenGrapes;
+    useEffect(() =>  {
+        console.log(chkbxGrape.length)
+        if(chkbxGrape.length>1){
+            console.log("test")
+            chosenGrapes = `<span>{ chkbxGrape && chkbxGrape.map((chkbx) => (<span key={chkbx.id}>{chkbx.name}</span>))}</span>`
+        }
+        console.log(chosenGrapes)
     },[chkbxGrape])
 
 
     
     async function chk(event){
-        let oldArr, newArr;
+        let oldArr;
         oldArr = chkbxGrape;
-        console.log(chkbxGrape);
-        
-        const val = [{id:event.target.getAttribute("id"), name:event.target.getAttribute("value")}];
+        let val = {id:event.target.getAttribute("id"), name:event.target.getAttribute("value")};
 
         if(event.target.checked===true){
-            oldArr.push(...val);
+
+            oldArr.push(val);
             setChkbxGrape(oldArr);
+            console.log(chkbxGrape)
+        }else if(event.target.checked===false){
+            // val = {id:event.target.getAttribute("id"), name:event.target.getAttribute("value")};
 
-        }else{
+            let i = 0;
+            let len = oldArr.length;
+            let newArr=[];
+            while(i < len){
+                if(val.id!==oldArr[i].id){
+                    console.log(oldArr[i]);
+                    newArr.push(oldArr[i]);
+                    console.log(newArr);
+                }
+                i++
+            }
 
 
-            newArr = oldArr.filter(await function (grp) { 
-                return grp.id !== val.id && grp.id;
-            })
-            // console.log(newArr);
-            setChkbxGrape(...newArr);
+            setChkbxGrape(newArr);
         }
 
-        console.log(chkbxGrape);
+
     }
 
 
@@ -106,10 +111,7 @@ const SearchVineyard = (props) => {
                 
                 <textarea 
                     type="text" className="searchField"  id="grapeSearchShow" 
-                    placeholder=" " name="textarea" disabled={true} value="">
-
-                        {chosenGrapes}
-                    </textarea>
+                    placeholder=" " name="textarea" disabled={true} ><div dangerouslySetInnerHTML={{ __html: chkbxGrape }}></div></textarea>
 
                 <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
             </div>
