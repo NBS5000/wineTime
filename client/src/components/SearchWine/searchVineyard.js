@@ -59,8 +59,6 @@ const SearchVineyard = (props) => {
 
             <label htmlFor="vintageSearch" className="searchLabel">Vintage</label>
 
-
-            
             <select  
                 id="grapeSearch"
                 className="searchField" 
@@ -68,13 +66,7 @@ const SearchVineyard = (props) => {
                     <option> </option>
                 {grapeList &&
                     grapeList.map((option) => (
-                    <option key={option._id} >{option.grapename}
-                    
-
-                    
-                    
-                    
-                    </option>
+                    <option key={option._id} >{option.grapename}</option>
                 ))}
             </select>
             <label htmlFor="grapeSearch" className="searchLabel">Select Grape</label>

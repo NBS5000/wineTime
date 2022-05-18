@@ -34,7 +34,9 @@ const Header = () => {
         ) : (
           <>
             <div className="up">
+            
               <Link to="/login" id="login" className="logSign">
+                
                 <img src="../../assets/images/login.png" alt="login" className="log" />
               </Link>
               <Link  to="/signup" id="signup" className="logSign">
