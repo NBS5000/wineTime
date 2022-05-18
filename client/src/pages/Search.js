@@ -6,6 +6,7 @@ const Home = () => {
 
     return (
         <div id="homeContent">
+            <h1>My wine test</h1>
             <div>
                 <SearchWine />
             </div>

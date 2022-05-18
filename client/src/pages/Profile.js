@@ -2,10 +2,14 @@ import React from 'react';
 
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
+
+import SearchVineyard from '../components/SearchWine/searchVineyard';
+import SearchWine from '../components/SearchWine';
+import MyWines from './MyWines';
 
 const Profile = () => {
   const { profileId } = useParams();
@@ -42,23 +46,35 @@ const Profile = () => {
   return (
     <div id="profile">
 
-
-
-
+        <Routes>
+            <Route 
+                path="../components/searchWine"
+                element={<SearchWine />}
+            />
+            <Route 
+                path="./MyWine"
+                element={<MyWines />}
+            />
+        </Routes>
       
-      <div id="profileOptions">
-          <Link to="/MyWines" className="profileLinks">
+        <div id="profileOptions">
+            <Link to="myWines" className="profileLinks">
+                <div className="homeOptions">
+                    <img src="../../assets/images/rack.png" alt="Rack of wine" id="profileRack"/>My Wines
+                </div>
+            </Link>
+            <Link to="/searchWine" className="profileLinks">
               <div className="homeOptions">
-                  <img src="../../assets/images/rack.png" alt="Rack of wine" id="profileRack"/>My Wines
+                  <img src="../../assets/images/bottle.png" alt="Bottle of wine" id="profileBottle"/>Add Wine
               </div>
-          </Link>
-          <div className="homeOptions">
-              <img src="../../assets/images/bottle.png" alt="Bottle of wine" id="profileBottle"/>Add Wine
-          </div>
-          <div className="homeOptions">
-              <img src="../../assets/images/corkscrew.png" alt="Corkscrew" id="profileScrew"/>Statistics
-          </div>
-      </div>
+            </Link>
+            <div className="homeOptions">
+                <img src="../../assets/images/corkscrew.png" alt="Corkscrew" id="profileScrew"/>Statistics
+            </div>
+        </div>
+
+
+        <SearchVineyard />
     </div>
   );
 };

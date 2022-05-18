@@ -5,7 +5,7 @@ const SearchWine = () => {
 
 
   return (
-    <div id="searchWine">
+    <div id="searchWineBody">
         <SearchVineyard /> 
     </div>
     

@@ -13,7 +13,7 @@ const MyWines = () => {
     return (
         <div id="myWinesContent">
         
-
+            <h1>Test</h1>
         
         </div>
     );

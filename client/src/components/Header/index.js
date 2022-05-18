@@ -18,7 +18,7 @@ const Header = () => {
     <div>
       <header>
         <h1 className="dance" id="title">
-          <Link to="/home" id="wtLink">WineTime</Link>
+          <Link to="/" id="wtLink">WineTime</Link>
         </h1>
         {Auth.loggedIn() ? (
           <>
@@ -66,6 +66,7 @@ const Header = () => {
             path="/profiles/:profileId"
             element={<Profile />}
           />
+
         </Routes>
       </div>
     </div>

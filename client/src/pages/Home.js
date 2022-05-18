@@ -14,7 +14,7 @@ const Home = () => {
         <div id="homeContent">
           
 
-
+            <h1>Home Test</h1>
 
 
         </div>
