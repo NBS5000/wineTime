@@ -26,8 +26,8 @@ const typeDefs = gql`
     consumed: Boolean
     comments: String
     notes: String
-    critic: Number
-    score: Number
+    critic: Integer
+    score: Integer
     style: String
     blend: String
     grapes: [String]
