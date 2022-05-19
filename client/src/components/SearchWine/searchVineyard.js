@@ -4,8 +4,8 @@ import { QUERY_ALLGRAPES } from '../../utils/queries';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-let chosenGrapes, trig;
-// let grapeModClickState = false;
+
+
 const SearchVineyard = (props) => {
 
     const [chkbxGrape, setChkbxGrape] = useState([
@@ -15,28 +15,19 @@ const SearchVineyard = (props) => {
         }
     ]);
     const [grapeModal, setGrapeModal] = useState(false)
-
     const [value, setValue] = useState(props.name);
-    // const [vineyards, setVineyards] = useState({ 
-    //     name: '', 
-    //     id: ''
-    // });
     const [grapeList, setGrapeList] = useState([
         { 
             name: '',
             _id: ''
         }
     ]);
-
     const [grpDisplay, setGrpDisplay] = useState([]);
-
     const { loading, data } = useQuery(QUERY_ALLGRAPES);
 
 
     useEffect(() => {
-
         const resList = data?.getGrapeAll || ["X"];
-
         if (!resList)
         return
         
@@ -46,7 +37,6 @@ const SearchVineyard = (props) => {
 
     let grapeModClickState = true;
     function grapeModClick(){
-
         if(grapeModal){
             let myGrapes = "";
             console.log(myGrapes)
@@ -62,10 +52,8 @@ const SearchVineyard = (props) => {
                     }
                     i++
                 }
-
             }
             setGrpDisplay(myGrapes)
-
             grapeModClickState = false;
             setGrapeModal(false);
         }else{
@@ -87,8 +75,6 @@ const SearchVineyard = (props) => {
         }
         console.log(chosenGrapes)
     },[chkbxGrape])
-
-
     
     async function chk(event){
         let oldArr;
@@ -101,8 +87,6 @@ const SearchVineyard = (props) => {
             setChkbxGrape(oldArr);
             console.log(chkbxGrape)
         }else if(event.target.checked===false){
-            // val = {id:event.target.getAttribute("id"), name:event.target.getAttribute("value")};
-
             let i = 0;
             let len = oldArr.length;
             let newArr=[];
@@ -114,12 +98,8 @@ const SearchVineyard = (props) => {
                 }
                 i++
             }
-
-
             setChkbxGrape(newArr);
         }
-
-
     }
 
 
@@ -130,27 +110,26 @@ const SearchVineyard = (props) => {
                 <textarea 
                     type="text" className="searchField"  id="winerySearch" 
                     placeholder=" " name="textarea" 
-                    value={value}/*  onChange={(event) => {setValue(event.target.value);}} */></textarea>
+                    value={value} ></textarea>
 
                 <label htmlFor="winerySearch" className="searchLabel">Winery</label>
 
                 <textarea 
                     type="text" className="searchField"  id="bottleSearch" 
                     placeholder=" " name="textarea" 
-                    value={value}  /*onChange={(event) => {setValue(event.target.value);}}*/ ></textarea>
+                    value={value} ></textarea>
 
                 <label htmlFor="bottleSearch" className="searchLabel">Wine Name</label>
 
                 <textarea 
                     type="text" className="searchField"  id="vintageSearch" 
                     placeholder=" " name="textarea" 
-                    value={value}  /*onChange={(event) => {setValue(event.target.value);}}*/ ></textarea>
+                    value={value} ></textarea>
 
                 <label htmlFor="vintageSearch" className="searchLabel">Vintage</label>
                 
                 
             </div>
-
                     <textarea 
                         type="text" className="searchField"  id="grapeSearchShow" 
                         placeholder=" " name="textarea" disabled={true} value={grpDisplay}><div></div></textarea>
@@ -162,7 +141,7 @@ const SearchVineyard = (props) => {
             <button className="grpModal" onClick={grapeModClick}>Add grape</button>
             { grapeModal ? (
             <>
-            {/* <div className="logSign"> */}
+            
                 <div id="chkGrape">
                     <div id="grapeChkBody">
                     {grapeList &&
@@ -180,7 +159,6 @@ const SearchVineyard = (props) => {
                 <br/>
                 <button className="grpModal"onClick={grapeModClick}>Close</button>
                     </div></div>
-            {/* </div> */}
             </>
             ) : (
             <>

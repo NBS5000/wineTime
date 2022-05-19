@@ -21,6 +21,19 @@ export const QUERY_ALLGRAPES = gql`
   }
   `;
 
+export const QUERY_ALLWINE = gql`
+  query getWineAll {
+    getWineAll {
+      _id
+      winery
+      name
+      vintage
+      grapes
+      style
+    }
+  }
+`;
+
 export const QUERY_QUOTE = gql`
   query getQuote {
     getQuote {

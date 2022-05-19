@@ -8,6 +8,7 @@ const typeDefs = gql`
     password: String
     skills: [String]!
     myWine: [String]
+    myCollection: [String]
   }
 
   type Grape {
@@ -53,13 +54,17 @@ const typeDefs = gql`
     getGrapeAll: [Grape]!
     getGrapeDescAll: [Grape]
     getQuote: [Quote]
+
+    getWineAll: [Wine]
   }
 
   type Mutation {
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    addSkill(profileId: ID!, skill: String!): Profile
+    addNewWine(name: String!, winery: String!, vintage: String!, grapes: [String!]): Wine
+    addMyWine(profileId: ID!, myCollection: String!): Profile
+
     removeProfile: Profile
     removeSkill(skill: String!): Profile
   }

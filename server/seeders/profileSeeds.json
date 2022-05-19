@@ -17,7 +17,8 @@
   {
     "name": "obi1",
     "email": "hello.there@ben.com",
-    "password": "password"
+    "password": "password",
+    "grapes":["6285ee1729b1c7bc9016d553","6285ee1729b1c7bc9016d554","6285ee1729b1c7bc9016d555","6285ee1729b1c7bc9016d557","6285ee1729b1c7bc9016d556","6285ee1729b1c7bc9016d558","6285ee1729b1c7bc9016d559"]
   },
   {
     "name": "palp66",

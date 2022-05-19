@@ -12,15 +12,24 @@ export const ADD_PROFILE = gql`
   }
 `;
 
-export const ADD_SKILL = gql`
-  mutation addSkill($profileId: ID!, $skill: String!) {
-    addSkill(profileId: $profileId, skill: $skill) {
+export const ADD_NEWWINE = gql`
+  mutation addNewWine($profileId: ID!, $name: String!, $winery: String!, $comments: String, $critic: String, $style: String, $blend: String, $grapes: String) {
+    addNewWine(profileId: $profileId, wine: $wine) {
       _id
       name
-      skills
+      winery
+      comments
+      notes
+      critic 
+      score
+      style
+      blend 
+      grapes
     }
   }
 `;
+
+
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {

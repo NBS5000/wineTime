@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile, Grape, Quote } = require('../models');
+const { Profile, Grape, Quote, Wine } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -31,6 +31,10 @@ const resolvers = {
 
     getGrapeAll: async () => {
       return Grape.find().sort({grapename:1});
+    },
+
+    getWineAll: async () => {
+      return Wine.find();
     }
   },
 
@@ -59,23 +63,25 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addSkill: async (parent, { profileId, skill }, context) => {
+    addNewWine: async (parent, { winery, name, vintage, grapes }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: profileId },
-          {
-            $addToSet: { skills: skill },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
+      if (context.wine) {
+        const newWine = await Wine.create({ 
+          winery,
+          name,
+          vintage,
+          grapes
+        });
+        await Profile.findByIdAndUpdate(
+          {_id: context.profile._id},
+          {$addToSet: {myCollection: newWine._id}}
+        )
+          return newWine
       }
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError('You need to be logged in!');
     },
+
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeProfile: async (parent, args, context) => {
       if (context.user) {

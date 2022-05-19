@@ -24,6 +24,12 @@ const profileSchema = new Schema({
     minlength: 4,
   },
   myWine: [collectionSchema],
+  myCollection: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Wine'
+    }
+  ]
 },
 {
   toJSON: {

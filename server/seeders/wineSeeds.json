@@ -3,7 +3,50 @@
     "winery": "Penfolds",
     "name": "Grange",
     "vintage": "2008",
-    "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"]
+    "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
+    "style": "Red"
+  },
+  {
+    "winery": "Leeuwin Estate",
+    "name": "Art Series",
+    "vintage": "2019",
+    "grapes": ["6285c6bd672fd0707aebad8d"],
+    "style": "White"
+  },
+  {
+    "winery": "Yarra Yering",
+    "name": "Dry Red No. 1",
+    "vintage": "2019",
+    "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
+    "style": "White"
+  },
+  {
+    "winery": "Best's",
+    "name": "Great Western Riesling",
+    "vintage": "2019",
+    "grapes": ["6285c6bd672fd0707aebad9e"],
+    "style": "Red"
+  },
+  {
+    "winery": "Grosset",
+    "name": "Polish Hill",
+    "vintage": "2008",
+    "grapes": ["6285c6bd672fd0707aebad9e"],
+    "style": "White"
+  },
+  {
+    "winery": "Drayton's Family Wines",
+    "name": "Heritage Vines Tawny",
+    "vintage": "1978",
+    "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
+    "style": "Dessert"
+  },
+  {
+    "winery": "Gemar Breton",
+    "name": "Brut",
+    "vintage": "NV",
+    "grapes": ["6285c6bd672fd0707aebadb4","6285c6bd672fd0707aebad8d"],
+    "style": "Sparling"
   }
 ]
 

@@ -7,9 +7,9 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-import SearchVineyard from '../components/SearchWine/searchVineyard';
+import MyWine from '../components/MyWine';
 import SearchWine from '../components/SearchWine';
-import MyWines from './MyWines';
+// import MyWines from './MyWines';
 
 const Profile = () => {
   const { profileId } = useParams();
@@ -51,10 +51,6 @@ const Profile = () => {
                 path="../components/searchWine"
                 element={<SearchWine />}
             />
-            <Route 
-                path="./MyWine"
-                element={<MyWines />}
-            />
         </Routes>
       
         <div id="profileOptions">
@@ -73,7 +69,7 @@ const Profile = () => {
             </div>
         </div>
 
-
+        <MyWine />
         <SearchWine />
     </div>
   );
