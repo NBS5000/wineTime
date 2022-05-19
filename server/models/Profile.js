@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const wineSchema = require('./Wine');
+const collectionSchema = require('./Collection');
 
 const profileSchema = new Schema({
   name: {
@@ -23,7 +23,7 @@ const profileSchema = new Schema({
     required: true,
     minlength: 4,
   },
-  myWine: [wineSchema],
+  myWine: [collectionSchema],
 },
 {
   toJSON: {

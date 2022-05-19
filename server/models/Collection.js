@@ -1,21 +1,12 @@
-// const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
-// const collectionSchema = new Schema({
-//     name: {
-//         type: String,
-//         required: true,
-//         unique: true,
-//         trim: true,
-//     },
-//     wines: [
-//         {
-//         type: Schema.Types.ObjectId,
-//         ref: "Wine"
-//         },
-//     ],
+const collectionSchema = new Schema({
+    wineId: {
+        type: String,
+        required: true,
+    }
 
-// });
+});
 
-// const Collection = model('Collection', collectionSchema);
 
-// module.exports = Collection;
+module.exports = collectionSchema;
