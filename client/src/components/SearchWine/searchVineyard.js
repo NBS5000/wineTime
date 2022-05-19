@@ -2,7 +2,10 @@ import React, {useState, useEffect, useRef} from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLGRAPES } from '../../utils/queries';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 let chosenGrapes, trig;
+// let grapeModClickState = false;
 const SearchVineyard = (props) => {
 
     const [chkbxGrape, setChkbxGrape] = useState([
@@ -11,7 +14,7 @@ const SearchVineyard = (props) => {
             name: ''
         }
     ]);
-
+    const [grapeModal, setGrapeModal] = useState(false)
 
     const [value, setValue] = useState(props.name);
     // const [vineyards, setVineyards] = useState({ 
@@ -25,6 +28,8 @@ const SearchVineyard = (props) => {
         }
     ]);
 
+    const [grpDisplay, setGrpDisplay] = useState([]);
+
     const { loading, data } = useQuery(QUERY_ALLGRAPES);
 
 
@@ -37,6 +42,41 @@ const SearchVineyard = (props) => {
         
         setGrapeList([...resList])
     },[data])
+
+
+    let grapeModClickState = true;
+    function grapeModClick(){
+
+        if(grapeModal){
+            let myGrapes = "";
+            console.log(myGrapes)
+            if(chkbxGrape){
+                const len = chkbxGrape.length;
+                console.log(chkbxGrape)
+                let i = 0;
+                while(i<len){
+                    if(i !==0){
+                        let end = "";
+                        if((i+1)!==len){end =", "}
+                        myGrapes = myGrapes + chkbxGrape[i].name + end
+                    }
+                    i++
+                }
+
+            }
+            setGrpDisplay(myGrapes)
+
+            grapeModClickState = false;
+            setGrapeModal(false);
+        }else{
+            let myGrapes = "";
+            console.log(grpDisplay)
+            setGrpDisplay(myGrapes)
+            console.log(grpDisplay)
+            grapeModClickState = true;
+            setGrapeModal(true);
+        }
+    }
 
     let chosenGrapes;
     useEffect(() =>  {
@@ -108,30 +148,51 @@ const SearchVineyard = (props) => {
 
                 <label htmlFor="vintageSearch" className="searchLabel">Vintage</label>
                 
-                <textarea 
-                    type="text" className="searchField"  id="grapeSearchShow" 
-                    placeholder=" " name="textarea" disabled={true} value={chkbxGrape}><div></div></textarea>
-
-                <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
+                
             </div>
 
+                    <textarea 
+                        type="text" className="searchField"  id="grapeSearchShow" 
+                        placeholder=" " name="textarea" disabled={true} value={grpDisplay}><div></div></textarea>
+
+                    <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
 
 
 
-            <div id="chkGrape">
-                {grapeList &&
+            <button className="grpModal" onClick={grapeModClick}>Add grape</button>
+            { grapeModal ? (
+            <>
+            {/* <div className="logSign"> */}
+                <div id="chkGrape">
+                    <div id="grapeChkBody">
+                    {grapeList &&
                     grapeList.map((option, i) => (
                         <span >
-                            <input type="checkbox" id={option._id} value={option.grapename} key={option._id} onChange={chk}/>
+                            <input type="checkbox" className="checkMark" id={option._id} value={option.grapename} key={option._id} onChange={chk}/>
                             <label htmlFor={option._id}>{option.grapename}</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            {(i+1)%3 ===0 ? (
+                            {(i+1)%4 ===0 ? (
                                 <br/>
-                                ) : (
-                                    <span></span>
-                                )}
+                            ) : (
+                                <span></span>
+                            )}
                         </span>
                     ))}
-            </div>
+                <br/>
+                <button className="grpModal"onClick={grapeModClick}>Close</button>
+                    </div></div>
+            {/* </div> */}
+            </>
+            ) : (
+            <>
+                <div></div>
+            </>
+            )}
+
+
+
+            <button className="grpModal" id="addWine">Add Wine</button>
+
+
         </div> 
     )
 };

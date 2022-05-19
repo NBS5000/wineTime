@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const wineSchema = require('./Wine');
 
 const profileSchema = new Schema({
   name: {
@@ -21,13 +22,13 @@ const profileSchema = new Schema({
     type: String,
     required: true,
     minlength: 4,
-  }
-  // collection: [
-  //       {
-  //       type: Schema.Types.ObjectId,
-  //       ref: "Collection"
-  //     }
-  //   ]
+  },
+  myWine: [wineSchema],
+},
+{
+  toJSON: {
+    virtuals: true,
+  },
 });
 
 // set up pre-save middleware to create password
@@ -44,6 +45,11 @@ profileSchema.pre('save', async function (next) {
 profileSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+
+profileSchema.virtual('wineCount').get(function () {
+  return this.myLength.length;
+});
 
 const Profile = model('Profile', profileSchema);
 

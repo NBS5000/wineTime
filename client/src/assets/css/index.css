@@ -48,7 +48,7 @@ body{
   min-height: 100%;
 }
 
-#logInBody, #signUpBody{
+#logInBody, #signUpBody, #chkGrape{
   display: block;
   width: 100%;
   height: 100%;
