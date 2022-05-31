@@ -1,17 +1,47 @@
+
+#profile{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+#profileBtn{
+    width: 80%;
+    height: fit-content;
+    margin-right: 10px;
+    position: relative;
+}
+#profileContent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
 #searchWine{
     margin: 0 auto;
     margin-top: 50px;
-    display: block;
+    /* display: block; */
     width: fit-content;
     padding: 0 auto;
 }
+#viewWineList{
+    display: block;
+    height: fit-content;
+}
+
+#wineListSection{
+    /* position: absolute; */
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: block;
+}
+
 #searchWineBody{
     text-align: center;
-}
-#profile{
-    width: 60%;
-    margin: 0 auto;
-    position: relative;
+    width: 30%;
+    display: block;
+    height: 500px;
 }
 
 #wineryList, #grapeSearch{
@@ -80,12 +110,11 @@
 .wineGlass{
     margin-top: 20px;
     height: 50px;
-    width: fit-content;
-    position: absolute;
+    /* position: absolute; */
 }
 .wineDets{
     text-align: center;
-    margin-left: 80px;
+    margin: 0 auto;
 }
 .wineTitle{
     font-size:150%;
@@ -100,9 +129,35 @@
 .drinkBy{
     color: darkgray;
 }
-#wineListSection{
-    position: absolute;
-    height: 500px;
-    overflow: hidden;
-    overflow-y: scroll;
+
+#profileOptions{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.profileLinks{
+    color: white;
+    text-decoration: none;
+}
+
+.homeOptions{
+    background-color: maroon;
+    color: white;
+    height: 50px;
+    width: 200px;
+    border-radius: var(--searchBorderRad);
+    padding: 17px;
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
+}
+#profileRack, #profileBottle, #profileScrew{
+    height:50px;
+    width: 50px;
+    position: fixed;
+    margin-left: -50px;
+    margin-top: -17px;
+}
+#profileRack{
+    margin-top: -20px;
 }
