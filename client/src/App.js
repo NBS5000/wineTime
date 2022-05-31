@@ -56,9 +56,10 @@ function App() {
                   </>
                 ) : (
                   <>
-                  <Fun />
+                  
                   </>
                 )}
+                <Fun />
                 </div>
                 <Footer />
             </Router>
