@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ALLGRAPES } from '../../utils/queries';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import VineyardList from './vineyardList';
 
 
 const SearchVineyard = (props) => {
@@ -16,6 +16,7 @@ const SearchVineyard = (props) => {
     ]);
     const [grapeModal, setGrapeModal] = useState(false)
     const [value, setValue] = useState(props.name);
+    const [vySearch, setVySearch] = useState("")
     const [grapeList, setGrapeList] = useState([
         { 
             name: '',
@@ -24,6 +25,7 @@ const SearchVineyard = (props) => {
     ]);
     const [grpDisplay, setGrpDisplay] = useState([]);
     const { loading, data } = useQuery(QUERY_ALLGRAPES);
+    const [vineyards, setVineyards] = useState();
 
 
     useEffect(() => {
@@ -93,28 +95,54 @@ const SearchVineyard = (props) => {
     }
 
 
-    
+
+
+
+    const list = (event) => {
+        const input = String(event.target.value);
+        console.log(input)
+        setVySearch(input)
+        const len = String(input).length
+        if(len > 2){
+            const requestUrl = 'https://app.gustos.life/en/api/v1';
+            const url = requestUrl + "/vineyard/list?name=" + input;
+            fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                if(data.length > 0){
+                    console.log(data)
+                    setVineyards(data)
+                }
+                console.log(data)
+            });
+            console.log(input)
+        }
+    }
+
     return (
         <div id="searchWine">
             <div id="searchInputArea">
                 <textarea 
                     type="text" className="searchField"  id="winerySearch" 
                     placeholder=" " name="textarea" 
-                    value={value} ></textarea>
+                    value={vySearch} onChange={list}></textarea>
 
                 <label htmlFor="winerySearch" className="searchLabel">Winery</label>
 
                 <textarea 
                     type="text" className="searchField"  id="bottleSearch" 
-                    placeholder=" " name="textarea" 
-                    value={value} ></textarea>
+                    placeholder=" " name="textarea" >
+                </textarea>
 
                 <label htmlFor="bottleSearch" className="searchLabel">Wine Name</label>
 
                 <textarea 
                     type="text" className="searchField"  id="vintageSearch" 
-                    placeholder=" " name="textarea" 
-                    value={value} ></textarea>
+                    placeholder=" " name="textarea" >
+
+                </textarea>
 
                 <label htmlFor="vintageSearch" className="searchLabel">Vintage</label>
                 

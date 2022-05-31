@@ -16,11 +16,11 @@ const MyWineList = () => {
         return
 
         const allWine = data?.getQuote || ["X"];
-        console.log(allWine);
+
         setWineList([allWine])
     },[])
 
-// console.log(thisQuote);
+
     return (
         <div id="viewWineList">
 
