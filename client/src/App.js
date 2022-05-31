@@ -51,7 +51,7 @@ function App() {
                 {!Auth.loggedIn() ? (
                   <>
                     <div>
-                      <h2>Please log in</h2>
+                      <h2 id="pleaseH2" className="dance">Please log in</h2>
                     </div>
                   </>
                 ) : (
