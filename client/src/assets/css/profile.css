@@ -78,7 +78,8 @@
     margin-top: 30px;
 }
 .wineGlass{
-    height: 100px;
+    margin-top: 20px;
+    height: 50px;
     width: fit-content;
     position: absolute;
 }
