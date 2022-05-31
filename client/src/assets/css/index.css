@@ -34,11 +34,15 @@ body{
   left: 0;
   top: 0;
 }
+#pleaseDiv{
+  width: 100%;
+}
 #pleaseH2{
   width: 100%;
   text-align: center;
   font-size: 150%;
   display: block;
+  margin: 0 auto;
 }
 .log{
   height: 50px;
