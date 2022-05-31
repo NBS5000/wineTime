@@ -150,6 +150,7 @@
     text-align: center;
     align-content: center;
     margin: 0 auto;
+    margin-bottom: 30px;
 }
 #profileRack, #profileBottle, #profileScrew{
     height:50px;

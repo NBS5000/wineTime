@@ -39,10 +39,8 @@ const SearchVineyard = (props) => {
     function grapeModClick(){
         if(grapeModal){
             let myGrapes = "";
-            console.log(myGrapes)
             if(chkbxGrape){
                 const len = chkbxGrape.length;
-                console.log(chkbxGrape)
                 let i = 0;
                 while(i<len){
                     if(i !==0){
@@ -58,9 +56,7 @@ const SearchVineyard = (props) => {
             setGrapeModal(false);
         }else{
             let myGrapes = "";
-            console.log(grpDisplay)
             setGrpDisplay(myGrapes)
-            console.log(grpDisplay)
             grapeModClickState = true;
             setGrapeModal(true);
         }
@@ -68,12 +64,9 @@ const SearchVineyard = (props) => {
 
     let chosenGrapes;
     useEffect(() =>  {
-        console.log(chkbxGrape.length)
         if(chkbxGrape.length>1){
-            console.log("test")
             chosenGrapes = `<span>{ chkbxGrape && chkbxGrape.map((chkbx) => (<span key={chkbx.id}>{chkbx.name}</span>))}</span>`
         }
-        console.log(chosenGrapes)
     },[chkbxGrape])
     
     async function chk(event){
@@ -85,16 +78,13 @@ const SearchVineyard = (props) => {
 
             oldArr.push(val);
             setChkbxGrape(oldArr);
-            console.log(chkbxGrape)
         }else if(event.target.checked===false){
             let i = 0;
             let len = oldArr.length;
             let newArr=[];
             while(i < len){
                 if(val.id!==oldArr[i].id){
-                    console.log(oldArr[i]);
                     newArr.push(oldArr[i]);
-                    console.log(newArr);
                 }
                 i++
             }
@@ -169,6 +159,7 @@ const SearchVineyard = (props) => {
 
 
             <button className="grpModal" id="addWine">Add Wine</button>
+            
 
 
         </div> 
