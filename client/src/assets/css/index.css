@@ -37,7 +37,8 @@ body{
 #pleaseH2{
   width: 100%;
   text-align: center;
-  font-size: 120%;
+  font-size: 150%;
+  display: block;
 }
 .log{
   height: 50px;
