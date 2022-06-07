@@ -7,7 +7,26 @@ import VineyardList from './vineyardList';
 
 
 const SearchVineyard = (props) => {
+    
+    const requestUrl = 'https://app.gustos.life/en/api/v1';
+    // STATES
 
+    const [value, setValue] = useState(props.name);
+    // vineyards
+    const [vySearch, setVySearch] = useState("");
+    const [vineyards, setVineyards] = useState([]);
+    const [selectedVy, setSelectedVy] = useState("");
+    const [vyListDisplay, setVyListDisplay] = useState("none");
+
+    // wines
+    const [vyWineDisplay, setVyWineDisplay] = useState("none");
+    const [selectedVyWine, setSelectedVyWine] = useState("");
+    const [vyWineSearch, setVyWineSearch] = useState("");
+    const [wines, setWines] = useState([]);
+
+
+    
+    // grapes
     const [chkbxGrape, setChkbxGrape] = useState([
         {
             id: '',
@@ -15,8 +34,8 @@ const SearchVineyard = (props) => {
         }
     ]);
     const [grapeModal, setGrapeModal] = useState(false)
-    const [value, setValue] = useState(props.name);
-    const [vySearch, setVySearch] = useState("")
+
+
     const [grapeList, setGrapeList] = useState([
         { 
             name: '',
@@ -25,7 +44,6 @@ const SearchVineyard = (props) => {
     ]);
     const [grpDisplay, setGrpDisplay] = useState([]);
     const { loading, data } = useQuery(QUERY_ALLGRAPES);
-    const [vineyards, setVineyards] = useState([]);
 
 
     useEffect(() => {
@@ -96,50 +114,96 @@ const SearchVineyard = (props) => {
 
 
 
-    /*********** Vineyards */
+    /*********** Vineyards *****/
     const list = (event) => {
         const input = String(event.target.value);
-        console.log(input)
+        // console.log(input)
         setVySearch(input)
         const len = String(input).length
         if(len > 2){
-            const requestUrl = 'https://app.gustos.life/en/api/v1';
-            const url = requestUrl + "/vineyard/list?name=" + input;
+            const url = requestUrl + "/vineyard/list?limit=15&name=" + input;
             fetch(url)
             .then(function (response) {
                 return response.json();
             })
             .then(function (data) {
                 if(data.items.length > 0){
+                    setVyListDisplay("block")
                     setVineyards(data.items)
                 }
-            });
+            })
+            .catch(
+                setVyListDisplay("none")
+            );
         }
     }
 
+    const clickVy = (event) => {
+        const clickId = event.target.dataset.id;
+        const clickName = event.target.innerText;
 
-
-
-
+        console.log(clickId);
+        setVySearch(clickName);
+        setSelectedVy(clickId);
+        setVyListDisplay("none");
+    }
     /************************* */
+
+    /************ wines *****/
+    const vyWinelist = (event) => {
+        if(selectedVy){
+            const input = String(event.target.value);
+            // console.log(input)
+            setVyWineSearch(input)
+            const len = String(input).length
+            if(len > 2){
+                const url = requestUrl + "/vineyard/" + selectedVy + "/wine/list?name=" + input;
+                fetch(url)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    if(data.items.length > 0){
+                        setVyWineDisplay("block")
+                        setWines(data.items)
+                    }
+                })
+                .catch(
+                    setVyWineDisplay("none")
+                );
+            }
+        }
+    }
+    const clickVyWine = (event) => {
+        const clickId = event.target.dataset.id;
+        const clickName = event.target.innerText;
+
+        console.log(clickId);
+        setVyWineSearch(clickName);
+        setSelectedVyWine(clickId);
+        setVyWineDisplay("none");
+    }
+    /************************* */
+
+
 
 
     return (
         <div id="searchWine">
             <div id="searchInputArea">
+                {/* winery */}
                 <textarea 
                     type="text" className="searchField"  id="winerySearch" 
                     placeholder=" " name="textarea" 
-                    value={vySearch} onChange={list}></textarea>
+                    value={vySearch} onChange={list} data-apiId={selectedVy}></textarea>
 
                 <label htmlFor="winerySearch" className="searchLabel">Winery</label>
 
-
-                <ul id="vineList">
+                <ul id="vineList" style={{display:vyListDisplay}}>
                     {vineyards &&
                     vineyards.map((vineyard) => (
-                        <li key={vineyard.id}>
-                            {vineyard.name}
+                        <li key={vineyard.id} className="li_vineyard">
+                            <div data-id={vineyard.id}  className="li_vyName" onClick={clickVy}>{vineyard.name}</div>
                         </li>
                     ))}
                 </ul>
@@ -147,13 +211,26 @@ const SearchVineyard = (props) => {
 
 
 
-
+                {/* wines */}
                 <textarea 
                     type="text" className="searchField"  id="bottleSearch" 
-                    placeholder=" " name="textarea" >
-                </textarea>
-
+                    placeholder=" " name="textarea" 
+                    value={vyWineSearch} onChange={vyWinelist} data-apiId={selectedVyWine}></textarea>
+                
                 <label htmlFor="bottleSearch" className="searchLabel">Wine Name</label>
+
+                <ul id="vy_wineList" style={{display:vyWineDisplay}}>
+                    {wines &&
+                    wines.map((wine) => (
+                        <li key={wine.id} className="li_vineyard">
+                            <div data-id={wine.id}  className="li_vyName" onClick={clickVyWine}>{wine.name}</div>
+                        </li>
+                    ))}
+                </ul>
+
+
+
+
 
                 <textarea 
                     type="text" className="searchField"  id="vintageSearch" 

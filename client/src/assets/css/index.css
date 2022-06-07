@@ -104,12 +104,34 @@ body{
   padding: 0;
 }
 
-#vineList{
-  background-color: blue;
-  /* position: absolute; */
-  z-index: 100;
+
+
+
+#vineList, #vy_wineList{
+  position: absolute;
+  z-index: 10000;
   display: block;
-  min-height: 50px;
   width: 100%;
+  border-radius: 20px;
+  background-color: rgba(128, 0, 0, 0.5);
+  font-weight: bold;
+  margin-top: -20px;
   color: white;
+}
+
+.li_vineyard{
+  padding: 10px;
+  /* border-bottom: 1px solid maroon; */
+  border-width: 1px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      90deg, 
+      rgba(0, 0, 0, 0),
+      maroon, 
+      rgba(0, 0, 0, 0)
+    ) 0  0 100% 0;
+}
+.li_vyName{
+  cursor: pointer;
 }
