@@ -7,7 +7,6 @@ import QuoteInfo from '../Quote';
 const Fun = () => {
     let landing;
     const location = useLocation();
-    console.log(location.pathname);
     if(location.pathname === "/"){
         landing = true; 
     }

@@ -103,3 +103,13 @@ body{
   height: 50px;
   padding: 0;
 }
+
+#vineList{
+  background-color: blue;
+  /* position: absolute; */
+  z-index: 100;
+  display: block;
+  min-height: 50px;
+  width: 100%;
+  color: white;
+}

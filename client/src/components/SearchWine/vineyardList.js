@@ -1,16 +1,18 @@
 import React from 'react';
 
 
-const VineyardList = ({ vineyards }) => {
+function VineyardList  ({ vineyards })  {
 
     return (
         <div>
-            {vineyards &&
-            vineyards.map((vineyard) => (
-                <li key={vineyard._id}>
-                    {vineyard.name}
-                </li>
-            ))}
+            <ul id="vineList">
+                {vineyards &&
+                vineyards.map((vineyard) => (
+                    <li key={vineyard._id}>
+                        {vineyard.name}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };

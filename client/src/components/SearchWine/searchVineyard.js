@@ -1,8 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLGRAPES } from '../../utils/queries';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import VineyardList from './vineyardList';
 
 
@@ -25,7 +25,7 @@ const SearchVineyard = (props) => {
     ]);
     const [grpDisplay, setGrpDisplay] = useState([]);
     const { loading, data } = useQuery(QUERY_ALLGRAPES);
-    const [vineyards, setVineyards] = useState();
+    const [vineyards, setVineyards] = useState([]);
 
 
     useEffect(() => {
@@ -77,7 +77,6 @@ const SearchVineyard = (props) => {
         let val = {id:event.target.getAttribute("id"), name:event.target.getAttribute("value")};
 
         if(event.target.checked===true){
-
             oldArr.push(val);
             setChkbxGrape(oldArr);
         }else if(event.target.checked===false){
@@ -97,7 +96,7 @@ const SearchVineyard = (props) => {
 
 
 
-
+    /*********** Vineyards */
     const list = (event) => {
         const input = String(event.target.value);
         console.log(input)
@@ -111,15 +110,19 @@ const SearchVineyard = (props) => {
                 return response.json();
             })
             .then(function (data) {
-                if(data.length > 0){
-                    console.log(data)
-                    setVineyards(data)
+                if(data.items.length > 0){
+                    setVineyards(data.items)
                 }
-                console.log(data)
             });
-            console.log(input)
         }
     }
+
+
+
+
+
+    /************************* */
+
 
     return (
         <div id="searchWine">
@@ -130,6 +133,20 @@ const SearchVineyard = (props) => {
                     value={vySearch} onChange={list}></textarea>
 
                 <label htmlFor="winerySearch" className="searchLabel">Winery</label>
+
+
+                <ul id="vineList">
+                    {vineyards &&
+                    vineyards.map((vineyard) => (
+                        <li key={vineyard.id}>
+                            {vineyard.name}
+                        </li>
+                    ))}
+                </ul>
+
+
+
+
 
                 <textarea 
                     type="text" className="searchField"  id="bottleSearch" 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
@@ -26,7 +26,7 @@ const Login = (props) => {
     const nextState = { additionalInformation: 'Updated the URL with JS' };
     window.history.pushState(nextState, nextTitle, nextURL);
     
-   
+  
   }
 
   // submit form
@@ -57,8 +57,7 @@ const Login = (props) => {
 
               // proceed()
               <p>
-                  Success! You may now head{' '}
-                  <Link to="/">back to the homepage.</Link>
+                  Success!
               </p>
 
             ) : (
