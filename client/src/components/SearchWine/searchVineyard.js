@@ -110,8 +110,17 @@ const SearchVineyard = (props) => {
             setChkbxGrape(newArr);
         }
     }
+    /********* close type ahead menus **********/
+    const target = document.querySelector('.typeAheadList')
 
-
+    document.addEventListener('click', (event) => {
+        const withinBoundaries = event.composedPath().includes(target)
+        
+        if (!withinBoundaries) {
+            setVyListDisplay("none")
+            setVyWineDisplay("none")
+        } 
+    })
 
 
     /*********** Vineyards *****/
@@ -151,11 +160,10 @@ const SearchVineyard = (props) => {
 
     /************ wines *****/
     const vyWinelist = (event) => {
+        const input = String(event.target.value);
+        const len = String(input).length
         if(selectedVy){
-            const input = String(event.target.value);
-            // console.log(input)
             setVyWineSearch(input)
-            const len = String(input).length
             if(len > 2){
                 const url = requestUrl + "/vineyard/" + selectedVy + "/wine/list?name=" + input;
                 fetch(url)
@@ -172,6 +180,8 @@ const SearchVineyard = (props) => {
                     setVyWineDisplay("none")
                 );
             }
+        } else if (!selectedVy && vySearch){
+            setVyWineSearch(input)
         }
     }
     const clickVyWine = (event) => {
@@ -219,7 +229,7 @@ const SearchVineyard = (props) => {
                 
                 <label htmlFor="bottleSearch" className="searchLabel">Wine Name</label>
 
-                <ul id="vy_wineList" style={{display:vyWineDisplay}}>
+                <ul id="vy_wineList" style={{display:vyWineDisplay}} className="typeAheadList">
                     {wines &&
                     wines.map((wine) => (
                         <li key={wine.id} className="li_vineyard">
@@ -258,19 +268,16 @@ const SearchVineyard = (props) => {
                     <div id="grapeChkBody">
                     {grapeList &&
                     grapeList.map((option, i) => (
-                        <span >
+                        <span className="checkSpan">
                             <input type="checkbox" className="checkMark" id={option._id} value={option.grapename} key={option._id} onChange={chk}/>
-                            <label htmlFor={option._id}>{option.grapename}</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            {(i+1)%4 ===0 ? (
-                                <br/>
-                            ) : (
-                                <span></span>
-                            )}
+                            <label htmlFor={option._id} className="checkLabel">{option.grapename}</label>
                         </span>
                     ))}
-                <br/>
-                <button className="grpModal"onClick={grapeModClick}>Close</button>
-                    </div></div>
+                    <div id="closeGrpWrap">
+                        <button className="grpModal"onClick={grapeModClick} id="closeGrpModal">Close</button>
+                    </div>
+                    </div>
+                </div>
             </>
             ) : (
             <>

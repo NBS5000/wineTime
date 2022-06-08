@@ -24,7 +24,7 @@ const GrapeInfo = () => {
   useEffect(() => {
     if (!data)
     return
-    console.log(data)
+    
     const grapeList = data?.getGrapeDescAll || ["X"];
     const thisGrape = getRand(grapeList);
     setGrape({

@@ -63,17 +63,33 @@
 #chkGrape{
     left: 0;
     top: 0;
-    padding-top: 10%
+    padding-top: 10%;
 }
 #grapeChkBody{
-    height:70%;
+    min-height:70%;
+    height: fit-content;
     width: 70%;
-    padding: 20px 20px;
-    display: block;
+    padding: 20px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin: 0 auto;
     margin-top: 100px;
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.8);
     border-radius: 30px;
+}
+.checkLabel{
+    color: rgb(40, 40, 40);
+    font-size: 120%;
+    margin-left: 5px;
+    line-height: 100%;
+}
+.checkSpan{
+    margin-right: 15px;
+    height: fit-content;
+    display: inline-block;
+    margin-bottom: 5px;
+
 }
 .grpModal{
     color: white;
@@ -85,13 +101,20 @@
     border: 0;
     cursor: pointer;
 }
+#closeGrpModal{
+    margin: 0 auto;
+}
+#closeGrpWrap{
+    width: 100%;
+}
 .checkMark{
     /* position: absolute; */
-    top: 0;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    background-color: #eee;
+    /* top: 0;
+    left: 0; */
+    height: 20px;
+    width: 20px;
+    /* background-color: #eee;
+    line-height: 100%; */
 }
 #addWine{
     margin-top: 50px;
