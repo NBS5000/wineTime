@@ -75,10 +75,11 @@ const SearchVineyard = (props) => {
                         if((i+1)!==len){end =", "}
                         myGrapes = myGrapes + chkbxGrape[i].name + end
                     }
-                    myGrapesID.push(chkbxGrape[i].name)
+                    myGrapesID.push(chkbxGrape[i].id)
                     i++
                 }
             }
+            console.log(myGrapesID)
             setGrpDisplay(myGrapes)
             setGrpDisplayId(myGrapesID)
             grapeModClickState = false;
@@ -211,10 +212,11 @@ const SearchVineyard = (props) => {
 
     const [createWine, { error }] = useMutation(ADD_NEWWINE);
     const addWine = async ( event ) => {
+        // debugger
         const winery = refVy.current.innerHTML; 
         const name = refWn.current.innerHTML; 
         let vintage = refVi.current.value;
-        const grapes = [grpDisplayId];
+        const grapes = grpDisplayId;
 
         if(!winery || !name || !grapes){
             alert("Please add all details");
@@ -226,10 +228,10 @@ const SearchVineyard = (props) => {
         console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes)
         try{
             await createWine({
-                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes },
+                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes:  grapes  },
             });
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 
@@ -243,7 +245,7 @@ const SearchVineyard = (props) => {
                 <textarea 
                     type="text" className="searchField"  id="winerySearch" 
                     placeholder=" " name="textarea" ref={refVy}
-                    value={vySearch} onChange={list} data-apiId={selectedVy}></textarea>
+                    value={vySearch} onChange={list} data-apiid={selectedVy}></textarea>
 
                 <label htmlFor="winerySearch" className="searchLabel">Winery</label>
 
@@ -263,7 +265,7 @@ const SearchVineyard = (props) => {
                 <textarea 
                     type="text" className="searchField"  id="bottleSearch" 
                     placeholder=" " name="textarea" ref={refWn}
-                    value={vyWineSearch} onChange={vyWinelist} data-apiId={selectedVyWine}></textarea>
+                    value={vyWineSearch} onChange={vyWinelist} data-apiid={selectedVyWine}></textarea>
                 
                 <label htmlFor="bottleSearch" className="searchLabel">Wine Name</label>
 
@@ -292,7 +294,7 @@ const SearchVineyard = (props) => {
             </div>
                     <textarea 
                         type="text" className="searchField"  id="grapeSearchShow"  ref={refGr}
-                        placeholder=" " name="textarea" disabled={true} value={grpDisplay} data-idList={grpDisplayId}><div></div></textarea>
+                        placeholder=" " name="textarea" disabled={true} value={grpDisplay} data-idlist={grpDisplayId}><div></div></textarea>
 
                     <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
 
@@ -306,7 +308,7 @@ const SearchVineyard = (props) => {
                     <div id="grapeChkBody">
                     {grapeList &&
                     grapeList.map((option, i) => (
-                        <span className="checkSpan">
+                        <span className="checkSpan" key={option._id} >
                             <input type="checkbox" className="checkMark" id={option._id} value={option.grapename} key={option._id} onChange={chk}/>
                             <label htmlFor={option._id} className="checkLabel">{option.grapename}</label>
                         </span>
