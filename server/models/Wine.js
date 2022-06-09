@@ -48,7 +48,7 @@ const wineSchema = new Schema({
     },
     grapes: [
         {
-        type: Schema.Types.Array,
+        type: String,
         ref: "Grape"
         },
     ],

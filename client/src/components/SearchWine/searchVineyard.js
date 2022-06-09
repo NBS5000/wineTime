@@ -216,8 +216,6 @@ const SearchVineyard = (props) => {
         let vintage = refVi.current.value;
         const grapes = [grpDisplayId];
 
-        console.log(refVi)
-        console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes)
         if(!winery || !name || !grapes){
             alert("Please add all details");
             return
@@ -225,6 +223,7 @@ const SearchVineyard = (props) => {
             vintage = "NV";
         }
 
+        console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes)
         try{
             await createWine({
                 variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes },
