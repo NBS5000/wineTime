@@ -1,12 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import { useQuery } from '@apollo/client';
+import React, {useState, useEffect, useRef} from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ALLGRAPES } from '../../utils/queries';
+import { ADD_NEWWINE } from '../../utils/mutations';
 
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import VineyardList from './vineyardList';
 
+import Auth from '../../utils/auth';
 
 const SearchVineyard = (props) => {
+    let profile = Auth.getProfile();
+    let profileId = profile.data._id;
     
     const requestUrl = 'https://app.gustos.life/en/api/v1';
     // STATES
@@ -43,6 +48,7 @@ const SearchVineyard = (props) => {
         }
     ]);
     const [grpDisplay, setGrpDisplay] = useState([]);
+    const [grpDisplayId, setGrpDisplayId] = useState([]);
     const { loading, data } = useQuery(QUERY_ALLGRAPES);
 
 
@@ -59,6 +65,7 @@ const SearchVineyard = (props) => {
     function grapeModClick(){
         if(grapeModal){
             let myGrapes = "";
+            let myGrapesID = [];
             if(chkbxGrape){
                 const len = chkbxGrape.length;
                 let i = 0;
@@ -68,15 +75,19 @@ const SearchVineyard = (props) => {
                         if((i+1)!==len){end =", "}
                         myGrapes = myGrapes + chkbxGrape[i].name + end
                     }
+                    myGrapesID.push(chkbxGrape[i].name)
                     i++
                 }
             }
             setGrpDisplay(myGrapes)
+            setGrpDisplayId(myGrapesID)
             grapeModClickState = false;
             setGrapeModal(false);
         }else{
             let myGrapes = "";
+            let myGrapesID = [];
             setGrpDisplay(myGrapes)
+            setGrpDisplayId(myGrapesID)
             grapeModClickState = true;
             setGrapeModal(true);
         }
@@ -126,7 +137,6 @@ const SearchVineyard = (props) => {
     /*********** Vineyards *****/
     const list = (event) => {
         const input = String(event.target.value);
-        // console.log(input)
         setVySearch(input)
         const len = String(input).length
         if(len > 2){
@@ -151,12 +161,11 @@ const SearchVineyard = (props) => {
         const clickId = event.target.dataset.id;
         const clickName = event.target.innerText;
 
-        console.log(clickId);
         setVySearch(clickName);
         setSelectedVy(clickId);
         setVyListDisplay("none");
     }
-    /************************* */
+    /************************/
 
     /************ wines *****/
     const vyWinelist = (event) => {
@@ -188,12 +197,42 @@ const SearchVineyard = (props) => {
         const clickId = event.target.dataset.id;
         const clickName = event.target.innerText;
 
-        console.log(clickId);
         setVyWineSearch(clickName);
         setSelectedVyWine(clickId);
         setVyWineDisplay("none");
     }
     /************************* */
+
+    /********** add wine *******/
+    const refVy = useRef(null);
+    const refWn = useRef(null);
+    const refVi = useRef(null);
+    const refGr = useRef(null);
+
+    const [createWine, { error }] = useMutation(ADD_NEWWINE);
+    const addWine = async ( event ) => {
+        const winery = refVy.current.innerHTML; 
+        const name = refWn.current.innerHTML; 
+        let vintage = refVi.current.innerHTML;
+        const grapes = [grpDisplay];
+
+
+        console.log(winery + ", " + name + ", " + vintage + ", " + grapes)
+        if(!winery || !name || !grapes){
+            alert("Please add all details");
+            return
+        }else if(!vintage){
+            vintage = "NV";
+        }
+
+        try{
+            await createWine({
+                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes },
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
 
@@ -204,7 +243,7 @@ const SearchVineyard = (props) => {
                 {/* winery */}
                 <textarea 
                     type="text" className="searchField"  id="winerySearch" 
-                    placeholder=" " name="textarea" 
+                    placeholder=" " name="textarea" ref={refVy}
                     value={vySearch} onChange={list} data-apiId={selectedVy}></textarea>
 
                 <label htmlFor="winerySearch" className="searchLabel">Winery</label>
@@ -224,7 +263,7 @@ const SearchVineyard = (props) => {
                 {/* wines */}
                 <textarea 
                     type="text" className="searchField"  id="bottleSearch" 
-                    placeholder=" " name="textarea" 
+                    placeholder=" " name="textarea" ref={refWn}
                     value={vyWineSearch} onChange={vyWinelist} data-apiId={selectedVyWine}></textarea>
                 
                 <label htmlFor="bottleSearch" className="searchLabel">Wine Name</label>
@@ -244,7 +283,7 @@ const SearchVineyard = (props) => {
 
                 <textarea 
                     type="text" className="searchField"  id="vintageSearch" 
-                    placeholder=" " name="textarea" >
+                    placeholder=" " name="textarea" ref={refVi} >
 
                 </textarea>
 
@@ -253,8 +292,8 @@ const SearchVineyard = (props) => {
                 
             </div>
                     <textarea 
-                        type="text" className="searchField"  id="grapeSearchShow" 
-                        placeholder=" " name="textarea" disabled={true} value={grpDisplay}><div></div></textarea>
+                        type="text" className="searchField"  id="grapeSearchShow"  ref={refGr}
+                        placeholder=" " name="textarea" disabled={true} value={grpDisplay} data-idList={grpDisplayId}><div></div></textarea>
 
                     <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
 
@@ -287,7 +326,7 @@ const SearchVineyard = (props) => {
 
 
 
-            <button className="grpModal" id="addWine">Add Wine</button>
+            <button className="grpModal" id="addWine" onClick={addWine} >Add Wine</button>
             
 
 

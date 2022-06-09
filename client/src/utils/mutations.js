@@ -13,17 +13,12 @@ export const ADD_PROFILE = gql`
 `;
 
 export const ADD_NEWWINE = gql`
-  mutation addNewWine($profileId: ID!, $name: String!, $winery: String!, $comments: String, $critic: String, $style: String, $blend: String, $grapes: String) {
-    addNewWine(profileId: $profileId, wine: $wine) {
+  mutation AddNewWine($name: String!, $winery: String!, $vintage: String!, $grapes: [String!]) {
+    addNewWine(name: $name, winery: $winery, vintage: $vintage, grapes: $grapes) {
       _id
       name
       winery
-      comments
-      notes
-      critic 
-      score
-      style
-      blend 
+      vintage
       grapes
     }
   }

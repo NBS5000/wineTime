@@ -63,34 +63,34 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addNewWine: async (parent, { winery, name, vintage, grapes }, context) => {
+    addNewWine: async (parent, { winery, name, vintage, grapes }) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      if (context.wine) {
+      // if (context.user) {
         const newWine = await Wine.create({ 
           winery,
           name,
           vintage,
           grapes
         });
-        await Profile.findByIdAndUpdate(
-          {_id: context.profile._id},
-          {$addToSet: {myCollection: newWine._id}}
-        )
+        // await Profile.findByIdAndUpdate(
+        //   {_id: context.profile._id},
+        //   {$addToSet: {myCollection: newWine._id}}
+        // )
           return newWine
-      }
+      // }
       // If user attempts to execute this mutation and isn't logged in, throw an error
-      throw new AuthenticationError('You need to be logged in!');
+      /*throw new AuthenticationError('You need to be logged in!');*/
     },
 
     // Set up mutation so a logged in user can only remove their profile and no one else's
-    removeProfile: async (parent, args, context) => {
+    /*removeProfile: async (parent, args, context) => {
       if (context.user) {
         return Profile.findOneAndDelete({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
+    },*/
     // Make it so a logged in user can only remove a skill from their own profile
-    removeSkill: async (parent, { skill }, context) => {
+    /*removeSkill: async (parent, { skill }, context) => {
       if (context.user) {
         return Profile.findOneAndUpdate(
           { _id: context.user._id },
@@ -99,7 +99,7 @@ const resolvers = {
         );
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
+    },*/
   },
 };
 
