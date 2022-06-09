@@ -63,10 +63,11 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addNewWine: async (parent, { winery, name, vintage, grapes }) => {
+    addNewWine: async (parent, { profileId, winery, name, vintage, grapes }) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       // if (context.user) {
         const newWine = await Wine.create({ 
+          profileId,
           winery,
           name,
           vintage,

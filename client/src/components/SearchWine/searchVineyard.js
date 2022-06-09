@@ -213,11 +213,11 @@ const SearchVineyard = (props) => {
     const addWine = async ( event ) => {
         const winery = refVy.current.innerHTML; 
         const name = refWn.current.innerHTML; 
-        let vintage = refVi.current.innerHTML;
-        const grapes = [grpDisplay];
+        let vintage = refVi.current.value;
+        const grapes = [grpDisplayId];
 
-
-        console.log(winery + ", " + name + ", " + vintage + ", " + grapes)
+        console.log(refVi)
+        console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes)
         if(!winery || !name || !grapes){
             alert("Please add all details");
             return

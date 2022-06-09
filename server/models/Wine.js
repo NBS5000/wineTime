@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const wineSchema = new Schema({
+    profileId: {
+        type: String,
+        required: true,
+    },
     name: {
         type: String,
         required: true,

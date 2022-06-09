@@ -21,6 +21,7 @@ const typeDefs = gql`
 
   type Wine {
     _id: ID
+    profileId: String
     name: String
     winery: String
     vintage: String
@@ -62,7 +63,7 @@ const typeDefs = gql`
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    addNewWine(name: String!, winery: String!, vintage: String!, grapes: [String!]): Wine
+    addNewWine(profileId: String!, name: String!, winery: String!, vintage: String!, grapes: [String!]): Wine
     addMyWine(profileId: ID!, myCollection: String!): Profile
 
     removeProfile: Profile
