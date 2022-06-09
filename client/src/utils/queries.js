@@ -34,6 +34,25 @@ export const QUERY_ALLWINE = gql`
   }
 `;
 
+export const QUERY_ALLMYWINE = gql`
+  query getMyWineAll {
+    getWineAll {
+      _id
+      winery
+      name
+      vintage
+      grapes
+      style
+      blend
+      score
+      critic
+      notes
+      comments
+      consumed
+    }
+  }
+`;
+
 export const QUERY_QUOTE = gql`
   query getQuote {
     getQuote {

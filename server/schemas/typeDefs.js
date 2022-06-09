@@ -57,6 +57,7 @@ const typeDefs = gql`
     getQuote: [Quote]
 
     getWineAll: [Wine]
+    getMyWineAll: [Wine]
   }
 
   type Mutation {

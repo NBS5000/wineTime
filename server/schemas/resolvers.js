@@ -35,6 +35,10 @@ const resolvers = {
 
     getWineAll: async () => {
       return Wine.find();
+    },
+
+    getMyWineAll: async (parent, {profileId}) => {
+      return Wine.find({ profileId: profileId });
     }
   },
 

@@ -3,22 +3,27 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_ALLWINE } from '../../utils/queries';
+import { QUERY_ALLMYWINE } from '../../utils/queries';
 
 const MyWineList = () => {
-    const [wineList, setWineList] = useState();
+    const [myWineList, setMyWineList] = useState([]);
 
-    const { loading, data } = useQuery(QUERY_ALLWINE);
+
+
+
+    const { loading, data } = useQuery(QUERY_ALLMYWINE);
 
 
     useEffect(() => {
+        console.log(data)
         if (!data)
         return
 
-        const allWine = data?.getQuote || ["X"];
 
-        setWineList([allWine])
-    },[])
+        const allMyWine = data.getWineAll;
+        console.log(allMyWine)
+        setMyWineList(allMyWine)
+    },[data])
 
 
     return (
@@ -40,7 +45,32 @@ const MyWineList = () => {
                     <img src="../../../assets/images/rack.png" alt="Rack of wine" id="profileRack"/>My Wines
                 </div>
             {/* </Link> */}
+
+
             <div id="wineListSection">
+                {myWineList &&
+                myWineList.map((wine, i) => (
+
+                <div className="wineCard" key={wine.id}>
+                    <img src="../../assets/images/glassRed.png" alt="Red" className="wineGlass"/>
+                    <div className="wineDets" key={wine.id} >
+                        <h3 className="wineTitle">{wine.winery}</h3>
+                        <h4 className="wineName">{wine.name}</h4>
+                        <p className="wineGrape">{wine.grapes}</p>
+                        <p>{wine.vintage} <em className="drinkBy">(2058)</em></p>
+                    </div>
+                </div>
+
+                ))}
+
+            </div>
+
+
+
+
+
+
+            {/* <div id="wineListSection">
                 <div className="wineCard">
                     <img src="../../assets/images/glassRed.png" alt="Red" className="wineGlass"/>
                     <div className="wineDets">
@@ -86,7 +116,7 @@ const MyWineList = () => {
                     <p>1978 <em className="drinkBy">(2028)</em></p>
                     </div>
                 </div>                            
-            </div>                                                                  
+            </div>                                                                   */}
         </div>
     )
 };

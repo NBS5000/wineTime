@@ -1,9 +1,16 @@
 const { Schema, model } = require('mongoose');
+const grapeSchema = require('./Grape');
+const dateFormat = require('../utils/dateFormat');
 
 const wineSchema = new Schema({
     profileId: {
         type: String,
         required: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
     },
     name: {
         type: String,
@@ -48,12 +55,35 @@ const wineSchema = new Schema({
     },
     grapes: [
         {
-        type: String,
+        type: Schema.Types.ObjectId,
         ref: "Grape"
         },
     ],
 
+},
+{
+    toJSON: {
+        getters: true,
+        virtuals: true,
+    },
+    toObject: {
+        getters: true,
+        virtuals: true,
+    }
 });
+
+wineSchema
+    .virtual('grapeCount')
+    .get(function () {
+        return this.grapes.length;
+    });
+
+
+const grapeNames = async () =>
+Wine.aggregate()
+  .count('userCount')
+  .then((numberOfUsers) => numberOfUsers);
+
 
 const Wine = model('Wine', wineSchema);
 
