@@ -17,6 +17,9 @@ const grapeSchema = new Schema({
     imageLink: {
         type: String,
     },
+    cellar: {
+        type: String,
+    }
 });
 
 const Grape = model('Grape', grapeSchema);

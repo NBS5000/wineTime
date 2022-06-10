@@ -18,6 +18,7 @@ export const QUERY_ALLGRAPES = gql`
       _id
       grapename
       color
+      cellar
     }
   }
   `;

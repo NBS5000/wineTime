@@ -69,25 +69,19 @@ const resolvers = {
       return { token, profile };
     },
 
-    // Add a third argument to the resolver to access data in our `context`
-    addNewWine: async (parent, { profileId, winery, name, vintage, grapes }) => {
-      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      // if (context.user) {
+    addNewWine: async (parent, { profileId, winery, name, vintage, grapes, style }) => {
+
         const newWine = await Wine.create({ 
           profileId,
           winery,
           name,
           vintage,
-          grapes
+          grapes, 
+          style
         });
-        // await Profile.findByIdAndUpdate(
-        //   {_id: context.profile._id},
-        //   {$addToSet: {myCollection: newWine._id}}
-        // )
-          return newWine
-      // }
-      // If user attempts to execute this mutation and isn't logged in, throw an error
-      /*throw new AuthenticationError('You need to be logged in!');*/
+
+        return newWine
+
     },
 
     // Set up mutation so a logged in user can only remove their profile and no one else's

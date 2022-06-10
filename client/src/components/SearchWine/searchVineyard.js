@@ -114,11 +114,10 @@ const SearchVineyard = (props) => {
                     setWineStyle("White")
                 }
                 console.log("Red: " + hasRed + ", Pinot: " + hasPinot + ", Chard: " + hasChard)
+            }
             
-                setGrpDisplay(myGrapes)
-                setGrpDisplayId(myGrapesID)
-
-            } 
+            setGrpDisplay(myGrapes)
+            setGrpDisplayId(myGrapesID)
             grapeModClickState = false;
             setGrapeModal(false);
         }else{
@@ -252,6 +251,7 @@ const SearchVineyard = (props) => {
     /************************* */
 
     /********** add wine *******/
+    
     const refVy = useRef(null);
     const refWn = useRef(null);
     const refVi = useRef(null);
@@ -259,11 +259,17 @@ const SearchVineyard = (props) => {
 
     const [createWine, { error }] = useMutation(ADD_NEWWINE);
     const addWine = async ( event ) => {
-        // debugger
+
         const winery = refVy.current.innerHTML; 
         const name = refWn.current.innerHTML; 
         let vintage = refVi.current.value;
+
+        if(grpDisplayId[0] === ""){
+            setGrpDisplayId(grpDisplayId.shift());
+        }
+
         const grapes = grpDisplayId;
+        const style = wineStyle;
 
         if(!winery || !name || !grapes){
             alert("Please add all details");
@@ -272,10 +278,10 @@ const SearchVineyard = (props) => {
             vintage = "NV";
         }
 
-        console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes)
+        console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes + ", " + style)
         try{
             await createWine({
-                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes:  grapes  },
+                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes, style: style  },
             });
         } catch (error) {
             console.error(error);
@@ -373,7 +379,7 @@ const SearchVineyard = (props) => {
             )}
 
                     <select 
-                        className="searchField"  id="wineStyleShow" onChange={() => {setWineStyle(value)}}
+                        className="searchField"  id="wineStyleShow" onChange={(event) => {setWineStyle(event.target.value)}}
                         placeholder=" " name="styleSelect" value={wineStyle} required>
                         <option value=""></option>
                         <option value="Red">Red</option>
