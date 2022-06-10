@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile, Grape, Quote, Wine } = require('../models');
+const { Profile, Grape, Quote, Wine, Style } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -39,7 +39,10 @@ const resolvers = {
 
     getMyWineAll: async (parent, {profileId}) => {
       return Wine.find({ profileId: profileId });
-    }
+    },
+    getStyleAll: async () => {
+      return Style.find();
+    },
   },
 
   Mutation: {

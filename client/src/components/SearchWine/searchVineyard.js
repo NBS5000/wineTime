@@ -64,6 +64,7 @@ const SearchVineyard = (props) => {
     let grapeModClickState = true;
     function grapeModClick(){
         if(grapeModal){
+            debugger
             let myGrapes = "";
             let myGrapesID = [];
             if(chkbxGrape){
@@ -324,6 +325,12 @@ const SearchVineyard = (props) => {
                 <div></div>
             </>
             )}
+
+                    <textarea 
+                        type="text" className="searchField"  id="grapeSearchShow"  ref={refGr}
+                        placeholder=" " name="textarea" disabled={true} value={grpDisplay} data-idlist={grpDisplayId}><div></div></textarea>
+
+                    <label htmlFor="grapeSearchShow" className="searchLabel">Style</label>
 
 
 

@@ -51,16 +51,17 @@ const MyWineList = () => {
                 {myWineList &&
                 myWineList.map((wine, i) => (
 
+                    
                 <div className="wineCard" key={wine.id}>
-                    <img src="../../assets/images/glassRed.png" alt="Red" className="wineGlass"/>
+                    <img src={`../../assets/images/glass${wine.style}.png`} alt={wine.style} className="wineGlass"/>
                     <div className="wineDets" key={wine.id} >
                         <h3 className="wineTitle">{wine.winery}</h3>
                         <h4 className="wineName">{wine.name}</h4>
-                        <p className="wineGrape">{wine.grapes}</p>
+                        {/* <p className="wineGrape">{wine.grapes}</p> */}
                         <p>{wine.vintage} <em className="drinkBy">(2058)</em></p>
                     </div>
                 </div>
-
+                    
                 ))}
 
             </div>

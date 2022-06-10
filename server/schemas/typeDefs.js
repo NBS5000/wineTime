@@ -41,6 +41,10 @@ const typeDefs = gql`
     text: String
   }
 
+  type Style {
+    _id: ID
+    style: String
+  }
 
   type Auth {
     token: ID!
@@ -58,6 +62,8 @@ const typeDefs = gql`
 
     getWineAll: [Wine]
     getMyWineAll: [Wine]
+    
+    getStyleAll: [Style]
   }
 
   type Mutation {

@@ -79,12 +79,20 @@ wineSchema
     });
 
 
-const grapeNames = async () =>
-Wine.aggregate()
-  .count('userCount')
-  .then((numberOfUsers) => numberOfUsers);
-
-
 const Wine = model('Wine', wineSchema);
 
+// let gs = grapeSchema;
+// Wine.findOne({ _id: this._id })
+//     .populate('grapes').exec((err, gs) => {
+//         console.log("Grape: " + gs);
+//     })
+
+// function populateGrapeNames(id){
+//     return Wine.findOne({ _id: id })
+//         .populate('grapes').exec((err, gs) => {
+//         console.log("Populated Grapes: " + grapeSchema);
+//         })
+//     }
+
+// populateGrapeNames(this._id)
 module.exports = Wine;

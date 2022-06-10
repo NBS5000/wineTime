@@ -21,7 +21,7 @@
     "name": "Dry Red No. 1",
     "vintage": "2019",
     "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
-    "style": "White"
+    "style": "Red"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -53,7 +53,7 @@
     "name": "Brut",
     "vintage": "NV",
     "grapes": ["6285c6bd672fd0707aebadb4","6285c6bd672fd0707aebad8d"],
-    "style": "Sparling"
+    "style": "Sparkling"
   }
 ]
 

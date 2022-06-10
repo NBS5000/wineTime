@@ -53,6 +53,15 @@ export const QUERY_ALLMYWINE = gql`
   }
 `;
 
+export const QUERY_ALLSTYLES = gql`
+  query getStyleAll {
+    getStyleAll {
+      _id
+      style
+    }
+  }
+`;
+
 export const QUERY_QUOTE = gql`
   query getQuote {
     getQuote {
