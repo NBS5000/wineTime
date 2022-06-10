@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ALLGRAPES } from '../../utils/queries';
+import { QUERY_ALLGRAPES, QUERY_ALLSTYLES } from '../../utils/queries';
 import { ADD_NEWWINE } from '../../utils/mutations';
+
 
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {useParams} from 'react-router-dom';
@@ -29,13 +30,15 @@ const SearchVineyard = (props) => {
     const [vyWineSearch, setVyWineSearch] = useState("");
     const [wines, setWines] = useState([]);
 
-
+    // style
+    const [wineStyle, setWineStyle] = useState("");
     
     // grapes
     const [chkbxGrape, setChkbxGrape] = useState([
         {
             id: '',
-            name: ''
+            name: '',
+            color: ''
         }
     ]);
     const [grapeModal, setGrapeModal] = useState(false)
@@ -62,11 +65,14 @@ const SearchVineyard = (props) => {
 
 
     let grapeModClickState = true;
-    function grapeModClick(){
+    async function grapeModClick(){
         if(grapeModal){
-            debugger
+            
+            let gColors = "";
             let myGrapes = "";
             let myGrapesID = [];
+            setGrpDisplay([]);
+            
             if(chkbxGrape){
                 const len = chkbxGrape.length;
                 let i = 0;
@@ -77,16 +83,47 @@ const SearchVineyard = (props) => {
                         myGrapes = myGrapes + chkbxGrape[i].name + end
                     }
                     myGrapesID.push(chkbxGrape[i].id)
+                    gColors = gColors + chkbxGrape[i].color;
+                    console.log(gColors)
                     i++
                 }
-            }
-            console.log(myGrapesID)
-            setGrpDisplay(myGrapes)
-            setGrpDisplayId(myGrapesID)
+
+                const hasRed = gColors.search("Red");
+                const hasWhite = gColors.search("White");
+                const hasPinot = myGrapes.search("Pinot Noir");
+                const hasChard = myGrapes.search("Chardonnay");
+                const hasPedro = myGrapes.search("Pedro Ximenez");
+                const hasAssy = myGrapes.search("Assyrtiko");
+                const hasMusc = myGrapes.search("Muscat");
+                const hasGlera = myGrapes.search("Glera");
+                
+                if(hasPinot >= 0 && hasChard >= 0){
+                    // likely sparkling
+                    setWineStyle("Sparkling")
+                } else if(hasGlera >= 0){
+                    // likely prosecco (sparkling)
+                    setWineStyle("Sparkling")
+                } else if( hasPedro >= 0 || hasAssy >= 0 || hasMusc >= 0){
+                    // likely dessert
+                    setWineStyle("Dessert")
+                }else if(hasRed >= 0){
+                    // likely red
+                    setWineStyle("Red")
+                }else if(hasWhite >= 0){
+                    // likely white
+                    setWineStyle("White")
+                }
+                console.log("Red: " + hasRed + ", Pinot: " + hasPinot + ", Chard: " + hasChard)
+            
+                setGrpDisplay(myGrapes)
+                setGrpDisplayId(myGrapesID)
+
+            } 
             grapeModClickState = false;
             setGrapeModal(false);
         }else{
-            let myGrapes = "";
+            
+            let myGrapes = [];
             let myGrapesID = [];
             setGrpDisplay(myGrapes)
             setGrpDisplayId(myGrapesID)
@@ -105,7 +142,7 @@ const SearchVineyard = (props) => {
     async function chk(event){
         let oldArr;
         oldArr = chkbxGrape;
-        let val = {id:event.target.getAttribute("id"), name:event.target.getAttribute("value")};
+        let val = {id:event.target.getAttribute("id"), name:event.target.getAttribute("value"), color:event.target.getAttribute("data-color")};
 
         if(event.target.checked===true){
             oldArr.push(val);
@@ -134,6 +171,15 @@ const SearchVineyard = (props) => {
             setVyWineDisplay("none")
         } 
     })
+
+    /***********  Style  **********/
+    // useEffect(() => {
+    //     const resList = data?.getGrapeAll || ["X"];
+    //     if (!resList)
+    //     return
+        
+    //     setGrapeList([...resList])
+    // },[wineStyle])
 
 
     /*********** Vineyards *****/
@@ -300,8 +346,8 @@ const SearchVineyard = (props) => {
                     <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
 
 
-
-            <button className="grpModal" onClick={grapeModClick}>Add grape</button>
+                        {/* add grapes button */}
+            <button className="grpModal" id="btn_addGrp" onClick={grapeModClick}></button>
             { grapeModal ? (
             <>
             
@@ -310,7 +356,7 @@ const SearchVineyard = (props) => {
                     {grapeList &&
                     grapeList.map((option, i) => (
                         <span className="checkSpan" key={option._id} >
-                            <input type="checkbox" className="checkMark" id={option._id} value={option.grapename} key={option._id} onChange={chk}/>
+                            <input type="checkbox" className="checkMark" id={option._id} value={option.grapename} key={option._id} onChange={chk} data-color={option.color} />
                             <label htmlFor={option._id} className="checkLabel">{option.grapename}</label>
                         </span>
                     ))}
@@ -326,9 +372,17 @@ const SearchVineyard = (props) => {
             </>
             )}
 
-                    <textarea 
-                        type="text" className="searchField"  id="grapeSearchShow"  ref={refGr}
-                        placeholder=" " name="textarea" disabled={true} value={grpDisplay} data-idlist={grpDisplayId}><div></div></textarea>
+                    <select 
+                        className="searchField"  id="wineStyleShow" onChange={() => {setWineStyle(value)}}
+                        placeholder=" " name="styleSelect" value={wineStyle} required>
+                        <option value=""></option>
+                        <option value="Red">Red</option>
+                        <option value="White" >White</option>
+                        <option value="Rose">Rose</option>
+                        <option value="Sparkling">Sparkling</option>
+                        <option value="Dessert">Dessert</option>
+
+                    </select>
 
                     <label htmlFor="grapeSearchShow" className="searchLabel">Style</label>
 

@@ -95,12 +95,36 @@
     color: white;
     background-color: maroon;
     margin-top: 10px;
+    margin-bottom: 20px;
     height: 50px;
     width: 200px;
     border-radius: var(--searchBorderRad);
     border: 0;
     cursor: pointer;
 }
+#btn_addGrp{
+        height: 45px;
+        width: 300px;
+        display: block;
+        margin: 0;
+        border-radius: var(--searchBorderRad);
+        margin-top: -65px;
+        margin-bottom: 20px;
+        z-index: 50;
+        background-color: rgba(0,0,0,0);
+        /* resize: none;
+        text-align: left;
+        align-content: space-around;
+        padding-top: 15px;
+        padding-left: 15px;
+        border: solid 1px darkgray;
+        border-style: none none solid none;
+        margin-bottom: 20px;
+        background-color:white; */
+
+}
+
+
 #closeGrpModal{
     margin: 0 auto;
 }

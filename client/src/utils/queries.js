@@ -17,6 +17,7 @@ export const QUERY_ALLGRAPES = gql`
     getGrapeAll {
       _id
       grapename
+      color
     }
   }
   `;

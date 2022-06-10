@@ -28,7 +28,7 @@
     font-size: 70%;
     margin-top: -60px;
 }
-.searchField:placeholder-shown + .searchLabel{
+.searchField:placeholder-shown + .searchLabel, #wineStyleShow:not(:valid) + .searchLabel{
     margin-top: -50px;
     font-size: 100%;
     color: dimgrey;
@@ -46,3 +46,4 @@
     font-size: 70%;
     margin-top: -60px;
 }
+
