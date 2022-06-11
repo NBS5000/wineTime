@@ -13,17 +13,20 @@
   },
   {
     "grapename": "Cortese",
-    "color": "White"
+    "color": "White",
+    "cellar": "Short"
   },
   {
     "grapename": "Roussanne",
     "color": "White",
     "description": "Roussanne is a white wine grape found primarily in the Rhône Valley wine region of France. There, it is often blended with Marsanne in order to create a highly aromatic white wine. The name “Roussanne” is derived from the French word roux, which means russet in English. This refers to the colour of the golden, reddish-brown berries when Roussanne ripens. Roussanne wines are known for their flowery, herbal tea aromas.",
-    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084911000000-5c8b670736d28.jpg"
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084911000000-5c8b670736d28.jpg",
+    "cellar": "Medium"
   },
   {
     "grapename": "Moschofilero",
-    "color": "White"
+    "color": "White",
+    "cellar": "Short"
   },
   {
     "grapename": "Muscat",
@@ -50,10 +53,6 @@
     "description": "Verdicchio is a white grape variety that is primarily found within the Marche region of central Italy. The name Verdicchio is derived from “verde,” the word for green. This is a reference to the slightly green-yellow hue of classic Verdicchio wines. Verdicchio wines are characterized by their lack of colour, high acidity and citrus (including lemon) note. Some Verdicchio wines also have distinctive almond notes.",
     "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019085328000000-5c8b680877194.jpg",
     "cellar": "Now"
-  },
-  {
-    "grapename": "Greco",
-    "color": "White"
   },
   {
     "grapename": "Glera",
@@ -92,16 +91,9 @@
     "cellar": "Medium"
   },
   {
-    "grapename": "Frascati",
-    "color": "White"
-  },
-  {
-    "grapename": "Gavi",
-    "color": "White"
-  },
-  {
     "grapename": "L'acadie Blanc",
-    "color": "White"
+    "color": "White",
+    "cellar": "Now"
   },
   {
     "grapename": "Trebbiano",
@@ -117,7 +109,8 @@
   },
   {
     "grapename": "Catarratto",
-    "color": "White"
+    "color": "White",
+    "cellar": "Short"
   },
   {
     "grapename": "Albarino",
@@ -142,14 +135,11 @@
     "cellar": "Now"
   },
   {
-    "grapename": "Soave",
-    "color": "White"
-  },
-  {
     "grapename": "Airen",
     "color": "White",
     "description": "Airen is a white grape variety that is traditionally found only in its native Spain. Currently, Airen accounts for 30% of all grapes grown in Spain. This grape is typically found in the hot, dry growing conditions of central Spain, especially wine regions such as La Mancha and Valdepeñas. In terms of planted surface alone, Airén is now No. 3 in the entire world (trailing only Cabernet Sauvignon and Merlot).",
-    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084823000000-5c8b66d724abd.jpg"
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084823000000-5c8b66d724abd.jpg",
+    "cellar": "Short"
   },
   {
     "grapename": "Pinot Grigio",
@@ -181,17 +171,20 @@
     "grapename": "Muller Thurgau",
     "color": "White",
     "description": "Muller-Thurgau is a white grape variety that traces its origins back to 1882 when a Swiss-born professor crossed Riesling with Silvaner in Germany’s Rheingau region. Muller-Thurgau is a classic example of the “new breed” of grape that has emerged since the end of the 19th century. Within Germany, Muller-Thurgau is now the second-most planted grape, trailing only Riesling.",
-    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084630000000-5c8b66661f406.jpg"
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084630000000-5c8b66661f406.jpg",
+    "cellar": "Short"
   },
   {
     "grapename": "Silvaner",
     "color": "White",
     "description": "Silvaner is a white grape variety that is primarily grown in western Germany and the French wine region of Alsace. It became extremely popular in the decades after the end of World War II as one of the grapes used to make the German wine Liebfraumilch. However, after a peak of popularity in the late 1960s and early 1970s, Liebfraumilch fell out of favour, and so did Silvaner. Silvaner remains the third-most popular white grape variety grown in Germany, trailing only Riesling and Müller-Thurgau.",
-    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084702000000-5c8b668679e36.jpg"
+    "imageLink": "https://usawineratings.com/cont/blog/imagePot/USAWineRatings-03152019084702000000-5c8b668679e36.jpg",
+    "cellar": "Medium"
   },
   {
     "grapename": "Grechetto",
-    "color": "White"
+    "color": "White",
+    "cellar": "Short"
   },
   {
     "grapename": "Gewurztraminer",
@@ -225,14 +218,6 @@
     "cellar": "Long"
   },
   {
-    "grapename": "Sylvaner",
-    "color": "White"
-  },
-  {
-    "grapename": "Lillet Blanc",
-    "color": "White"
-  },
-  {
     "grapename": "Petite Sirah",
     "color": "Red",
     "description": "Petite Sirah (also known as “Durif”) is a red grape variety that originated in France during the 1880s as a genetic crossing between Syrah and Peloursin Noir. The “petite” in the name refers to the relatively small size of the berries and not the vine. Compared to Syrah, Petite Sirah wines have a darker purple colour, as well as a rounder and fuller taste.",
@@ -248,7 +233,8 @@
     "grapename": "Cinsault",
     "color": "Red",
     "description": "Cinsault is a dark-skinned grape variety that is traditionally used as part of red wine blends rather than as a single varietal wine. Cinsault is a key component of the Southern Rhône Blend that includes Grenache, Syrah and Mourvèdre. The traditional home for Cinsault is the southern France wine region of Languedoc-Roussillon, but the grape is perhaps most famous as being one of the parents of South Africa’s famed Pinotage grape.",
-    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Cinsault-Grape.jpg"
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Cinsault-Grape.jpg",
+    "cellar": "Medium"
   },
   {
     "grapename": "Mourvedre",
@@ -259,11 +245,13 @@
   },
   {
     "grapename": "Baco Noir",
-    "color": "Red"
+    "color": "Red",
+    "cellar": "Medium"
   },
   {
     "grapename": "Bonarda",
-    "color": "Red"
+    "color": "Red",
+    "cellar": "Medium"
   },
   {
     "grapename": "Cabernet Franc",
@@ -271,8 +259,9 @@
     "cellar": "Medium"
   },
   {
-    "grapename": "Bairrada",
-    "color": "Red"
+    "grapename": "Baga",
+    "color": "Red",
+    "cellar": "Long"
   },
   {
     "grapename": "Barbera",
@@ -324,7 +313,8 @@
   },
   {
     "grapename": "Corvina",
-    "color": "Red"
+    "color": "Red",
+    "cellar": "Medium"
   },
   {
     "grapename": "Grenache",
@@ -354,13 +344,15 @@
   },
   {
     "grapename": "Carignan",
-    "color": "Red"
+    "color": "Red",
+    "cellar": "Medium"
   },
   {
     "grapename": "Petit Verdot",
     "color": "Red",
     "description": "Petit Verdot is a red grape variety primarily used by French winemakers to give added structure to the classic Bordeaux blends. As a blending grape, Petit Verdot is simply unsurpassed. It can impart colour, tannins, and flavour to red blends. This has made it popular with the most famous winemakers in the world, including those from the Médoc area of Bordeaux.",
-    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Petit-Verdot-Grape.jpg"
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Petit-Verdot-Grape.jpg",
+    "cellar": "Long"
   },
   {
     "grapename": "Carmenere",
@@ -371,7 +363,8 @@
   },
   {
     "grapename": "Cesanese",
-    "color": "Red"
+    "color": "Red",
+    "cellar": "Short"
   },
   {
     "grapename": "Cabernet Sauvignon",
@@ -384,7 +377,8 @@
     "grapename": "Blaufrankisch ",
     "color": "Red",
     "description": "Blaufrankisch is a dark-skinned grape variety used by winemakers in Central and Eastern Europe. In Austria, Blaufrankisch is the second-most-popular red grape variety, trailing only Zweigelt. It can also be found in Hungary, Croatia, Romania and Slovenia. Among wine enthusiasts, Blaufrankisch is sometimes referred to as “the Pinot Noir of the East.”",
-    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Blaufrankisch-Grape.jpg"
+    "imageLink": "https://static.usawineratings.com/cont/blog/imagePot/Blaufrankisch-Grape.jpg",
+    "cellar": "Medium"
   },
   {
     "grapename": "Aglianico",
@@ -435,7 +429,8 @@
   },
   {
     "grapename": "Dornfelder",
-    "color": "Red"
+    "color": "Red",
+    "cellar": "Short"
   },
   {
     "grapename": "Pinotage",
@@ -444,7 +439,8 @@
   },
   {
     "grapename": "Agiorgitiko",
-    "color": "Red"
+    "color": "Red",
+    "cellar": "Long"
   },
   {
     "grapename": "Pedro Ximenez",
