@@ -17,6 +17,8 @@ const SearchVineyard = (props) => {
     const requestUrl = 'https://app.gustos.life/en/api/v1';
     // STATES
 
+    const [gifView, setGifView] = useState("none")
+    const [gifOpView, setGifOpView] = useState("0")
     const [value, setValue] = useState(props.name);
     // vineyards
     const [vySearch, setVySearch] = useState("");
@@ -29,9 +31,12 @@ const SearchVineyard = (props) => {
     const [selectedVyWine, setSelectedVyWine] = useState("");
     const [vyWineSearch, setVyWineSearch] = useState("");
     const [wines, setWines] = useState([]);
+    const [drinkBy, setDrinkBy] = useState("");
 
     // style
     const [wineStyle, setWineStyle] = useState("");
+    // cellaring
+    const [approxCellar, setApproxCellar] = useState("");
     
     // grapes
     const [chkbxGrape, setChkbxGrape] = useState([
@@ -69,8 +74,10 @@ const SearchVineyard = (props) => {
         if(grapeModal){
             
             let gColors = "";
+            let cellaring = "";
             let myGrapes = "";
             let myGrapesID = [];
+            let time;
             setGrpDisplay([]);
             
             if(chkbxGrape){
@@ -84,10 +91,27 @@ const SearchVineyard = (props) => {
                     }
                     myGrapesID.push(chkbxGrape[i].id)
                     gColors = gColors + chkbxGrape[i].color;
-                    console.log(gColors)
+                    cellaring = cellaring + chkbxGrape[i].cellar;
+
                     i++
                 }
 
+                const hasNow = cellaring.search("Now");
+                const hasShort = cellaring.search("Short");                
+                const hasMed = cellaring.search("Medium");                
+                const hasLong = cellaring.search("Long");
+
+
+                if(hasNow >= 0){
+                    setApproxCellar("1");
+                } else if(hasShort >= 0){
+                    setApproxCellar("3");
+                } else if(hasMed >= 0){
+                    setApproxCellar("7");
+                } else if(hasLong >= 0){
+                    setApproxCellar("10");
+                }
+                console.log(approxCellar)
                 const hasRed = gColors.search("Red");
                 const hasWhite = gColors.search("White");
                 const hasPinot = myGrapes.search("Pinot Noir");
@@ -113,9 +137,8 @@ const SearchVineyard = (props) => {
                     // likely white
                     setWineStyle("White")
                 }
-                console.log("Red: " + hasRed + ", Pinot: " + hasPinot + ", Chard: " + hasChard)
             }
-            
+
             setGrpDisplay(myGrapes)
             setGrpDisplayId(myGrapesID)
             grapeModClickState = false;
@@ -141,7 +164,12 @@ const SearchVineyard = (props) => {
     async function chk(event){
         let oldArr;
         oldArr = chkbxGrape;
-        let val = {id:event.target.getAttribute("id"), name:event.target.getAttribute("value"), color:event.target.getAttribute("data-color")};
+        let val = {
+            id:event.target.getAttribute("id"), 
+            name:event.target.getAttribute("value"), 
+            color:event.target.getAttribute("data-color"), 
+            cellar:event.target.getAttribute("data-cellar")
+        };
 
         if(event.target.checked===true){
             oldArr.push(val);
@@ -171,14 +199,6 @@ const SearchVineyard = (props) => {
         } 
     })
 
-    /***********  Style  **********/
-    // useEffect(() => {
-    //     const resList = data?.getGrapeAll || ["X"];
-    //     if (!resList)
-    //     return
-        
-    //     setGrapeList([...resList])
-    // },[wineStyle])
 
 
     /*********** Vineyards *****/
@@ -260,33 +280,94 @@ const SearchVineyard = (props) => {
     const [createWine, { error }] = useMutation(ADD_NEWWINE);
     const addWine = async ( event ) => {
 
-        const winery = refVy.current.innerHTML; 
-        const name = refWn.current.innerHTML; 
-        let vintage = refVi.current.value;
-
-        if(grpDisplayId[0] === ""){
-            setGrpDisplayId(grpDisplayId.shift());
-        }
-
-        const grapes = grpDisplayId;
-        const style = wineStyle;
-
-        if(!winery || !name || !grapes){
-            alert("Please add all details");
-            return
-        }else if(!vintage){
-            vintage = "NV";
-        }
-
-        console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes + ", " + style)
-        try{
-            await createWine({
-                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes, style: style  },
-            });
-        } catch (error) {
-            console.error(error);
-        }
+    const winery = refVy.current.innerHTML; 
+    const name = refWn.current.innerHTML; 
+    let vintage = refVi.current.value;
+    let drink;
+    if(grpDisplayId[0] === ""){
+        setGrpDisplayId(grpDisplayId.shift());
     }
+
+    const grapes = grpDisplayId;
+    const style = wineStyle;
+
+    if(!winery || !name || !grapes){
+        alert("Please add all details");
+        return
+    }else if(!vintage){
+        vintage = "NV";
+    }else if(vintage){
+
+        if(vintage.length === 2){
+            const today = new Date();
+            const year = today.getFullYear();
+            const convert = String(year).slice(-2);
+            const year2 = Number(convert);
+            const vInt = parseInt(vintage);
+
+            const convert2 = String(year).slice(0,2);
+            
+            if(vInt > convert){
+                vintage = (convert2 - 1) + vintage;
+            }else{
+                vintage = convert2 + vintage;
+            }
+            drink = parseInt(vintage) + parseInt(approxCellar);
+
+        } 
+        // setDrinkBy
+
+    }                                                               
+
+    // console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes + ", " + style)
+    try{
+        await createWine({
+            variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes, style: style, drinkBy: drink.toString() },
+        });
+        // clear fields
+        setVySearch("")
+        setVyWineSearch("")
+        setGrpDisplay("")
+        setWineStyle("")
+        refVi.current.value = "";
+
+        // success gif
+        setGifView("block")
+        setTimeout(function(){
+            setGifOpView("1")
+            setTimeout(() => {
+                setGifOpView("0")
+    
+                setTimeout(() => {
+                    setGifView("none")
+                },500)
+            }, 1700);
+        },100)
+        
+        // clear states
+        setSelectedVy("");
+        setVineyards([]);
+        setVineyards([]);
+        setSelectedVy("");
+        setSelectedVyWine("");
+        setWines([]);
+        setDrinkBy("");
+        setApproxCellar("");
+        setChkbxGrape([
+            {
+                id: '',
+                name: '',
+                color: ''
+            }
+        ]);
+        setGrpDisplay([]);
+        setGrpDisplayId([]);
+
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 
 
@@ -362,7 +443,8 @@ const SearchVineyard = (props) => {
                     {grapeList &&
                     grapeList.map((option, i) => (
                         <span className="checkSpan" key={option._id} >
-                            <input type="checkbox" className="checkMark" id={option._id} value={option.grapename} key={option._id} onChange={chk} data-color={option.color} />
+                            <input type="checkbox" className="checkMark" id={option._id} value={option.grapename} 
+                            key={option._id} onChange={chk} data-color={option.color} data-cellar={option.cellar}/>
                             <label htmlFor={option._id} className="checkLabel">{option.grapename}</label>
                         </span>
                     ))}
@@ -392,12 +474,15 @@ const SearchVineyard = (props) => {
 
                     <label htmlFor="grapeSearchShow" className="searchLabel">Style</label>
 
-
-
             <button className="grpModal" id="addWine" onClick={addWine} >Add Wine</button>
             
-
-
+            <div id="success" style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/images/pop2.gif?a='+Math.random()+'?raw=true'})`,
+                display:gifView,
+                // display:"block",
+                opacity:gifOpView
+            }}>
+            </div>
         </div> 
     )
 };

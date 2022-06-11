@@ -5,7 +5,8 @@
     "name": "Grange",
     "vintage": "2008",
     "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
-    "style": "Red"
+    "style": "Red",
+    "drinkBy": "2058"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -13,7 +14,8 @@
     "name": "Art Series",
     "vintage": "2019",
     "grapes": ["6285c6bd672fd0707aebad8d"],
-    "style": "White"
+    "style": "White",
+    "drinkBy": "2042"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -21,7 +23,8 @@
     "name": "Dry Red No. 1",
     "vintage": "2019",
     "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
-    "style": "Red"
+    "style": "Red",
+    "drinkBy": "2040"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -29,7 +32,8 @@
     "name": "Great Western Riesling",
     "vintage": "2019",
     "grapes": ["6285c6bd672fd0707aebad9e"],
-    "style": "Red"
+    "style": "White",
+    "drinkBy": "2040"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -37,7 +41,8 @@
     "name": "Polish Hill",
     "vintage": "2008",
     "grapes": ["6285c6bd672fd0707aebad9e"],
-    "style": "White"
+    "style": "White",
+    "drinkBy": "2028"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -45,7 +50,8 @@
     "name": "Heritage Vines Tawny",
     "vintage": "1978",
     "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
-    "style": "Dessert"
+    "style": "Dessert",
+    "drinkBy": "2027"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -53,7 +59,8 @@
     "name": "Brut",
     "vintage": "NV",
     "grapes": ["6285c6bd672fd0707aebadb4","6285c6bd672fd0707aebad8d"],
-    "style": "Sparkling"
+    "style": "Sparkling",
+    "drinkBy": "2025"
   }
 ]
 

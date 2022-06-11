@@ -209,3 +209,16 @@
 #profileRack{
     margin-top: -20px;
 }
+
+
+#success{
+    display: block;
+    height: 100px;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+    transition-duration: 0.5s;
+    opacity: 0;
+}

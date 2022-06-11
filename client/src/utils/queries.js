@@ -43,6 +43,7 @@ export const QUERY_ALLMYWINE = gql`
       winery
       name
       vintage
+      drinkBy
       grapes
       style
       blend

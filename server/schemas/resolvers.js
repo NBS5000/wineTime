@@ -69,7 +69,7 @@ const resolvers = {
       return { token, profile };
     },
 
-    addNewWine: async (parent, { profileId, winery, name, vintage, grapes, style }) => {
+    addNewWine: async (parent, { profileId, winery, name, vintage, grapes, style, drinkBy }) => {
 
         const newWine = await Wine.create({ 
           profileId,
@@ -77,7 +77,8 @@ const resolvers = {
           name,
           vintage,
           grapes, 
-          style
+          style, 
+          drinkBy
         });
 
         return newWine

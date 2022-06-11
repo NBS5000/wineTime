@@ -24,6 +24,10 @@ const wineSchema = new Schema({
         type: String,
         required: true,
     },
+    drinkBy: {
+        type: String,
+        required: true,
+    },
     consumed: {
         type: Boolean,
         required: true,

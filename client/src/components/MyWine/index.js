@@ -15,13 +15,11 @@ const MyWineList = () => {
 
 
     useEffect(() => {
-        console.log(data)
         if (!data)
         return
 
 
         const allMyWine = data.getWineAll;
-        console.log(allMyWine)
         setMyWineList(allMyWine)
     },[data])
 
@@ -45,7 +43,7 @@ const MyWineList = () => {
                             <h3 className="wineTitle" key={wine.id}>{wine.winery}</h3>
                             <h4 className="wineName">{wine.name}</h4>
                             {/* <p className="wineGrape">{wine.grapes}</p> */}
-                            <p>{wine.vintage} <em className="drinkBy">(2058)</em></p>
+                            <p>{wine.vintage} <em className="drinkBy">({wine.drinkBy})</em></p>
                         </div>
                     </div>
                 ))}
