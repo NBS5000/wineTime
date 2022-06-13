@@ -2,12 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
+import  { Redirect } from 'react-router-dom'
+
+
 
 
 const Header = () => {
   const logout = (event) => {
+    debugger
     event.preventDefault();
     Auth.logout();
+    
   };
   return (
     <div>

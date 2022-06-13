@@ -59,6 +59,9 @@ function App() {
                     <div id="pleaseDiv">
                       <h2 id="pleaseH2" className="dance">Please log in</h2>
                     </div>
+                    <div id="mainContent">
+                      <Fun />
+                    </div>
                   </>
                 ) : (
                   <>

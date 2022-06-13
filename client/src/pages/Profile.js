@@ -6,7 +6,6 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-import Navigation from '../components/Navigation';
 
 const Profile = () => {
   const { profileId } = useParams();
@@ -47,7 +46,6 @@ const Profile = () => {
   return (
     <div id="profile">
 
-        <Navigation />
 
         
 
