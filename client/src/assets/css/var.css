@@ -1,9 +1,9 @@
 :root{
     --h_color: rgb(0, 176, 240);   /*  00aff0  */
-    --firstColor: rgb(128, 0, 0);
+    --firstColor: black;
     --firstColor_a7: rgba(0, 176, 240, 0.7);
     --secondColor: grey;
-    --thirdColor: #F3B116;
+    --thirdColor: rgb(128, 0, 0);
     --bx_shadow: 5px 5px 15px grey;
     --tx_shadow: 1px 1px 3px dimgray;
     --headerHeight: 100px;

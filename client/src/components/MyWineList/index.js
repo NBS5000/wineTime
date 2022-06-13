@@ -77,7 +77,7 @@ const MyWineList = () => {
     return (
         <div id="viewWineList">
 
-            <div id="wineListSection">
+            <div id="wineListSection" className="scroll">
                 {myWineList &&
                 myWineList.map((wine, i) => (
                     <div key={wine._id}>

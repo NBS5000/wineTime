@@ -1,0 +1,17 @@
+.scroll::-webkit-scrollbar {
+    background:transparent;
+    width: 8px;
+}
+
+.scroll::-webkit-scrollbar-thumb:vertical {
+    background-color: maroon;    
+    border-radius: 10px;  
+    border: 1px solid darkgray; 
+    height: 5px;
+}
+.scroll::-webkit-scrollbar-corner {
+    background-color: rgba(0, 0, 0, 0);
+}
+.scroll::-webkit-scrollbar-thumb:horizontal {
+    background-color: transparent;    
+}
