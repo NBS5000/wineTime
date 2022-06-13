@@ -57,7 +57,7 @@ function App() {
                   </>
                 ) : (
                   <>
-                  
+                    <Navigation />
                   </>
                 )}
                 <div id="mainContent">

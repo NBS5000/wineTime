@@ -23,11 +23,7 @@ const Profile = () => {
     }
   );
 
-  useEffect(() => {
-    // this.forceUpdate();
 
-
-  },[refreshWine])
 
 
 
@@ -54,21 +50,6 @@ const Profile = () => {
 
   return (
     <div id="profile">
-{/* 
-        <Routes>
-            <Route 
-                path="./searchWine"
-                element={<Search />}
-            />
-        </Routes> */}
-
-        {/* <div id="profileOptions">
-
-
-            <div className="homeOptions">
-                <img src="../../assets/images/corkscrew.png" alt="Corkscrew" id="profileScrew"/>Statistics
-            </div>
-        </div> */}
 
         <Navigation />
 

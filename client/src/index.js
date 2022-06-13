@@ -10,6 +10,7 @@ import './assets/css/grapeInfo.css';
 import './assets/css/home.css';
 import './assets/css/profile.css';
 import './assets/css/addWine.css';
+import './assets/css/nav.css';
 
 
 import App from './App';

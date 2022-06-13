@@ -60,18 +60,7 @@
     text-decoration: none;
 }
 
-.homeOptions{
-    background-color: maroon;
-    color: white;
-    height: 50px;
-    width: 200px;
-    border-radius: var(--searchBorderRad);
-    padding: 17px;
-    text-align: center;
-    align-content: center;
-    margin: 0 auto;
-    margin-bottom: 30px;
-}
+
 #profileRack, #profileBottle, #profileScrew{
     height:50px;
     width: 50px;

@@ -1,14 +1,8 @@
-import React/*, {useState}*/ from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from '../../pages/Home';
-import Profile from '../../pages/Profile';
-import Signup from '../../pages/Signup';
-import Login from '../../pages/Login';
-import Search from '../../pages/Search';
 
 const Header = () => {
   const logout = (event) => {
@@ -19,7 +13,7 @@ const Header = () => {
     <div>
       <header>
         <h1 className="dance" id="title">
-          <Link to="./Search" id="wtLink">WineTime</Link>
+          <Link to="/" id="wtLink">WineTime</Link>
         </h1>
         {Auth.loggedIn() ? (
           <>
@@ -47,35 +41,7 @@ const Header = () => {
           </>
         )}
       </header>
-      <div id="logContainer">
-        <Routes>
-          <Route 
-            path="/" 
-            element={<Home />}
-          />
-          <Route 
-            path="/login" 
-            element={<Login />}
-          />
-          <Route 
-            path="/signup" 
-            element={<Signup />}
-          />
-          <Route 
-            path="/me" 
-            element={<Profile />}
-          />
-          <Route 
-            path="/search" 
-            element={<Search />}
-          />
-          <Route 
-            path="/profiles/:profileId"
-            element={<Profile />}
-          />
 
-        </Routes>
-      </div>
     </div>
   );
 };
