@@ -41,7 +41,6 @@ const MyWineList = () => {
 
 
     async function wineModClick(event){
-        let wineModClickState
         console.log(event.target)
         debugger
         if(!wineModal){
@@ -64,12 +63,9 @@ const MyWineList = () => {
                 }
             )
 
-
-            wineModClickState = true;
             setWineModal(true);
 
         }else{
-            wineModClickState = false;
             setWineModal(false);
 
         }
@@ -81,17 +77,10 @@ const MyWineList = () => {
     return (
         <div id="viewWineList">
 
-            {/* <Link to="myWines" className="profileLinks"> */}
-                {/* <div className="homeOptions">
-                    <img src="../../../assets/images/rack.png" alt="Rack of wine" id="profileRack"/>My Wines
-                </div> */}
-            {/* </Link> */}
-
-
             <div id="wineListSection">
                 {myWineList &&
                 myWineList.map((wine, i) => (
-                    <div>
+                    <div key={wine._id}>
                         <button className="btn_viewWine"  onClick={wineModClick} 
                             data-id={wine._id}
                             data-winery={wine.winery} 
@@ -131,7 +120,6 @@ const MyWineList = () => {
                         <h3 id="mod_winery">{wineDets.winery}</h3>
                         <h4 id="mod_wineName">{wineDets.name}</h4>
 
-
                         <div className="closeModalWrap">
                             <button className="grpModal"onClick={wineModClick} id="closeWineModal">Close</button>
                         </div>
@@ -143,10 +131,6 @@ const MyWineList = () => {
                 <div></div>
             </>
             )}
-
-
-
-
 
         </div>
     )

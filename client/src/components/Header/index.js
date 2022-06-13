@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
-// import { BrowserRouter as Routes, Route } from 'react-router-dom';
 
 
 const Header = () => {

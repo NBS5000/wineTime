@@ -1,11 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ALLGRAPES, QUERY_ALLSTYLES } from '../../utils/queries';
+import { QUERY_ALLGRAPES } from '../../utils/queries';
 import { ADD_NEWWINE } from '../../utils/mutations';
-
-
-import {useParams} from 'react-router-dom';
-import VineyardList from './vineyardList';
 
 import Auth from '../../utils/auth';
 
@@ -18,7 +14,6 @@ const SearchVineyard = ({setRefreshWine}) => {
 
     const [gifView, setGifView] = useState("none")
     const [gifOpView, setGifOpView] = useState("0")
-    // const [value, setValue] = useState(props.name);
     // vineyards
     const [vySearch, setVySearch] = useState("");
     const [vineyards, setVineyards] = useState([]);
@@ -30,7 +25,6 @@ const SearchVineyard = ({setRefreshWine}) => {
     const [selectedVyWine, setSelectedVyWine] = useState("");
     const [vyWineSearch, setVyWineSearch] = useState("");
     const [wines, setWines] = useState([]);
-    const [drinkBy, setDrinkBy] = useState("");
 
     // style
     const [wineStyle, setWineStyle] = useState("");
@@ -56,7 +50,7 @@ const SearchVineyard = ({setRefreshWine}) => {
     ]);
     const [grpDisplay, setGrpDisplay] = useState([]);
     const [grpDisplayId, setGrpDisplayId] = useState([]);
-    const { loading, data } = useQuery(QUERY_ALLGRAPES);
+    const { data } = useQuery(QUERY_ALLGRAPES);
 
 
     useEffect(() => {
@@ -68,7 +62,6 @@ const SearchVineyard = ({setRefreshWine}) => {
     },[data])
 
 
-    let grapeModClickState = true;
     async function grapeModClick(){
         if(grapeModal){
             
@@ -76,7 +69,6 @@ const SearchVineyard = ({setRefreshWine}) => {
             let cellaring = "";
             let myGrapes = "";
             let myGrapesID = [];
-            let time;
             setGrpDisplay([]);
             
             if(chkbxGrape){
@@ -140,7 +132,6 @@ const SearchVineyard = ({setRefreshWine}) => {
 
             setGrpDisplay(myGrapes)
             setGrpDisplayId(myGrapesID)
-            grapeModClickState = false;
             setGrapeModal(false);
         }else{
             
@@ -148,17 +139,9 @@ const SearchVineyard = ({setRefreshWine}) => {
             let myGrapesID = [];
             setGrpDisplay(myGrapes)
             setGrpDisplayId(myGrapesID)
-            grapeModClickState = true;
             setGrapeModal(true);
         }
     }
-
-    let chosenGrapes;
-    useEffect(() =>  {
-        if(chkbxGrape.length>1){
-            chosenGrapes = `<span>{ chkbxGrape && chkbxGrape.map((chkbx) => (<span key={chkbx.id}>{chkbx.name}</span>))}</span>`
-        }
-    },[chkbxGrape])
     
     async function chk(event){
         let oldArr;
@@ -276,7 +259,7 @@ const SearchVineyard = ({setRefreshWine}) => {
     const refVi = useRef(null);
     const refGr = useRef(null);
 
-    const [createWine, { error }] = useMutation(ADD_NEWWINE);
+    const [createWine, /*{ error }*/] = useMutation(ADD_NEWWINE);
     const addWine = async ( event ) => {
 
         const winery = refVy.current.innerHTML; 
@@ -300,7 +283,6 @@ const SearchVineyard = ({setRefreshWine}) => {
             const year2 = Number(year);
             drink = year2 + 1;
         }else if(vintage){
-
             const vInt = parseInt(vintage);
             if(!vInt){
                 alert('Please enter a valid vintage, or leave blank for Non Vintage wines')
@@ -308,10 +290,7 @@ const SearchVineyard = ({setRefreshWine}) => {
             }
 
             if(vintage.length === 2){
-
                 const convert = String(year).slice(-2);
-                const year2 = Number(convert);
-
                 const convert2 = String(year).slice(0,2);
                 
                 if(vInt > convert){
@@ -330,11 +309,9 @@ const SearchVineyard = ({setRefreshWine}) => {
                 }
                 drink = parseInt(vintage) + parseInt(approxCellar);
             }
-            // setDrinkBy
 
         }                                                               
 
-        // console.log(profileId + ", " + winery + ", " + name + ", " + vintage + ", " + grapes + ", " + style)
         try{
             await createWine({
                 variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes, style: style, drinkBy: drink.toString() },
@@ -374,7 +351,6 @@ const SearchVineyard = ({setRefreshWine}) => {
             setSelectedVy("");
             setSelectedVyWine("");
             setWines([]);
-            setDrinkBy("");
             setApproxCellar("");
             setChkbxGrape([
                 {
@@ -411,8 +387,6 @@ const SearchVineyard = ({setRefreshWine}) => {
                 </ul>
 
 
-
-
                 {/* wines */}
                 <textarea 
                     type="text" className="searchField"  id="bottleSearch" 
@@ -431,9 +405,7 @@ const SearchVineyard = ({setRefreshWine}) => {
                 </ul>
 
 
-
-
-
+                {/* vintage */}
                 <textarea 
                     type="text" className="searchField"  id="vintageSearch" 
                     placeholder=" " name="textarea" ref={refVi} >
@@ -441,9 +413,9 @@ const SearchVineyard = ({setRefreshWine}) => {
                 </textarea>
 
                 <label htmlFor="vintageSearch" className="searchLabel">Vintage</label>
-                
-                
-            
+
+
+                {/* grape */}
                 <textarea 
                     type="text" className="searchField"  id="grapeSearchShow"  ref={refGr}
                     placeholder=" " name="textarea" disabled={true} value={grpDisplay} data-idlist={grpDisplayId}><div></div></textarea>
@@ -451,10 +423,11 @@ const SearchVineyard = ({setRefreshWine}) => {
                 <label htmlFor="grapeSearchShow" className="searchLabel">Grape</label>
 
 
-                        {/* add grapes button */}
+                {/* add grapes button */}
                 <button className="grpModal" id="btn_addGrp" onClick={grapeModClick}></button>
 
 
+                {/* wine style */}
                 <select 
                     className="searchField"  id="wineStyleShow" onChange={(event) => {setWineStyle(event.target.value)}}
                     placeholder=" " name="styleSelect" value={wineStyle} required>
@@ -464,19 +437,14 @@ const SearchVineyard = ({setRefreshWine}) => {
                     <option value="Rose">Rose</option>
                     <option value="Sparkling">Sparkling</option>
                     <option value="Dessert">Dessert</option>
-
                 </select>
 
                 <label htmlFor="grapeSearchShow" className="searchLabel">Style</label>
-
-
-
-
-
             </div>
+
+            {/* modal */}
             { grapeModal ? (
             <>
-            
                 <div id="chkGrape">
                     <div id="grapeChkBody">
                     {grapeList &&
@@ -499,10 +467,11 @@ const SearchVineyard = ({setRefreshWine}) => {
             </>
             )}
 
-                    
 
+            {/* add wine button */}
             <button className="grpModal" id="addWine" onClick={addWine} >Add Wine</button>
             
+            {/* success gif */}
             <div id="success" style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/images/pop2.gif?a='+Math.random()+'?raw=true'})`,
                 display:gifView,
