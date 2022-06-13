@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchVineyard from './searchVineyard';
 
-const SearchWine = () => {
+const SearchWine = ({setRefreshWine}) => {
 
 
   return (

@@ -7,13 +7,11 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-import Navigation from '../components/Navigation';
-import SearchWine from '../components/SearchWine';
-import Search from './Search';
+// import MyWine from './MyWine';
+// import MyWines from './MyWines';
 
-const Profile = () => {
+const MyWine = () => {
   const { profileId } = useParams();
-  const [refreshWine, setRefreshWine] = useState(0);
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
@@ -23,11 +21,7 @@ const Profile = () => {
     }
   );
 
-  useEffect(() => {
-    // this.forceUpdate();
 
-
-  },[refreshWine])
 
 
 
@@ -53,15 +47,15 @@ const Profile = () => {
   }
 
   return (
-    <div id="profile">
-{/* 
-        <Routes>
+    <div>
+
+        {/* <Routes>
             <Route 
-                path="./searchWine"
-                element={<Search />}
+                path="../components/searchWine"
+                element={<SearchWine />}
             />
         </Routes> */}
-
+      
         {/* <div id="profileOptions">
 
 
@@ -70,12 +64,14 @@ const Profile = () => {
             </div>
         </div> */}
 
-        <Navigation />
-
-        
+<div>
+            <div>
+                <MyWine />
+            </div>
+        </div>
 
     </div>
   );
 };
 
-export default Profile;
+export default MyWine;

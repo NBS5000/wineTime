@@ -2,11 +2,10 @@ import React from 'react';
 
 import SearchWine from '../components/SearchWine';
 
-const Home = () => {
+const Search = () => {
 
     return (
-        <div id="homeContent">
-            <h1>My wine test</h1>
+        <div>
             <div>
                 <SearchWine />
             </div>
@@ -14,4 +13,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Search;

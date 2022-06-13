@@ -8,6 +8,7 @@ import Home from '../../pages/Home';
 import Profile from '../../pages/Profile';
 import Signup from '../../pages/Signup';
 import Login from '../../pages/Login';
+import Search from '../../pages/Search';
 
 const Header = () => {
   const logout = (event) => {
@@ -18,7 +19,7 @@ const Header = () => {
     <div>
       <header>
         <h1 className="dance" id="title">
-          <Link to="/" id="wtLink">WineTime</Link>
+          <Link to="./Search" id="wtLink">WineTime</Link>
         </h1>
         {Auth.loggedIn() ? (
           <>
@@ -63,6 +64,10 @@ const Header = () => {
           <Route 
             path="/me" 
             element={<Profile />}
+          />
+          <Route 
+            path="/search" 
+            element={<Search />}
           />
           <Route 
             path="/profiles/:profileId"

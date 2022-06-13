@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     position: absolute;
-    margin-top: 18%;
+    margin-top: 100px;
 }
 
 #grapeInfo, #searchWine{
@@ -63,4 +63,50 @@
     margin: 0 auto;
     margin-top: 50px;
     display: block;
+}
+
+
+/* Wine details modal */
+#mod_winery, #mod_wineName{
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    margin-top: 10px;
+    background-color: red;
+}
+#mod_winery{
+    font-size: 180%;
+}
+#mod_wineName{
+    font-size: 140%;
+}
+#wineDetBody{
+    min-height:70%;
+    height: fit-content;
+    width: 70%;
+    padding: 20px 5%;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 30px;
+}
+#closeWineModal{
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.btn_viewWine{
+    height: 120px;
+    width: 300px;
+    display: block;
+    margin: 0;
+    border: none;
+    border-radius: var(--searchBorderRad);
+    margin-bottom: 20px;
+    z-index: 5000;
+    background-color: rgba(0,0,0,0);
 }
