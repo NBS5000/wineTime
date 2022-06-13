@@ -42,7 +42,7 @@ const MyWineList = () => {
 
     async function wineModClick(event){
         console.log(event.target)
-        debugger
+
         if(!wineModal){
             setWineDets(
                 { 
