@@ -19,15 +19,15 @@ const Login = (props) => {
     });
   };
 
-  function proceed(){
-    setTimeout((1600));
-    const nextURL = '/profile';
-    const nextTitle = 'WineTime';
-    const nextState = { additionalInformation: 'Updated the URL with JS' };
-    window.history.pushState(nextState, nextTitle, nextURL);
+  // function proceed(){
+  //   setTimeout((1600));
+  //   const nextURL = '/profile';
+  //   const nextTitle = 'WineTime';
+  //   const nextState = { additionalInformation: 'Updated the URL with JS' };
+  //   window.history.pushState(nextState, nextTitle, nextURL);
     
   
-  }
+  // }
 
   // submit form
   const handleFormSubmit = async (event) => {
@@ -55,7 +55,7 @@ const Login = (props) => {
       
             {data ? (
 
-              // proceed()
+
               <p>
                   Success!
               </p>

@@ -6,9 +6,7 @@ const Search = () => {
 
     return (
         <div>
-            <div>
-                <SearchWine />
-            </div>
+            <SearchWine />
         </div>
     );
 };

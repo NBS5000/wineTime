@@ -6,7 +6,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Auth from './utils/auth';
 
@@ -15,6 +15,13 @@ import Footer from './components/Footer';
 import Bg from './components/Bg';
 import Fun from './components/Fun';
 import Navigation from './components/Navigation';
+
+import Home from './pages/Home';
+import Login from './pages/Login';
+import MyWine from './pages/MyWine';
+import Profile from './pages/Profile';
+import Search from './pages/Search';
+import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,10 +51,8 @@ function App() {
     return (
       <div id="app">
         <Bg />
-          <ApolloProvider client={client}>
-            <Router>
+            <ApolloProvider client={client}>
                 <Header />
- 
 
                 {!Auth.loggedIn() ? (
                   <>
@@ -58,14 +63,44 @@ function App() {
                 ) : (
                   <>
                     <Navigation />
+                    <div id="mainContent">
+                      <Fun />
+                    </div>
                   </>
                 )}
-                <div id="mainContent">
-                  <Fun />
-                </div>
+
+                <Routes>
+                    <Route 
+                      path="/" 
+                      element={<Home />}
+                    />
+                    <Route 
+                      path="/login" 
+                      element={<Login />}
+                    />
+                    <Route 
+                      path="/search" 
+                      element={<Search />}
+                    />
+                    <Route 
+                      path="/mywine" 
+                      element={<MyWine />}
+                    />
+                    <Route 
+                      path="/signup" 
+                      element={<Signup />}
+                    />
+                    <Route 
+                      path="/me" 
+                      element={<Profile />}
+                    />
+                    <Route 
+                      path="/profiles/:profileId"
+                      element={<Profile />}
+                    />
+                </Routes>
                 <Footer />
-            </Router>
-          </ApolloProvider>
+            </ApolloProvider>
         </div>
     );
 }

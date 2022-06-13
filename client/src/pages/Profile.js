@@ -2,18 +2,14 @@ import React, {useEffect, useState} from 'react';
 
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
 import Navigation from '../components/Navigation';
-import SearchWine from '../components/SearchWine';
-import Search from './Search';
 
 const Profile = () => {
   const { profileId } = useParams();
-  const [refreshWine, setRefreshWine] = useState(0);
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(

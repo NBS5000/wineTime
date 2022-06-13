@@ -1,15 +1,12 @@
 
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLMYWINE } from '../../utils/queries';
 
-const MyWineList = ({refreshWine}) => {
+const MyWineList = () => {
     const [myWineList, setMyWineList] = useState([]);
-    const { loading, data } = useQuery(QUERY_ALLMYWINE);
-    let refreshList = useQuery(QUERY_ALLMYWINE);
-
+    const { data } = useQuery(QUERY_ALLMYWINE);
     const [wineModal, setWineModal] = useState(false)
 
     const [wineDets, setWineDets] = useState([
@@ -42,8 +39,9 @@ const MyWineList = ({refreshWine}) => {
         setMyWineList(allMyWine)
     },[data])
 
-    let wineModClickState = true;
+
     async function wineModClick(event){
+        let wineModClickState
         console.log(event.target)
         debugger
         if(!wineModal){
@@ -84,9 +82,9 @@ const MyWineList = ({refreshWine}) => {
         <div id="viewWineList">
 
             {/* <Link to="myWines" className="profileLinks"> */}
-                <div className="homeOptions">
+                {/* <div className="homeOptions">
                     <img src="../../../assets/images/rack.png" alt="Rack of wine" id="profileRack"/>My Wines
-                </div>
+                </div> */}
             {/* </Link> */}
 
 

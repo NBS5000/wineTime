@@ -4,7 +4,6 @@ import { QUERY_ALLGRAPES, QUERY_ALLSTYLES } from '../../utils/queries';
 import { ADD_NEWWINE } from '../../utils/mutations';
 
 
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 import VineyardList from './vineyardList';
 

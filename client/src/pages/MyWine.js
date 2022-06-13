@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-import { Navigate, useParams, Link } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-// import MyWine from './MyWine';
-// import MyWines from './MyWines';
+import MyWineList from '../components/MyWineList';
 
 const MyWine = () => {
   const { profileId } = useParams();
@@ -20,10 +18,6 @@ const MyWine = () => {
       variables: { profileId: profileId },
     }
   );
-
-
-
-
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
@@ -46,30 +40,14 @@ const MyWine = () => {
     );
   }
 
+
+
+
   return (
     <div>
-
-        {/* <Routes>
-            <Route 
-                path="../components/searchWine"
-                element={<SearchWine />}
-            />
-        </Routes> */}
-      
-        {/* <div id="profileOptions">
-
-
-            <div className="homeOptions">
-                <img src="../../assets/images/corkscrew.png" alt="Corkscrew" id="profileScrew"/>Statistics
-            </div>
-        </div> */}
-
-<div>
-            <div>
-                <MyWine />
-            </div>
-        </div>
-
+          <div>
+              <MyWineList />
+          </div>
     </div>
   );
 };

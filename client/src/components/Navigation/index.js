@@ -9,12 +9,12 @@ const Navigation = () => {
   return (
     <div id="navigation">
       <div id="navWrapper">
-        <Link to="./Search" className="navLink" >
+        <Link to="/Search" className="navLink" >
                 <div className="homeOptions">
                     <img src="../../assets/images/bottle.png" alt="Bottle" id="profileBottle"/>Add Wine
             </div>
         </Link>
-        <Link to="./MyWine" className="navLink" >
+        <Link to="/MyWine" className="navLink" >
                 <div className="homeOptions">
                     <img src="../../assets/images/rack.png" alt="Rack" id="profileRack"/>My Wine
             </div>

@@ -7,9 +7,9 @@ const SearchWine = ({setRefreshWine}) => {
   return (
     <div id="searchWineBody">
                   {/* <Link to="/searchWine" className="profileLinks"> */}
-                <div className="homeOptions">
+                {/* <div className="homeOptions">
                     <img src="../../assets/images/bottle.png" alt="Bottle of wine" id="profileBottle"/>Add Wine
-                </div>
+                </div> */}
             {/* </Link> */}
         <SearchVineyard /> 
     </div>
