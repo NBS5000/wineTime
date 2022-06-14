@@ -317,6 +317,32 @@
     "cellar": "Medium"
   },
   {
+    "grapename": "Clairette",
+    "color": "White",
+    "cellar": "Short"
+  },
+  {
+    "grapename": "Graciano",
+    "color": "Red",
+    "cellar": "Medium"
+  },
+
+  {
+    "grapename": "Grenache Blanc",
+    "color": "White",
+    "cellar": "Medium"
+  },
+  {
+    "grapename": "Aligote",
+    "color": "White",
+    "cellar": "Short"
+  },
+  {
+    "grapename": "Bourboulenc",
+    "color": "White",
+    "cellar": "Short"
+  },
+  {
     "grapename": "Grenache",
     "color": "Red",
     "description": "Grenache (known as “Garnacha” in Spain) is one of the most popular red grape varieties in the world. The best Grenache wines can be found in France (especially the Rhône Valley) and Spain (especially Rioja and Aragon). Grenache grapes are used to produce wines that are berry-flavoured, spicy in subtle ways, and soft to drink. They also tend to have a relatively high alcohol content.",

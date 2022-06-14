@@ -54,7 +54,7 @@ const MyWineList = () => {
                     name: event.target.dataset.name,
                     winery: event.target.dataset.winery,
                     vintage: event.target.dataset.vintage,
-                    // drinkBy: e.data.drink,
+                    drinkBy: event.target.dataset.drink,
                     // style: e.data.style,
                     // grapes: e.data.grapes,
         
@@ -124,6 +124,9 @@ const MyWineList = () => {
                     <div id="wineDetBody">
                         <h3 id="mod_winery">{wineDets.winery}</h3>
                         <h4 id="mod_wineName">{wineDets.name}</h4>
+
+                        <p id="mod_vintage">{wineDets.vintage}   <span id="mod_drinkBy">{wineDets.drinkBy}</span></p>
+
 
                         <div className="closeModalWrap">
                             <button className="grpModal"onClick={wineModClick} id="closeWineModal">Close</button>
