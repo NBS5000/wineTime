@@ -58,7 +58,7 @@ export const QUERY_ALLMYWINE = gql`
 
 export const QUERY_FILTERMYWINE = gql`
   query getMyWineFilter {
-    getWineFilter {
+    getMyWineFilter {
       _id
       winery
       name
