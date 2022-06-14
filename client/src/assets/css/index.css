@@ -18,6 +18,12 @@ body{
 
 }
 
+#hello{
+  font-size:300%;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
 
 .dance{
   font-family: 'Dancing Script',Arial, Helvetica, sans-serif;

@@ -1,12 +1,19 @@
 
 import React, {useEffect, useState} from 'react';
+import Auth from '../../utils/auth';
 
 import { throwServerError, useQuery } from '@apollo/client';
 import { QUERY_ALLMYWINE, QUERY_FILTERMYWINE } from '../../utils/queries';
 
+import Please from '../Please';
+
+
 const MyWineList = () => {
+
+    
+
     const [myWineList, setMyWineList] = useState([]);
-    let { data } = useQuery(QUERY_ALLMYWINE, {pollInterval: 500});
+    let { data } = useQuery(QUERY_ALLMYWINE,/*['profileId', prodId],*/ {pollInterval: 500});
     let {filterData} = useQuery(QUERY_FILTERMYWINE)
     const [wineModal, setWineModal] = useState(false)
 
@@ -33,32 +40,32 @@ const MyWineList = () => {
     const [filtering, setFiltering] = useState(false)
     const [wineFilter, setWineFilter] = useState("");
     
-    const [filterTheList, error] = useQuery(QUERY_FILTERMYWINE);
+    // const [filterTheList, error] = useQuery(QUERY_FILTERMYWINE);
     const filterList = async (event) => {
 
-        const input = String(event.target.value);
-        const len = String(input).length
+    //     const input = String(event.target.value);
+    //     const len = String(input).length
 
-        if(!len || len ===0){
-            setFiltering(false);
-            return
-        }else{
-            setFiltering(true);
-        }
+    //     if(!len || len ===0){
+    //         setFiltering(false);
+    //         return
+    //     }else{
+    //         setFiltering(true);
+    //     }
 
         
 
-        try{
-            await filterTheList({
-                variables: { 
-                    searchTerm: input, 
-                }
-            });
+    //     try{
+    //         await filterTheList({
+    //             variables: { 
+    //                 searchTerm: input, 
+    //             }
+    //         });
 
-            console.log()
-        } catch (error) {
-            console.error(error);
-        }
+    //         console.log()
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
 
 
 
@@ -72,7 +79,7 @@ const MyWineList = () => {
 
             return
         }else{
-            console.log("not filtering")
+            // console.log("not filtering")
         }
 
 
@@ -82,9 +89,6 @@ const MyWineList = () => {
 
 
     async function wineModClick(event){
-        console.log(event)
-        const dets = event.target.dataset;
-        console.log(dets)
 
         if(!wineModal){
             debugger
@@ -106,7 +110,6 @@ const MyWineList = () => {
                     // blend: e.data.blend
                 }
             )
-            console.log({wineDets})
             setWineModal(true);
 
         }else{
@@ -120,6 +123,7 @@ const MyWineList = () => {
 
     return (
         <div id="viewWineList">
+
 
             {/* filter field */}
             <textarea 
@@ -188,6 +192,8 @@ const MyWineList = () => {
                 <div></div>
             </>
             )}
+
+
 
         </div>
     )

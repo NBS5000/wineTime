@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
-
+import Please from "../components/Please";
 
 const Profile = () => {
   const { profileId } = useParams();
@@ -37,9 +37,7 @@ const Profile = () => {
 
   if (!profile?.name) {
     return (
-      <h4>
-        Please log in first.
-      </h4>
+      <Please />
     );
   }
 

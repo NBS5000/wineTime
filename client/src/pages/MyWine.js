@@ -4,6 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 import Fun from '../components/Fun';
+import Please from '../components/Please';
 
 import Auth from '../utils/auth';
 
@@ -48,9 +49,7 @@ const MyWine = () => {
     <div>
         {!Auth.loggedIn() ? (
             <>
-                <div id="pleaseDiv">
-                    <h2 id="pleaseH2" className="dance">Please log in</h2>
-                </div>
+                <Please />
                 <Fun />
             </>
             ) : (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import Please from "../components/Please";
 
 import Auth from '../utils/auth';
 
@@ -16,9 +16,7 @@ const Home = () => {
 
             {!Auth.loggedIn() ? (
                 <>
-                <div id="pleaseDiv">
-                    <h2 id="pleaseH2" className="dance">Please log in</h2>
-                </div>
+                    <Please />
                 </>
             ) : (
                 <>

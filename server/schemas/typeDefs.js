@@ -64,7 +64,7 @@ const typeDefs = gql`
     getQuote: [Quote]
 
     getWineAll: [Wine]
-    getMyWineAll: [Wine]
+    getMyWineAll(profileId: ID!): [Wine]
     getMyWineFilter: [Wine]
 
     getStyleAll: [Style]
