@@ -320,7 +320,15 @@ const SearchVineyard = ({setRefreshWine}) => {
 
         try{
             await createWine({
-                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes, style: style, drinkBy: drink.toString(), quantity: quantity},
+                variables: { 
+                    profileId: profileId, 
+                    winery: winery, 
+                    name: name, 
+                    vintage: vintage, 
+                    grapes: grapes, 
+                    style: style, 
+                    drinkBy: drink.toString(), 
+                    quantity: quantity},
             });
 
             clearAll();
@@ -335,10 +343,7 @@ const SearchVineyard = ({setRefreshWine}) => {
                     },500)
                 }, 1700);
             },100)
-            debugger
-            // setRefreshWine(Math.random())
-            localStorage.setItem("update", Date.now());
-            console.log(localStorage.getItem("update"))
+
         } catch (error) {
             console.error(error);
         }

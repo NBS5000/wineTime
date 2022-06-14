@@ -65,7 +65,8 @@ const typeDefs = gql`
 
     getWineAll: [Wine]
     getMyWineAll: [Wine]
-    
+    getMyWineFilter: [Wine]
+
     getStyleAll: [Style]
   }
 

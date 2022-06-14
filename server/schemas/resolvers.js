@@ -40,6 +40,10 @@ const resolvers = {
     getMyWineAll: async (parent, {profileId}) => {
       return Wine.find({ profileId: profileId });
     },
+
+    getMyWineFilter: async (parent, {profileId, searchTerm}) => {
+      return Wine.find({ profileId: profileId }, {$or: [ { name: searchTerm}, {winery: searchTerm}]});
+    },
     getStyleAll: async () => {
       return Style.find();
     },

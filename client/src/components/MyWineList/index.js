@@ -1,12 +1,13 @@
 
 import React, {useEffect, useState} from 'react';
 
-import { useQuery } from '@apollo/client';
-import { QUERY_ALLMYWINE } from '../../utils/queries';
+import { throwServerError, useQuery } from '@apollo/client';
+import { QUERY_ALLMYWINE, QUERY_FILTERMYWINE } from '../../utils/queries';
 
 const MyWineList = () => {
     const [myWineList, setMyWineList] = useState([]);
     let { data } = useQuery(QUERY_ALLMYWINE, {pollInterval: 500});
+    let {filterData} = useQuery(QUERY_FILTERMYWINE)
     const [wineModal, setWineModal] = useState(false)
 
     const [wineDets, setWineDets] = useState(
@@ -28,20 +29,56 @@ const MyWineList = () => {
             blend: ''
         }
     );
-
-
     
+    const [filtering, setFiltering] = useState(false)
+    const [wineFilter, setWineFilter] = useState("");
+    
+    const [filterTheList, error] = useQuery(QUERY_FILTERMYWINE);
+    const filterList = async (event) => {
 
+        const input = String(event.target.value);
+        const len = String(input).length
+
+        if(!len || len ===0){
+            setFiltering(false);
+            return
+        }else{
+            setFiltering(true);
+        }
+
+        
+
+        try{
+            await filterTheList({
+                variables: { 
+                    searchTerm: input, 
+                }
+            });
+
+            console.log()
+        } catch (error) {
+            console.error(error);
+        }
+
+
+
+    }
 
     useEffect(() => {
         if (!data)
         return
+        if (filtering){
+            console.log("list is filtering")
 
+            return
+        }else{
+            console.log("not filtering")
+        }
 
 
         const allMyWine = data.getWineAll;
         setMyWineList(allMyWine)
-    },[data])
+    },[data, filtering])
 
 
     async function wineModClick(event){
@@ -58,7 +95,7 @@ const MyWineList = () => {
                     winery: event.target.dataset.winery,
                     vintage: event.target.dataset.vintage,
                     drinkBy: event.target.dataset.drink,
-                    // style: e.data.style,
+                    style: event.target.dataset.style,
                     // grapes: e.data.grapes,
         
                     // consumed: e.data.consumed,
@@ -83,6 +120,15 @@ const MyWineList = () => {
 
     return (
         <div id="viewWineList">
+
+            {/* filter field */}
+            <textarea 
+                type="text" className="searchField"  id="wineFilter" 
+                placeholder=" " name="textarea" onChange={filterList}  >
+
+            </textarea>
+
+            <label htmlFor="wineFilter" id="lbl_wineFilter"className="searchLabel">Filter</label>
 
             <div id="wineListSection" className="scroll">
                 {myWineList &&

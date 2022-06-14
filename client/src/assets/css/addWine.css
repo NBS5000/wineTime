@@ -132,3 +132,12 @@
     color: grey;
     font-style: italic;
 }
+
+#wineFilter{
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+#lbl_wineFilter{
+    margin-left: 43%;
+    /* margin-top: 1px; */
+}
