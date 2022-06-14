@@ -57,9 +57,10 @@ export const QUERY_ALLMYWINE = gql`
 `;
 
 export const QUERY_FILTERMYWINE = gql`
-  query getMyWineFilter {
-    getMyWineFilter {
+  query getMyWineFilter($profileId: String!,$searchTerm: String) {
+    getMyWineFilter(profileId: $profileId, searchTerm: $searchTerm) {
       _id
+      profileId
       winery
       name
       vintage

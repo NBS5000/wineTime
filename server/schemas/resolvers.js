@@ -42,7 +42,7 @@ const resolvers = {
     },
 
     getMyWineFilter: async (parent, {profileId, searchTerm}) => {
-      return Wine.find({ profileId: profileId }, {$or: [ { name: searchTerm}, {winery: searchTerm}]});
+      return Wine.find({ profileId: profileId }, {$or: [ { name: { $regex: searchTerm, $options: 'i'}}, {winery: { $regex: searchTerm,$options: 'i'}}]});
     },
     getStyleAll: async () => {
       return Style.find();

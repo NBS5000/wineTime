@@ -1,20 +1,49 @@
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import Auth from '../../utils/auth';
 
+import { Navigate, useParams } from 'react-router-dom';
 import { throwServerError, useQuery } from '@apollo/client';
 import { QUERY_ALLMYWINE, QUERY_FILTERMYWINE } from '../../utils/queries';
 
-import Please from '../Please';
+import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../../utils/queries';
+
 
 
 const MyWineList = () => {
 
-    
+    // function myId (){
+        // const prof = Auth.getProfile(); const me = prof.data._id; return me;
+
+
+        const refFilter = useRef("");
+    //     return me;
+    // }
+    // const { profileId } = useParams();
+
+    // const { loading, d } = useQuery(
+    //     profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
+    //     {
+    //         variables: { profileId: profileId },
+    //     }
+    // );
+
+    // console.log(me)
+
+
+    //, {$or: [ { name: { $regex: searchTerm, $options: 'i'}}, {winery: { $regex: searchTerm,$options: 'i'}}]}
+    //, 'searchTerm':refFilter
+
 
     const [myWineList, setMyWineList] = useState([]);
-    let { data } = useQuery(QUERY_ALLMYWINE,/*['profileId', prodId],*/ {pollInterval: 500});
-    let {filterData} = useQuery(QUERY_FILTERMYWINE)
+    let { data } = useQuery(QUERY_FILTERMYWINE,
+            {
+                'profileId': async function me () { const prof = await Auth.getProfile(); const me = toString(prof.data._id); return me;}, 
+                'searchTerm': refFilter
+            }, 
+            {pollInterval: 500}
+        );
+    // let {filterData} = useQuery(QUERY_FILTERMYWINE)
     const [wineModal, setWineModal] = useState(false)
 
     const [wineDets, setWineDets] = useState(
@@ -37,8 +66,8 @@ const MyWineList = () => {
         }
     );
     
-    const [filtering, setFiltering] = useState(false)
-    const [wineFilter, setWineFilter] = useState("");
+    // const [filtering, setFiltering] = useState(false)
+    // const [wineFilter, setWineFilter] = useState("");
     
     // const [filterTheList, error] = useQuery(QUERY_FILTERMYWINE);
     const filterList = async (event) => {
@@ -74,18 +103,18 @@ const MyWineList = () => {
     useEffect(() => {
         if (!data)
         return
-        if (filtering){
-            console.log("list is filtering")
+        // if (filtering){
+        //     console.log("list is filtering")
 
-            return
-        }else{
-            // console.log("not filtering")
-        }
+        //     return
+        // }else{
+        //     // console.log("not filtering")
+        // }
 
 
         const allMyWine = data.getWineAll;
         setMyWineList(allMyWine)
-    },[data, filtering])
+    },[data])
 
 
     async function wineModClick(event){
@@ -128,9 +157,9 @@ const MyWineList = () => {
             {/* filter field */}
             <textarea 
                 type="text" className="searchField"  id="wineFilter" 
-                placeholder=" " name="textarea" onChange={filterList}  >
-
-            </textarea>
+                placeholder=" " name="textarea" onChange={filterList} 
+                ref={refFilter} 
+            ></textarea>
 
             <label htmlFor="wineFilter" id="lbl_wineFilter"className="searchLabel">Filter</label>
 
