@@ -9,7 +9,7 @@ const MyWineList = () => {
     const { data } = useQuery(QUERY_ALLMYWINE);
     const [wineModal, setWineModal] = useState(false)
 
-    const [wineDets, setWineDets] = useState([
+    const [wineDets, setWineDets] = useState(
         { 
             _id: '',
             profileId: '',
@@ -27,8 +27,9 @@ const MyWineList = () => {
             score: '',
             blend: ''
         }
-    ]);
+    );
 
+    // let num = Math.random();
 
 
     useEffect(() => {
@@ -37,13 +38,16 @@ const MyWineList = () => {
 
         const allMyWine = data.getWineAll;
         setMyWineList(allMyWine)
-    },[data])
+    },[])
 
 
     async function wineModClick(event){
-        console.log(event.target)
+        console.log(event)
+        const dets = event.target.dataset;
+        console.log(dets)
 
         if(!wineModal){
+            debugger
             setWineDets(
                 { 
                     _id: event.target.dataset.id,
@@ -62,7 +66,7 @@ const MyWineList = () => {
                     // blend: e.data.blend
                 }
             )
-
+            console.log({wineDets})
             setWineModal(true);
 
         }else{
@@ -80,8 +84,19 @@ const MyWineList = () => {
             <div id="wineListSection" className="scroll">
                 {myWineList &&
                 myWineList.map((wine, i) => (
-                    <div key={wine._id}>
-                        <button className="btn_viewWine"  onClick={wineModClick} 
+                    <div key={wine._id} onClick={wineModClick} className="wineCardWrap">
+                        
+                            <div className="wineCard" key={wine.id} >
+                                <img src={`../../assets/images/glass${wine.style}.png`} alt={wine.style} className="wineGlass" />
+                                <div className="wineDets" >
+                                    <h3 className="wineTitle" data-all={wine.toJSON}>{wine.winery}</h3>
+                                    <h4 className="wineName" >{wine.name}</h4>
+                                    {/* <p className="wineGrape">{wine.grapes}</p> */}
+                                    <p >{wine.vintage} <em className="drinkBy" >({wine.drinkBy})</em></p>
+                                </div>
+                            </div>
+                            <button className="btn_viewWine"   
+                            
                             data-id={wine._id}
                             data-winery={wine.winery} 
                             data-name={wine.name} 
@@ -96,17 +111,7 @@ const MyWineList = () => {
                             data-style={wine.style}
                             data-blend={wine.blend}
                             data-grapes={[wine.grapes]}
-                            >
-                            <div className="wineCard" key={wine.id}>
-                                <img src={`../../assets/images/glass${wine.style}.png`} alt={wine.style} className="wineGlass"/>
-                                <div className="wineDets" >
-                                    <h3 className="wineTitle" >{wine.winery}</h3>
-                                    <h4 className="wineName" >{wine.name}</h4>
-                                    {/* <p className="wineGrape">{wine.grapes}</p> */}
-                                    <p >{wine.vintage} <em className="drinkBy">({wine.drinkBy})</em></p>
-                                </div>
-                            </div>
-                        </button>
+                            ></button>
                     </div>
                 ))}
             </div>

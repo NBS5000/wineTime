@@ -72,7 +72,7 @@
     height: fit-content;
     text-align: center;
     margin-top: 10px;
-    background-color: red;
+    /* background-color: red; */
 }
 #mod_winery{
     font-size: 180%;
@@ -109,4 +109,48 @@
     margin-bottom: 20px;
     z-index: 5000;
     background-color: rgba(0,0,0,0);
+    /* background-color: red; */
+    margin-left: 30px;
+    margin-top: -120px;
+    position: relative;
+}
+.wineCardWrap{
+    /* background-color: blue; */
+    margin-bottom: 30px;
+}
+
+
+.wineCard{
+    width: 300px;
+    height:120px;
+    display: flex;
+    border: 2px solid maroon;
+    border-radius: var(--searchBorderRad);
+    padding: 10px;
+    /* margin-top: -140px; */
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 5;
+    margin-left: 30px;
+}
+.wineGlass{
+    margin-top: 20px;
+    height: 50px;
+    /* position: absolute; */
+}
+.wineDets{
+    text-align: center;
+    margin: 0 auto;
+}
+.wineTitle{
+    font-size:150%;
+}
+.wineName{
+    margin-bottom:15px;
+}
+.wineGrape{
+    font-size: 90%;
+    margin-bottom: 15px;
+}
+.drinkBy{
+    color: darkgray;
 }
