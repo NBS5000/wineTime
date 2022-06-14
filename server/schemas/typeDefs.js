@@ -35,6 +35,7 @@ const typeDefs = gql`
     style: String
     blend: String
     grapes: [String]
+    quantity: Int
   }
 
   type Quote {
@@ -72,7 +73,7 @@ const typeDefs = gql`
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    addNewWine(profileId: String!, name: String!, winery: String!, vintage: String!, grapes: [String!], style: String!, drinkBy: String): Wine
+    addNewWine(profileId: String!, name: String!, winery: String!, vintage: String!, grapes: [String!], style: String!, drinkBy: String, quantity:Int): Wine
     addMyWine(profileId: ID!, myCollection: String!): Profile
 
     removeProfile: Profile

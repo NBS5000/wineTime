@@ -102,7 +102,6 @@ const SearchVineyard = ({setRefreshWine}) => {
                 } else if(hasLong >= 0){
                     setApproxCellar("10");
                 }
-                console.log(approxCellar)
                 const hasRed = gColors.search("Red");
                 const hasWhite = gColors.search("White");
                 const hasPinot = myGrapes.search("Pinot Noir");
@@ -258,16 +257,23 @@ const SearchVineyard = ({setRefreshWine}) => {
     const refWn = useRef(null);
     const refVi = useRef(null);
     const refGr = useRef(null);
+    const refQu = useRef(null);
 
     const [createWine, /*{ error }*/] = useMutation(ADD_NEWWINE);
     const addWine = async ( event ) => {
-
+// debugger
         const winery = refVy.current.innerHTML; 
         const name = refWn.current.innerHTML; 
         let vintage = refVi.current.value;
+        let quantity = refQu.current.value;
         let drink;
+
         if(grpDisplayId[0] === ""){
             setGrpDisplayId(grpDisplayId.shift());
+        }
+
+        if(!quantity){
+            quantity = 1;
         }
 
         const grapes = grpDisplayId;
@@ -314,7 +320,7 @@ const SearchVineyard = ({setRefreshWine}) => {
 
         try{
             await createWine({
-                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes, style: style, drinkBy: drink.toString() },
+                variables: { profileId: profileId, winery: winery, name: name, vintage: vintage, grapes: grapes, style: style, drinkBy: drink.toString(), quantity: quantity},
             });
 
             clearAll();
@@ -329,8 +335,10 @@ const SearchVineyard = ({setRefreshWine}) => {
                     },500)
                 }, 1700);
             },100)
-            setRefreshWine(Math.random())
-
+            debugger
+            // setRefreshWine(Math.random())
+            localStorage.setItem("update", Date.now());
+            console.log(localStorage.getItem("update"))
         } catch (error) {
             console.error(error);
         }
@@ -406,14 +414,14 @@ const SearchVineyard = ({setRefreshWine}) => {
 
 
                 {/* vintage */}
-                <textarea 
-                    type="text" className="searchField"  id="vintageSearch" 
+                <input 
+                    type="number" className="searchField"  id="vintageSearch" 
                     placeholder=" " name="textarea" ref={refVi} >
 
-                </textarea>
+                </input>
 
                 <label htmlFor="vintageSearch" className="searchLabel">Vintage</label>
-
+                <p id="leaveBlank">Leave blank for Non-Vintage wines</p>
 
                 {/* grape */}
                 <textarea 
@@ -440,7 +448,18 @@ const SearchVineyard = ({setRefreshWine}) => {
                 </select>
 
                 <label htmlFor="grapeSearchShow" className="searchLabel">Style</label>
+
+
+                {/* quantity */}
+                <input 
+                    type="number" className="searchField"  id="quantitySearch" 
+                    placeholder=" " name="textarea" ref={refQu} >
+
+                </input>
+
+                <label htmlFor="quantitySearch" className="searchLabel">Quantity</label>
             </div>
+
 
             {/* modal */}
             { grapeModal ? (

@@ -6,7 +6,7 @@ import { QUERY_ALLMYWINE } from '../../utils/queries';
 
 const MyWineList = () => {
     const [myWineList, setMyWineList] = useState([]);
-    const { data } = useQuery(QUERY_ALLMYWINE);
+    let { data } = useQuery(QUERY_ALLMYWINE, {pollInterval: 500});
     const [wineModal, setWineModal] = useState(false)
 
     const [wineDets, setWineDets] = useState(
@@ -29,16 +29,19 @@ const MyWineList = () => {
         }
     );
 
-    // let num = Math.random();
+
+    
 
 
     useEffect(() => {
         if (!data)
         return
 
+
+
         const allMyWine = data.getWineAll;
         setMyWineList(allMyWine)
-    },[])
+    },[data])
 
 
     async function wineModClick(event){

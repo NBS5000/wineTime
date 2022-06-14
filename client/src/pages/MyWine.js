@@ -3,6 +3,7 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
+import Fun from '../components/Fun';
 
 import Auth from '../utils/auth';
 
@@ -32,22 +33,34 @@ const MyWine = () => {
     return <div>Loading...</div>;
   }
 
-  if (!profile?.name) {
-    return (
-      <h4>
-        Please log in first.
-      </h4>
-    );
-  }
+  // if (!profile?.name) {
+  //   return (
+  //     <h4>
+  //       Please log in first.
+  //     </h4>
+  //   );
+  // }
 
 
 
 
   return (
     <div>
-          <div>
-              <MyWineList />
-          </div>
+        {!Auth.loggedIn() ? (
+            <>
+                <div id="pleaseDiv">
+                    <h2 id="pleaseH2" className="dance">Please log in</h2>
+                </div>
+                <Fun />
+            </>
+            ) : (
+            <>
+                <div>
+                  <MyWineList />
+                </div>
+            </>
+            )}
+
     </div>
   );
 };

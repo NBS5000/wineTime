@@ -13,8 +13,8 @@ export const ADD_PROFILE = gql`
 `;
 
 export const ADD_NEWWINE = gql`
-  mutation AddNewWine($profileId: String!, $name: String!, $winery: String!, $vintage: String!, $grapes: [String!], $style: String!, $drinkBy: String!) {
-    addNewWine(profileId: $profileId, name: $name, winery: $winery, vintage: $vintage, grapes: $grapes, style: $style, drinkBy: $drinkBy) {
+  mutation AddNewWine($profileId: String!, $name: String!, $winery: String!, $vintage: String!, $grapes: [String!], $style: String!, $drinkBy: String!, $quantity: Int) {
+    addNewWine(profileId: $profileId, name: $name, winery: $winery, vintage: $vintage, grapes: $grapes, style: $style, drinkBy: $drinkBy, quantity: $quantity) {
       _id
       profileId
       name
@@ -23,6 +23,7 @@ export const ADD_NEWWINE = gql`
       drinkBy
       grapes
       style
+      quantity
     }
   }
 `;
