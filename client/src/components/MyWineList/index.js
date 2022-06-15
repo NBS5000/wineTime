@@ -10,40 +10,19 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../../utils/queries';
 
 
 
-const MyWineList = () => {
-
-    // function myId (){
-        // const prof = Auth.getProfile(); const me = prof.data._id; return me;
-
-
-        const refFilter = useRef("");
-    //     return me;
-    // }
-    // const { profileId } = useParams();
-
-    // const { loading, d } = useQuery(
-    //     profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
-    //     {
-    //         variables: { profileId: profileId },
-    //     }
-    // );
-
-    // console.log(me)
-
-
-    //, {$or: [ { name: { $regex: searchTerm, $options: 'i'}}, {winery: { $regex: searchTerm,$options: 'i'}}]}
-    //, 'searchTerm':refFilter
+const MyWineList = () =>  {
 
 
     const [myWineList, setMyWineList] = useState([]);
-    let { data } = useQuery(QUERY_FILTERMYWINE,
-            {
-                'profileId': async function me () { const prof = await Auth.getProfile(); const me = toString(prof.data._id); return me;}, 
-                'searchTerm': refFilter
-            }, 
-            {pollInterval: 500}
-        );
-    // let {filterData} = useQuery(QUERY_FILTERMYWINE)
+    // let { data } = useQuery(QUERY_FILTERMYWINE,
+    //         {
+    //             // 'profileId': async function me () { const prof = await Auth.getProfile(); const me = toString(prof.data._id); return me;}, 
+    //             'profileId': me,
+    //             'searchTerm': refFilter
+    //         }, 
+    //         // {pollInterval: 500}
+    //     );
+    const {data} = useQuery(QUERY_ALLMYWINE)
     const [wineModal, setWineModal] = useState(false)
 
     const [wineDets, setWineDets] = useState(
@@ -70,7 +49,7 @@ const MyWineList = () => {
     // const [wineFilter, setWineFilter] = useState("");
     
     // const [filterTheList, error] = useQuery(QUERY_FILTERMYWINE);
-    const filterList = async (event) => {
+    // const filterList = async (event) => {
 
     //     const input = String(event.target.value);
     //     const len = String(input).length
@@ -98,19 +77,11 @@ const MyWineList = () => {
 
 
 
-    }
+    // }
 
     useEffect(() => {
         if (!data)
         return
-        // if (filtering){
-        //     console.log("list is filtering")
-
-        //     return
-        // }else{
-        //     // console.log("not filtering")
-        // }
-
 
         const allMyWine = data.getWineAll;
         setMyWineList(allMyWine)
@@ -120,7 +91,7 @@ const MyWineList = () => {
     async function wineModClick(event){
 
         if(!wineModal){
-            debugger
+            
             setWineDets(
                 { 
                     _id: event.target.dataset.id,
@@ -129,18 +100,23 @@ const MyWineList = () => {
                     vintage: event.target.dataset.vintage,
                     drinkBy: event.target.dataset.drink,
                     style: event.target.dataset.style,
+                    blend: event.target.dataset.blend,
+                    quantity: event.target.dataset.quantity,
+                    notes: event.target.dataset.notes,
+                    // notes being used as pseudo field for grape names for demo
+
+
                     // grapes: e.data.grapes,
         
                     // consumed: e.data.consumed,
                     // comments: e.data.comments,
-                    // notes: e.data.notes,
+
                     // critic: e.data.critic,
                     // score: e.data.score,
-                    // blend: e.data.blend
                 }
             )
             setWineModal(true);
-
+                console.log(wineDets.quantity)
         }else{
             setWineModal(false);
 
@@ -155,13 +131,13 @@ const MyWineList = () => {
 
 
             {/* filter field */}
-            <textarea 
+            {/* <textarea 
                 type="text" className="searchField"  id="wineFilter" 
-                placeholder=" " name="textarea" onChange={filterList} 
-                ref={refFilter} 
+                placeholder=" " name="textarea" //onChange={filterList} 
+                // ref={refFilter}
             ></textarea>
 
-            <label htmlFor="wineFilter" id="lbl_wineFilter"className="searchLabel">Filter</label>
+            <label htmlFor="wineFilter" id="lbl_wineFilter"className="searchLabel">Filter</label> */}
 
             <div id="wineListSection" className="scroll">
                 {myWineList &&
@@ -173,12 +149,11 @@ const MyWineList = () => {
                                 <div className="wineDets" >
                                     <h3 className="wineTitle" data-all={wine.toJSON}>{wine.winery}</h3>
                                     <h4 className="wineName" >{wine.name}</h4>
-                                    {/* <p className="wineGrape">{wine.grapes}</p> */}
+                                    <p className="wineGrape">{wine.notes}</p>
                                     <p >{wine.vintage} <em className="drinkBy" >({wine.drinkBy})</em></p>
                                 </div>
                             </div>
                             <button className="btn_viewWine"   
-                            
                             data-id={wine._id}
                             data-winery={wine.winery} 
                             data-name={wine.name} 
@@ -202,12 +177,64 @@ const MyWineList = () => {
             { wineModal ? (
             <>
             
-                <div id="chkGrape">
+                <div id="mod_wineDets">
                     <div id="wineDetBody">
                         <h3 id="mod_winery">{wineDets.winery}</h3>
                         <h4 id="mod_wineName">{wineDets.name}</h4>
+                        <div id="drinkingDates">
+                            <div id="drinkingVint">
+                                <p className="modalStyleTitle">Vintage</p>
+                                <p id="mod_vintage">{wineDets.vintage}   </p>
+                            </div>
+                            <div id="drinkingBy">
+                                <p className="modalStyleTitle">Drink by</p>
+                                <p id="mod_drinkBy">{wineDets.drinkBy}</p>
+                                <p id="drinkByDisclaimer">This is an estimation, the Drink By date can vary depending on storage conditions, quality of wine, and provenance.</p>
+                            </div>
+                        </div>
 
-                        <p id="mod_vintage">{wineDets.vintage}   <span id="mod_drinkBy">{wineDets.drinkBy}</span></p>
+                        <div id="mod_style">
+                            <div id="mod_styleSelectWrap">
+                                {/* <select 
+                                    className="searchField"  id="wineStyleShow" 
+                                    placeholder=" " name="styleSelect" value={wineDets.style} required>
+                                    <option value=""></option>
+                                    <option value="Red">Red</option>
+                                    <option value="White" >White</option>
+                                    <option value="Rose">Rose</option>
+                                    <option value="Sparkling">Sparkling</option>
+                                    <option value="Dessert">Dessert</option>
+                                </select>
+
+
+                                <label htmlFor="wineStyleShow" id="mod_styleLabel" className="searchLabel">Style</label> */}
+                            </div>
+                            { wineDets.quantity > 1 ? (
+                                    <>
+                                        <p id="mod_numBottles">{wineDets.quantity} bottles</p>    
+                                    </>
+                                ) : (
+                                    <>
+                                        <p id="mod_numBottles">{wineDets.quantity} bottle</p>
+                                    </>
+                                )
+                            }
+
+                            <div id="mod_styleImgWrap">
+                                <img src={`../../assets/images/glass${wineDets.style}.png`} alt={wineDets.style} id="mod_styleImg" className="wineGlass" />
+                            </div>
+                            <p id="mod_Grapes">{wineDets.notes}</p>
+                            { wineDets.blend ? (
+                                    <>
+                                        <p id="mod_blend">{wineDets.blend} style blend</p>    
+                                    </>
+                                ) : (
+                                    <>
+                                        <div></div>
+                                    </>
+                                )
+                            }
+                        </div>
 
 
                         <div className="closeModalWrap">

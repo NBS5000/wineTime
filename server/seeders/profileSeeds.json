@@ -17,7 +17,7 @@
   {
     "name": "obi1",
     "email": "hello.there@ben.com",
-    "password": "password",
+    "password": "Pass123!",
     "grapes":["6285ee1729b1c7bc9016d553","6285ee1729b1c7bc9016d554","6285ee1729b1c7bc9016d555","6285ee1729b1c7bc9016d557","6285ee1729b1c7bc9016d556","6285ee1729b1c7bc9016d558","6285ee1729b1c7bc9016d559"]
   },
   {
@@ -33,7 +33,7 @@
   {
     "name": "theDooks",
     "email": "count@onMe.com",
-    "password": "password"
+    "password": "Pass123!"
   },
   {
     "name": "yoda-I-am",

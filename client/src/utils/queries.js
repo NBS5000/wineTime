@@ -52,6 +52,7 @@ export const QUERY_ALLMYWINE = gql`
       notes
       comments
       consumed
+      quantity
     }
   }
 `;

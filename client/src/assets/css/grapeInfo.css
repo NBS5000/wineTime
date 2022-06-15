@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     position: absolute;
-    /* margin-top: 100px; */
+    margin-top: 100px;
 }
 
 #grapeInfo, #searchWine{
@@ -81,18 +81,75 @@
     font-size: 140%;
 }
 #wineDetBody{
-    min-height:70%;
+    min-height:50%;
     height: fit-content;
     width: 70%;
     padding: 20px 5%;
-    /* display: flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; */
+    flex-direction: column;
+    /* justify-content: space-between; */
     margin: 0 auto;
     margin-top: 100px;
     background-color: rgba(255,255,255,0.8);
     border-radius: 30px;
 }
+
+#drinkingDates{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+#drinkingVint, #drinkingBy{
+    width: 48%;
+}
+.modalStyleTitle{
+    font-size: 120%;
+    margin-bottom:10px;
+    font-weight: bold;
+}
+#drinkByDisclaimer{
+    font-size:70%;
+    color: slategray;
+    font-style: italic;
+}
+#mod_blend{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+#mod_Grapes{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 140%;
+}
+#mod_style{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#mod_styleLabel{
+    /* margin-top: 5px; */
+}
+#mod_styleImg{
+    width: fit-content;
+    margin: 0 auto;
+}
+#mod_styleSelectWrap{
+    margin: 0 auto;
+    
+}
+#mod_styleImgWrap{
+    width: 100%;
+    text-align: center;
+}
+
 #closeWineModal{
     margin: 0 auto;
     display: block;
@@ -121,7 +178,7 @@
 
 
 .wineCard{
-    width: 300px;
+    width: 450px;
     height:120px;
     display: flex;
     border: 2px solid maroon;

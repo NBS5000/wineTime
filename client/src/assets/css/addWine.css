@@ -20,7 +20,7 @@
 #wineListSection{
     /* position: absolute; */
     height: 500px;
-    width: 350px;
+    width: 500px;
     overflow: hidden;
     overflow-y: scroll;
     display: block;
@@ -50,11 +50,12 @@
 
 }   
 
-#chkGrape{
+#chkGrape, #mod_wineDets{
     left: 0;
     top: 0;
     padding-top: 10%;
 }
+
 #grapeChkBody{
     min-height:70%;
     height: fit-content;

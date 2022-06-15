@@ -2,11 +2,13 @@
   {
     "profileId": "62a169a8b98e17f755b5929a",
     "winery": "Penfolds",
-    "name": "Grange",
+    "name": "Bin 95 Grange",
     "vintage": "2008",
     "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
     "style": "Red",
-    "drinkBy": "2058"
+    "drinkBy": "2058",
+    "blend": "Australian",
+    "notes": "Cabernet Sauvignon, Shiraz"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -15,7 +17,8 @@
     "vintage": "2019",
     "grapes": ["6285c6bd672fd0707aebad8d"],
     "style": "White",
-    "drinkBy": "2042"
+    "drinkBy": "2042",
+    "notes": "Chardonnay"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -24,7 +27,9 @@
     "vintage": "2019",
     "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
     "style": "Red",
-    "drinkBy": "2040"
+    "drinkBy": "2040",
+    "blend": "Bordeaux",
+    "notes": "Cabernet Sauvignon, Merlot, Malbec, Petit Verdot"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -33,7 +38,8 @@
     "vintage": "2019",
     "grapes": ["6285c6bd672fd0707aebad9e"],
     "style": "White",
-    "drinkBy": "2040"
+    "drinkBy": "2040",
+    "notes": "Riesling"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -42,7 +48,8 @@
     "vintage": "2008",
     "grapes": ["6285c6bd672fd0707aebad9e"],
     "style": "White",
-    "drinkBy": "2028"
+    "drinkBy": "2028",
+    "notes": "Riesling"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -51,7 +58,8 @@
     "vintage": "1978",
     "grapes": ["62848a67464c1ce9b7f48a8e","62848a67464c1ce9b7f48a89"],
     "style": "Dessert",
-    "drinkBy": "2027"
+    "drinkBy": "2027",
+    "notes": "Cabernet Sauvignon, Shiraz"
   },
   {
     "profileId": "62a169a8b98e17f755b5929a",
@@ -60,7 +68,51 @@
     "vintage": "NV",
     "grapes": ["6285c6bd672fd0707aebadb4","6285c6bd672fd0707aebad8d"],
     "style": "Sparkling",
-    "drinkBy": "2025"
+    "drinkBy": "2025",
+    "blend": "Champagne",
+    "notes": "Pinot Noir, Chardonnay"
+  },
+  {
+    "profileId": "62a169a8b98e17f755b5929a",
+    "winery": "Jim Barry",
+    "name": "The Armagh",
+    "vintage": "2016",
+    "grapes": ["62848a67464c1ce9b7f48a8e"],
+    "style": "Red",
+    "drinkBy": "2046",
+    "notes": "Shiraz"
+  },
+  {
+    "profileId": "62a169a8b98e17f755b5929a",
+    "winery": "St Hallett",
+    "name": "Faith",
+    "vintage": "2016",
+    "grapes": ["62848a67464c1ce9b7f48a8e"],
+    "style": "Red",
+    "drinkBy": "2026",
+    "Quantity": 9,
+    "notes": "Shiraz"
+  },
+  {
+    "profileId": "62a169a8b98e17f755b5929a",
+    "winery": "Frogmore Creek",
+    "name": "Pinot Noir",
+    "vintage": "2016",
+    "grapes": ["62848a67464c1ce9b7f48a8e"],
+    "style": "Red",
+    "drinkBy": "2029",
+    "notes": "Pinot Noir"
+  },
+  {
+    "profileId": "62a169a8b98e17f755b5929a",
+    "winery": "d'Arenberg",
+    "name": "The Ironstone Pressings",
+    "vintage": "2012",
+    "grapes": ["62848a67464c1ce9b7f48a8e"],
+    "style": "Red",
+    "drinkBy": "2032",
+    "blend": "Rhone",
+    "notes": "Grenache, Shiraz, Mourvèdre"
   }
 ]
 

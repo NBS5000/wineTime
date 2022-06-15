@@ -327,6 +327,7 @@ const SearchVineyard = ({setRefreshWine}) => {
                     vintage: vintage, 
                     grapes: grapes, 
                     style: style, 
+                    notes: grpDisplay,
                     drinkBy: drink.toString(), 
                     quantity: quantity},
             });
