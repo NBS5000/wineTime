@@ -209,7 +209,7 @@ const MyWineList = () =>  {
 
                                 <label htmlFor="wineStyleShow" id="mod_styleLabel" className="searchLabel">Style</label> */}
                             </div>
-                            { wineDets.quantity > 1 ? (
+                            {/* { wineDets.quantity > 1 ? (
                                     <>
                                         <p id="mod_numBottles">{wineDets.quantity} bottles</p>    
                                     </>
@@ -218,7 +218,7 @@ const MyWineList = () =>  {
                                         <p id="mod_numBottles">{wineDets.quantity} bottle</p>
                                     </>
                                 )
-                            }
+                            } */}
 
                             <div id="mod_styleImgWrap">
                                 <img src={`../../assets/images/glass${wineDets.style}.png`} alt={wineDets.style} id="mod_styleImg" className="wineGlass" />
