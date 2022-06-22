@@ -17,12 +17,12 @@ const MyWineList = () =>  {
     // let { data } = useQuery(QUERY_FILTERMYWINE,
     //         {
     //             // 'profileId': async function me () { const prof = await Auth.getProfile(); const me = toString(prof.data._id); return me;}, 
-    //             'profileId': me,
-    //             'searchTerm': refFilter
+    //             // 'profileId': me,
+    //             // 'searchTerm': refFilter
     //         }, 
-    //         // {pollInterval: 500}
+    //         {pollInterval: 500}
     //     );
-    const {data} = useQuery(QUERY_ALLMYWINE)
+    const {data} = useQuery(QUERY_ALLMYWINE,{pollInterval: 500})
     const [wineModal, setWineModal] = useState(false)
 
     const [wineDets, setWineDets] = useState(
