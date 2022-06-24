@@ -2,7 +2,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import Auth from '../../utils/auth';
 
-import { Navigate, useParams } from 'react-router-dom';
 import { throwServerError, useQuery } from '@apollo/client';
 import { QUERY_ALLMYWINE, QUERY_FILTERMYWINE } from '../../utils/queries';
 
@@ -16,7 +15,6 @@ const MyWineList = () =>  {
     const [myWineList, setMyWineList] = useState([]);
 
 
-    // test
     const {data} = useQuery(QUERY_ALLMYWINE,{pollInterval: 500})
     const [wineModal, setWineModal] = useState(false)
 
