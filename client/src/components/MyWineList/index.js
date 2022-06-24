@@ -2,7 +2,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import Auth from '../../utils/auth';
 
-import { Navigate, useParams } from 'react-router-dom';
 import { throwServerError, useQuery } from '@apollo/client';
 import { QUERY_ALLMYWINE, QUERY_FILTERMYWINE } from '../../utils/queries';
 
@@ -14,14 +13,8 @@ const MyWineList = () =>  {
 
 
     const [myWineList, setMyWineList] = useState([]);
-    // let { data } = useQuery(QUERY_FILTERMYWINE,
-    //         {
-    //             // 'profileId': async function me () { const prof = await Auth.getProfile(); const me = toString(prof.data._id); return me;}, 
-    //             // 'profileId': me,
-    //             // 'searchTerm': refFilter
-    //         }, 
-    //         {pollInterval: 500}
-    //     );
+
+
     const {data} = useQuery(QUERY_ALLMYWINE,{pollInterval: 500})
     const [wineModal, setWineModal] = useState(false)
 
@@ -45,39 +38,6 @@ const MyWineList = () =>  {
         }
     );
     
-    // const [filtering, setFiltering] = useState(false)
-    // const [wineFilter, setWineFilter] = useState("");
-    
-    // const [filterTheList, error] = useQuery(QUERY_FILTERMYWINE);
-    // const filterList = async (event) => {
-
-    //     const input = String(event.target.value);
-    //     const len = String(input).length
-
-    //     if(!len || len ===0){
-    //         setFiltering(false);
-    //         return
-    //     }else{
-    //         setFiltering(true);
-    //     }
-
-        
-
-    //     try{
-    //         await filterTheList({
-    //             variables: { 
-    //                 searchTerm: input, 
-    //             }
-    //         });
-
-    //         console.log()
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-
-
-
-    // }
 
     useEffect(() => {
         if (!data)
