@@ -38,39 +38,6 @@ const MyWineList = () =>  {
         }
     );
     
-    // const [filtering, setFiltering] = useState(false)
-    // const [wineFilter, setWineFilter] = useState("");
-    
-    // const [filterTheList, error] = useQuery(QUERY_FILTERMYWINE);
-    // const filterList = async (event) => {
-
-    //     const input = String(event.target.value);
-    //     const len = String(input).length
-
-    //     if(!len || len ===0){
-    //         setFiltering(false);
-    //         return
-    //     }else{
-    //         setFiltering(true);
-    //     }
-
-        
-
-    //     try{
-    //         await filterTheList({
-    //             variables: { 
-    //                 searchTerm: input, 
-    //             }
-    //         });
-
-    //         console.log()
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-
-
-
-    // }
 
     useEffect(() => {
         if (!data)
